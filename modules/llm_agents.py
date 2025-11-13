@@ -43,30 +43,21 @@ class LLMAgentBase:
         
     def _call_claude_api(self, prompt: str, max_tokens: int = 1000) -> str:
         """
-        Simulate Claude API call. In production, this would be:
-        
-        client = Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
-        response = client.messages.create(
-            model=self.model,
-            max_tokens=max_tokens,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        return response.content[0].text
+        Fast simulation of Claude API call for demo purposes.
+        In production, this would be a real API call to Anthropic's Claude.
         """
         
-        # For demonstration, we'll return intelligent responses based on prompt analysis
-        # This simulates what Claude would actually return
-        
-        if "skills matching" in prompt.lower():
+        # Fast simulation - no time.sleep() or heavy processing
+        if "skills matching" in prompt.lower() or "skills alignment" in prompt.lower():
             return self._simulate_skills_analysis(prompt)
-        elif "content quality" in prompt.lower():
+        elif "content quality" in prompt.lower() or "score content" in prompt.lower():
             return self._simulate_content_scoring(prompt)
-        elif "cultural tone" in prompt.lower():
+        elif "cultural tone" in prompt.lower() or "adapt for culture" in prompt.lower():
             return self._simulate_tone_adaptation(prompt)
-        elif "rewrite" in prompt.lower():
+        elif "rewrite" in prompt.lower() or "rewrite for alignment" in prompt.lower():
             return self._simulate_content_rewriting(prompt)
         else:
-            return '{"error": "Unknown prompt type"}'
+            return '{"error": "Unknown prompt type", "success": false}'
     
     def _simulate_skills_analysis(self, prompt: str) -> str:
         """Simulate intelligent skills analysis response"""
@@ -415,9 +406,10 @@ class AgentOrchestrator:
         self.content_rewriter = ContentRewriter()
         self.logger = logging.getLogger("agent.orchestrator")
     
-    def optimize_content_pipeline(self, content: str, jd_data: Dict[str, Any], user_profile: Dict[str, Any]) -> Dict[str, Any]:
-        """Run complete optimization pipeline using all agents"""
+    def optimize_content_pipeline(self, content: str, jd_data: Dict[str, Any], user_profile: Dict[str, Any], timeout: float = 30.0) -> Dict[str, Any]:
+        """Run complete optimization pipeline using all agents with timeout protection"""
         
+        pipeline_start = time.time()
         pipeline_results = {
             "original_content": content,
             "optimization_steps": [],
@@ -428,30 +420,37 @@ class AgentOrchestrator:
         }
         
         try:
+            # Check timeout before each step
+            if time.time() - pipeline_start > timeout:
+                pipeline_results["error"] = "Pipeline timeout exceeded"
+                return pipeline_results
             # Step 1: Analyze skills alignment
-            skills_response = self.skills_analyzer.analyze_skills_alignment(
-                user_profile.get('skills', []),
-                jd_data
-            )
-            pipeline_results["agent_responses"]["skills_analysis"] = skills_response
+            if time.time() - pipeline_start < timeout:
+                skills_response = self.skills_analyzer.analyze_skills_alignment(
+                    user_profile.get('skills', []),
+                    jd_data
+                )
+                pipeline_results["agent_responses"]["skills_analysis"] = skills_response
             
             # Step 2: Score current content quality
-            content_context = {
-                "role": jd_data.get('job_title', 'Product Manager'),
-                "company": jd_data.get('company', 'Unknown'),
-                "requirements": jd_data.get('required_skills', [])
-            }
+            if time.time() - pipeline_start < timeout:
+                content_context = {
+                    "role": jd_data.get('job_title', 'Product Manager'),
+                    "company": jd_data.get('company', 'Unknown'),
+                    "requirements": jd_data.get('required_skills', [])
+                }
+                
+                quality_response = self.content_optimizer.score_content_quality(content, content_context)
+                pipeline_results["agent_responses"]["quality_scoring"] = quality_response
             
-            quality_response = self.content_optimizer.score_content_quality(content, content_context)
-            pipeline_results["agent_responses"]["quality_scoring"] = quality_response
-            
-            # Step 3: Adapt cultural tone
-            cultural_response = self.cultural_adapter.adapt_for_culture(
-                content,
-                jd_data.get('country', 'netherlands'),
-                jd_data.get('company_culture', '')
-            )
-            pipeline_results["agent_responses"]["cultural_adaptation"] = cultural_response
+            # Step 3: Adapt cultural tone (optional step if time allows)
+            if time.time() - pipeline_start < timeout - 5.0:  # Leave 5 seconds buffer
+                cultural_response = self.cultural_adapter.adapt_for_culture(
+                    content,
+                    jd_data.get('country', 'netherlands'),
+                    jd_data.get('company_culture', '')
+                )
+                pipeline_results["agent_responses"]["cultural_adaptation"] = cultural_response
             
             # Step 4: Rewrite for better alignment (if needed)
             if quality_response.success and quality_response.confidence_score < 0.8:
