@@ -1,0 +1,122 @@
+[
+  {
+    "name": "AI_Role_Netherlands_High_Match",
+    "description": "Senior AI Product Manager role in Netherlands with high keyword overlap",
+    "job_description": "Senior AI Product Manager\nOpenAI\nAmsterdam, Netherlands\n\nWe need a PM with AI/ML expertise, RAG systems, LLMs, machine learning, vector databases, prompt engineering, product management, enterprise automation, Salesforce integration.\n\nRequirements:\n- 5+ years product management experience\n- AI/ML system development\n- RAG architecture experience\n- Vector database knowledge\n- Enterprise software background\n- Stakeholder management\n- Agile/Scrum methodologies",
+    "country": "netherlands",
+    "company_name": "OpenAI",
+    "expected_criteria": {
+      "expected_keywords": ["AI", "ML", "RAG", "machine learning", "vector databases", "prompt engineering", "product management", "enterprise automation", "Salesforce"],
+      "country": "netherlands",
+      "company_name": "OpenAI",
+      "role_keywords": ["AI", "product manager", "RAG", "machine learning"],
+      "expected_resume_variant": "aiml",
+      "expected_tone": "direct"
+    }
+  },
+  {
+    "name": "B2B_Role_Ireland_Medium_Match",
+    "description": "Enterprise SaaS Product Manager in Ireland with medium keyword overlap",
+    "job_description": "Enterprise Product Manager\nSalesforce\nDublin, Ireland\n\nLooking for experienced PM to lead B2B SaaS products. Focus on enterprise customers, Salesforce platform, SAP integration, stakeholder management.\n\nRequirements:\n- B2B SaaS experience\n- Enterprise customer focus\n- Salesforce ecosystem knowledge\n- API integration experience\n- Cross-functional leadership\n- Revenue growth experience",
+    "country": "ireland",
+    "company_name": "Salesforce",
+    "expected_criteria": {
+      "expected_keywords": ["B2B", "SaaS", "enterprise", "Salesforce", "SAP", "stakeholder management", "product management", "API integration"],
+      "country": "ireland",
+      "company_name": "Salesforce",
+      "role_keywords": ["enterprise", "B2B", "SaaS", "product manager"],
+      "expected_resume_variant": "b2b",
+      "expected_tone": "warm_professional"
+    }
+  },
+  {
+    "name": "B2C_Role_Sweden_Low_Match",
+    "description": "Consumer mobile app PM in Sweden with lower keyword overlap",
+    "job_description": "Consumer Product Manager\nSpotify\nStockholm, Sweden\n\nMobile app PM for consumer music platform. Focus on user engagement, A/B testing, consumer behavior, mobile apps, user experience.\n\nRequirements:\n- Consumer product experience\n- Mobile app development\n- A/B testing expertise\n- User analytics\n- Growth metrics\n- International markets",
+    "country": "sweden",
+    "company_name": "Spotify",
+    "expected_criteria": {
+      "expected_keywords": ["consumer", "mobile", "A/B testing", "user engagement", "analytics", "growth", "product management"],
+      "country": "sweden",
+      "company_name": "Spotify",
+      "role_keywords": ["consumer", "mobile", "product manager", "user engagement"],
+      "expected_resume_variant": "b2c",
+      "expected_tone": "modest_collaborative"
+    }
+  },
+  {
+    "name": "Generic_Tech_Finland_No_Company",
+    "description": "Generic tech PM role in Finland without specific company",
+    "job_description": "Product Manager\nTech Startup\nHelsinki, Finland\n\nGeneral product management role for tech startup. Looking for someone with product strategy, user research, agile methodologies, data analysis.\n\nRequirements:\n- Product management experience\n- Agile methodologies\n- Data-driven decisions\n- User research\n- Technical background",
+    "country": "finland",
+    "company_name": "",
+    "expected_criteria": {
+      "expected_keywords": ["product management", "agile", "data", "user research", "technical"],
+      "country": "finland",
+      "company_name": "",
+      "role_keywords": ["product manager", "agile", "data"],
+      "expected_resume_variant": "general",
+      "expected_tone": "modest_collaborative"
+    }
+  },
+  {
+    "name": "Fintech_Role_Denmark_High_AI_Focus",
+    "description": "AI-focused fintech PM role in Denmark",
+    "job_description": "AI Product Manager - Fintech\nNovo Nordisk\nCopenhagen, Denmark\n\nLead AI initiatives for healthcare fintech products. Need expertise in AI/ML, healthcare regulations, financial services, machine learning models, data privacy.\n\nRequirements:\n- AI/ML product experience\n- Healthcare or fintech background\n- Regulatory compliance knowledge\n- Machine learning implementation\n- Data governance\n- Risk management",
+    "country": "denmark",
+    "company_name": "Novo Nordisk",
+    "expected_criteria": {
+      "expected_keywords": ["AI", "ML", "fintech", "healthcare", "machine learning", "data", "compliance", "product management"],
+      "country": "denmark",
+      "company_name": "Novo Nordisk",
+      "role_keywords": ["AI", "fintech", "healthcare", "product manager"],
+      "expected_resume_variant": "aiml",
+      "expected_tone": "modest_collaborative"
+    }
+  },
+  {
+    "name": "Ecommerce_Role_Portugal_Medium_Match",
+    "description": "E-commerce platform PM in Portugal with medium complexity",
+    "job_description": "E-commerce Product Manager\nFarfetch\nLisbon, Portugal\n\nManage e-commerce platform features. Focus on online retail, customer experience, payment systems, international expansion, conversion optimization.\n\nRequirements:\n- E-commerce experience\n- Customer journey optimization\n- Payment platform knowledge\n- International market expansion\n- Conversion rate optimization\n- Mobile commerce",
+    "country": "portugal",
+    "company_name": "Farfetch",
+    "expected_criteria": {
+      "expected_keywords": ["e-commerce", "customer experience", "payment", "conversion", "mobile", "product management"],
+      "country": "portugal",
+      "company_name": "Farfetch",
+      "role_keywords": ["e-commerce", "customer", "product manager"],
+      "expected_resume_variant": "b2c",
+      "expected_tone": "formal_respectful"
+    }
+  },
+  {
+    "name": "Edge_Case_Very_Long_JD",
+    "description": "Test case with very long job description to test parsing limits",
+    "job_description": "Senior Product Manager - Enterprise AI Solutions\nMicrosoft\nAmsterdam, Netherlands\n\nWe are seeking an exceptional Senior Product Manager to lead our Enterprise AI Solutions portfolio. This role requires deep expertise in artificial intelligence, machine learning, natural language processing, computer vision, deep learning frameworks, neural networks, transformer models, large language models, generative AI, prompt engineering, fine-tuning, model deployment, MLOps, data engineering, vector databases, embeddings, RAG systems, retrieval augmented generation, semantic search, knowledge graphs, enterprise software, SaaS platforms, cloud computing, Azure, AWS, microservices, API development, system integration, Salesforce, SAP, CRM, ERP systems, workflow automation, business process optimization, stakeholder management, cross-functional leadership, agile methodologies, scrum, kanban, product roadmaps, product strategy, go-to-market strategy, competitive analysis, market research, user research, customer interviews, A/B testing, experimentation, metrics, KPIs, data analysis, SQL, Python, product analytics, user behavior, conversion optimization, growth hacking, revenue optimization, pricing strategy, business model innovation, international markets, regulatory compliance, GDPR, data privacy, security, risk management, and team leadership.\n\nThis is a senior-level position requiring 8+ years of product management experience with at least 3 years focused specifically on AI/ML products. You will be responsible for defining product vision, developing strategic roadmaps, managing complex stakeholder relationships across engineering, design, marketing, sales, and executive teams.",
+    "country": "netherlands",
+    "company_name": "Microsoft",
+    "expected_criteria": {
+      "expected_keywords": ["AI", "ML", "machine learning", "RAG", "enterprise", "product management", "Salesforce", "Azure", "stakeholder management"],
+      "country": "netherlands",
+      "company_name": "Microsoft",
+      "role_keywords": ["AI", "enterprise", "product manager"],
+      "expected_resume_variant": "aiml",
+      "expected_tone": "direct"
+    }
+  },
+  {
+    "name": "Edge_Case_Minimal_JD",
+    "description": "Test case with minimal job description to test parsing robustness",
+    "job_description": "Product Manager needed. Tech company. Remote work possible.",
+    "country": "finland",
+    "company_name": "",
+    "expected_criteria": {
+      "expected_keywords": ["product manager"],
+      "country": "finland",
+      "company_name": "",
+      "role_keywords": ["product manager"],
+      "expected_resume_variant": "general",
+      "expected_tone": "modest_collaborative"
+    }
+  }
+]

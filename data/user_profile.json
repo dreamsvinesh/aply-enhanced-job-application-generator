@@ -1,0 +1,150 @@
+{
+  "personal_info": {
+    "name": "VINESH KUMAR",
+    "title": "Senior Product Manager - AI | Enterprise Automation | RAG & Multi-Agent Systems",
+    "phone": "+91-81230-79049",
+    "email": "vineshmuthukumar@gmail.com",
+    "linkedin": "linkedin.com/in/vinukum",
+    "location": "Bangalore, India"
+  },
+  "summary": "Senior Product Manager with 11 years in technology (7 in PM) specializing in AI/ML systems, RAG architecture, and enterprise automation across B2B SaaS platforms. Built AI knowledge system achieving 94% accuracy serving 200+ users, automated workflows reducing timelines from 42 days to 10 minutes (accelerating $2M revenue), and saved 50+ resource hours daily through intelligent automation. Expert in Salesforce/SAP integration, cross-functional leadership, and data-driven product strategy in Agile/SAFe environments.",
+  
+  "key_achievements": [
+    "Built AI-powered RAG knowledge system using pgvector achieving 94% accuracy, sub-second response",
+    "Automated contract activation integrating Salesforce, SAP, MuleSoft -- reduced timeline 99.6% (42 days→10 minutes)",
+    "Accelerated $2M revenue recognition, saved 50+ resource hours daily",
+    "Achieved 60% support ticket reduction through 15+ process streamlining",
+    "Generated €220K monthly revenue monetizing underutilized inventory",
+    "Scaled lead generation 5X via IVR integration",
+    "Increased app engagement 45%, customer satisfaction 65%",
+    "Reduced onboarding from 110 to 14 days"
+  ],
+  
+  "projects": {
+    "rag_knowledge_system": {
+      "title": "AI-Powered RAG Knowledge System",
+      "impact": "94% accuracy, sub-second response, 75% support ticket reduction",
+      "details": "Built AI knowledge system using pgvector serving 200+ employees with 1,500+ weekly queries through prompt engineering and hybrid search",
+      "technologies": ["RAG", "pgvector", "LLM", "prompt engineering", "vector databases"],
+      "metrics": "500→125 monthly tickets, 200+ users, 1,500+ weekly queries"
+    },
+    
+    "contract_automation": {
+      "title": "Contract Activation Automation System", 
+      "impact": "99.6% timeline reduction (42 days→10 minutes), $2M revenue acceleration",
+      "details": "Automated contract activation workflow integrating Salesforce, SAP, and MuleSoft APIs, established new industry benchmark through cross-functional execution",
+      "technologies": ["Salesforce", "SAP", "MuleSoft", "API integration", "workflow automation"],
+      "metrics": "42 days→10 minutes, $2M revenue, 50+ hours daily savings"
+    },
+    
+    "converge_fnb_platform": {
+      "title": "Converge F&B Ordering Platform",
+      "impact": "30,000+ daily orders, ₹168-180 crores annual GMV, 91% NPS",
+      "details": "Led end-to-end product strategy for F&B ordering across 24 business parks serving 600,000+ users. Scaled from MVP to full production in 6 months.",
+      "technologies": ["React Native", "POS integration", "payment gateways", "real-time tracking"],
+      "metrics": "600K+ users, 30K+ daily orders, 91% NPS, ₹1.5/sq ft revenue"
+    },
+    
+    "salesforce_sap_integration": {
+      "title": "Salesforce-SAP Integration",
+      "impact": "21 days→real-time invoicing, 35% contract accuracy improvement", 
+      "details": "Enhanced invoicing through Salesforce-SAP integration with MuleSoft, automated sales workflows saving 50+ hours daily",
+      "technologies": ["Salesforce Flow", "SAP", "MuleSoft", "API integrations"],
+      "metrics": "21 days→real-time processing, 35% accuracy improvement"
+    },
+    
+    "mobile_engagement_platform": {
+      "title": "Mobile Self-Service Platform",
+      "impact": "45% engagement increase, 65% satisfaction improvement, 35% ARPA growth",
+      "details": "Developed mobile features (auto WiFi, bookings, ordering) and IoT-enabled self-service platform",
+      "technologies": ["Mobile app", "IoT", "auto WiFi", "booking systems"],
+      "metrics": "45% engagement, 65% satisfaction, 35% ARPA increase"
+    }
+  },
+  
+  "skills": {
+    "product_management": [
+      "Product Discovery", "Product Strategy", "Product Vision", "Product Roadmap",
+      "Stakeholder Management", "Cross-functional Leadership", "Agile/SAFe",
+      "Design Thinking", "User Research", "Go-to-Market", "Process Optimization"
+    ],
+    "ai_ml": [
+      "RAG Architecture", "Multi-Agent Systems", "Prompt Engineering", 
+      "Vector DBs (pgvector)", "LLM Integration", "AI/ML Automation",
+      "Machine Learning", "Natural Language Processing", "TensorFlow", "PyTorch"
+    ],
+    "technical": [
+      "Salesforce", "SAP", "MuleSoft", "API Integration", "SQL", "Python",
+      "React", "Next.js", "TypeScript", "HTML/CSS", "JavaScript",
+      "JIRA", "Confluence", "Git", "Database Management"
+    ],
+    "business": [
+      "Revenue Growth", "KPI/Metrics", "ROI Analysis", "Conversion Optimization",
+      "B2B/B2C Strategy", "SaaS", "Enterprise Solutions", "Data-driven Decisions",
+      "Market Research", "Competitive Analysis", "Pricing Strategy"
+    ],
+    "tools": [
+      "Tableau", "Google Analytics", "Whimsical", "Figma", "Postman",
+      "Docker", "AWS", "Azure", "Jupyter", "Pandas", "NumPy"
+    ]
+  },
+  
+  "experience": [
+    {
+      "title": "Product Manager (Salesforce & SAP)",
+      "company": "COWRKS",
+      "duration": "01/2023 - Present",
+      "location": "Bangalore, India",
+      "highlights": [
+        "Built AI-powered RAG knowledge system achieving 94% accuracy, sub-second response",
+        "Automated contract activation reducing timeline 99.6% (42 days→10 minutes)",
+        "Accelerated $2M revenue recognition, saved 50+ resource hours daily",
+        "Streamlined 15+ operational processes achieving 60% support ticket reduction"
+      ]
+    },
+    {
+      "title": "Product Manager", 
+      "company": "COWRKS",
+      "duration": "08/2016 - 01/2020",
+      "location": "Bangalore, India", 
+      "highlights": [
+        "Generated €220K monthly revenue monetizing underutilized inventory",
+        "Increased app engagement 45%, customer satisfaction 65%",
+        "Reduced onboarding from 110 to 14 days, improved occupancy 25%",
+        "Developed IoT-enabled self-service platform, increased ARPA 35%"
+      ]
+    },
+    {
+      "title": "Frontend Engineer",
+      "company": "Automne Technologies | Rukshaya Emerging Technologies", 
+      "duration": "09/2012 - 07/2016",
+      "location": "Bangalore, India",
+      "highlights": [
+        "Built front-end applications using HTML5, CSS3, Angular.JS for 50+ enterprise clients",
+        "Handled end-to-end UX to UI development across banking and e-commerce sectors"
+      ]
+    }
+  ],
+  
+  "education": {
+    "degree": "Master of Science in Software Engineering",
+    "university": "Anna University", 
+    "duration": "2007-2011"
+  },
+  
+  "certifications": [
+    {
+      "name": "Machine Learning Foundations for Product Managers",
+      "issuer": "Duke University"
+    },
+    {
+      "name": "SAFe® Product Owner & Product Manager", 
+      "issuer": "Scaled Agile Framework"
+    }
+  ],
+  
+  "languages": [
+    {"language": "English", "proficiency": "Proficient"},
+    {"language": "Tamil", "proficiency": "Native"}
+  ]
+}
