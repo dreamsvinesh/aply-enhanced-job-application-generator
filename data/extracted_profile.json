@@ -1,0 +1,263 @@
+{
+  "personal_info": {
+    "name": "Vinesh Kumar",
+    "current_title": "Senior Product Manager",
+    "location": "Bangalore, India",
+    "total_experience_years": 11,
+    "pm_experience_years": 7
+  },
+  "core_identity": {
+    "primary_expertise": "Product Management with Technical Background",
+    "specializations": [
+      "Enterprise Integration", 
+      "AI/ML Systems",
+      "SaaS Platforms",
+      "Process Automation"
+    ],
+    "industry_focus": ["Fintech", "Enterprise Software", "B2B SaaS"],
+    "value_proposition": "Senior PM who builds scalable enterprise solutions with measurable business impact through technical innovation"
+  },
+  "experience_domains": {
+    "fintech": {
+      "experience_level": "intermediate",
+      "years_experience": 3,
+      "specific_areas": ["payment processing", "compliance workflows", "financial data"],
+      "key_achievements": [
+        "Built contract activation reducing timeline 99.6% (42 days to 10 minutes)",
+        "Generated €220K monthly revenue from space optimization"
+      ],
+      "technologies": ["Salesforce", "SAP", "MuleSoft", "payment APIs"],
+      "regulatory_knowledge": ["financial compliance", "data privacy"]
+    },
+    "enterprise_saas": {
+      "experience_level": "expert",
+      "years_experience": 7,
+      "specific_areas": ["enterprise integration", "B2B platforms", "workflow automation"],
+      "key_achievements": [
+        "Served 600,000+ users with 30,000+ daily orders",
+        "Achieved ₹168-180 crores annual GMV",
+        "91% NPS on enterprise platform"
+      ],
+      "technologies": ["Salesforce", "SAP", "APIs", "cloud platforms"],
+      "scale_handled": ["600K+ users", "30K+ daily transactions", "multi-tenant architecture"]
+    },
+    "ai_automation": {
+      "experience_level": "advanced", 
+      "years_experience": 2,
+      "specific_areas": ["RAG systems", "intelligent automation", "ML-powered workflows"],
+      "key_achievements": [
+        "Built AI knowledge system with 94% accuracy",
+        "Automated workflows saving 50+ resource hours daily",
+        "75% support ticket reduction through AI"
+      ],
+      "technologies": ["RAG", "pgvector", "LLM integration", "prompt engineering"],
+      "project_types": ["knowledge systems", "workflow automation", "intelligent assistants"]
+    }
+  },
+  "detailed_projects": [
+    {
+      "title": "AI-Powered RAG Knowledge System",
+      "context": "Company needed to reduce support burden and improve employee access to internal knowledge",
+      "role": "Lead Product Manager - owned strategy, requirements, and cross-functional execution",
+      "approach": "Built hybrid search system using pgvector, implemented prompt engineering, integrated with existing workflows",
+      "technologies": ["RAG", "pgvector", "LLM integration", "hybrid search", "APIs"],
+      "team_size": "8 people",
+      "duration": "12 months",
+      "quantified_results": [
+        "94% accuracy in knowledge retrieval",
+        "Sub-second response time",
+        "200+ employees actively using",
+        "1,500+ weekly queries handled",
+        "75% reduction in support tickets"
+      ],
+      "business_impact": "Saved equivalent of 2 FTE support roles, improved employee productivity",
+      "skills_demonstrated": ["AI product development", "cross-functional leadership", "technical strategy"],
+      "challenges_overcome": [
+        "Integration with legacy systems",
+        "Accuracy tuning for domain-specific knowledge", 
+        "User adoption and change management"
+      ],
+      "relevant_for_roles": ["ai_pm", "enterprise_pm", "technical_pm"]
+    },
+    {
+      "title": "Enterprise Contract Automation Platform",
+      "context": "Manual contract activation taking 42 days, blocking $2M revenue recognition",
+      "role": "Product Lead - designed automation strategy, led technical integration",
+      "approach": "Integrated Salesforce, SAP, and MuleSoft to create end-to-end automated workflow",
+      "technologies": ["Salesforce", "SAP", "MuleSoft", "REST APIs", "workflow automation"],
+      "team_size": "12 people",
+      "duration": "8 months",
+      "quantified_results": [
+        "99.6% timeline reduction (42 days to 10 minutes)",
+        "$2M revenue acceleration",
+        "50+ resource hours saved daily",
+        "35% improvement in contract accuracy"
+      ],
+      "business_impact": "$2M revenue acceleration, 50+ hours daily savings",
+      "skills_demonstrated": ["enterprise integration", "process automation", "stakeholder management"],
+      "challenges_overcome": [
+        "Complex multi-system integration",
+        "Regulatory compliance requirements",
+        "Change management across departments"
+      ],
+      "relevant_for_roles": ["fintech_pm", "enterprise_pm", "automation_pm"]
+    },
+    {
+      "title": "Converge F&B Platform",
+      "context": "Enterprise customers needed integrated food ordering platform across multiple locations",
+      "role": "Product Manager - owned platform strategy, scaling, and user experience",
+      "approach": "Built scalable B2B SaaS platform with mobile app, integrated payments, real-time ordering",
+      "technologies": ["mobile apps", "payment processing", "real-time systems", "analytics"],
+      "team_size": "15 people", 
+      "duration": "18 months",
+      "quantified_results": [
+        "600,000+ users served",
+        "30,000+ daily orders",
+        "₹168-180 crores annual GMV",
+        "91% NPS",
+        "45% increase in app engagement"
+      ],
+      "business_impact": "₹180 crores GMV, major revenue stream for company",
+      "skills_demonstrated": ["B2B SaaS", "mobile product management", "scaling platforms"],
+      "challenges_overcome": [
+        "Multi-tenant architecture complexity",
+        "Real-time order processing at scale",
+        "Enterprise customer onboarding"
+      ],
+      "relevant_for_roles": ["saas_pm", "b2b_pm", "platform_pm"]
+    }
+  ],
+  "skills_detailed": {
+    "product_management": {
+      "proficiency": "expert",
+      "years_experience": 7,
+      "specific_skills": [
+        "product strategy", "roadmap planning", "stakeholder management",
+        "cross-functional leadership", "user research", "data analysis"
+      ],
+      "tools_used": ["Jira", "Confluence", "Figma", "analytics tools", "SQL"],
+      "evidence": [
+        "Led products serving 600K+ users",
+        "Managed cross-functional teams of 15+ people",
+        "Delivered measurable business impact ($2M+ revenue)"
+      ]
+    },
+    "technical_skills": {
+      "proficiency": "advanced",
+      "programming": ["Python basics", "SQL", "API design"],
+      "platforms": ["Salesforce", "SAP", "MuleSoft", "cloud platforms"],
+      "apis_integration": ["REST APIs", "webhook design", "system integration"],
+      "databases": ["PostgreSQL", "vector databases"],
+      "evidence": [
+        "Built RAG system with pgvector",
+        "Integrated Salesforce-SAP-MuleSoft",
+        "Designed API architecture for 30K+ daily transactions"
+      ]
+    },
+    "business_skills": {
+      "proficiency": "expert",
+      "areas": ["strategy", "analytics", "stakeholder management", "revenue optimization"],
+      "quantified_achievements": [
+        "$2M revenue acceleration",
+        "₹180 crores GMV platform",
+        "€220K monthly revenue generation"
+      ],
+      "leadership_experience": ["Teams of 15+ people", "cross-functional coordination"],
+      "evidence": [
+        "Consistently delivered revenue impact",
+        "Led enterprise customer relationships",
+        "Managed P&L responsibility"
+      ]
+    }
+  },
+  "achievements_quantified": [
+    {
+      "achievement": "Built AI knowledge system achieving 94% accuracy",
+      "metric": "94% accuracy, 75% ticket reduction",
+      "context": "Enterprise knowledge management for 200+ employees",
+      "timeframe": "2023-2024",
+      "verification": "System metrics, support ticket data"
+    },
+    {
+      "achievement": "Accelerated $2M revenue through automation",
+      "metric": "$2M revenue acceleration, 99.6% timeline reduction", 
+      "context": "Contract activation process automation",
+      "timeframe": "2023",
+      "verification": "Finance records, process timing data"
+    },
+    {
+      "achievement": "Scaled platform to ₹180 crores annual GMV",
+      "metric": "₹168-180 crores GMV, 600K+ users, 91% NPS",
+      "context": "B2B F&B ordering platform",
+      "timeframe": "2016-2020",
+      "verification": "Revenue reports, user analytics, NPS surveys"
+    }
+  ],
+  "transferable_experiences": {
+    "leadership": [
+      "Led cross-functional teams of 15+ people",
+      "Managed stakeholders across engineering, design, business",
+      "Drove organizational change and process improvements"
+    ],
+    "problem_solving": [
+      "Solved complex enterprise integration challenges", 
+      "Optimized workflows from 42 days to 10 minutes",
+      "Built scalable systems handling 30K+ daily transactions"
+    ],
+    "stakeholder_management": [
+      "Enterprise B2B customers",
+      "Internal teams (engineering, design, business)",
+      "External vendors and partners",
+      "Executive leadership"
+    ],
+    "technical_translation": [
+      "Translated business requirements into technical specifications",
+      "Communicated technical concepts to non-technical stakeholders",
+      "Designed system architecture for product requirements"
+    ],
+    "process_improvement": [
+      "Reduced contract processing from 42 days to 10 minutes",
+      "Improved customer onboarding from 110 to 14 days", 
+      "Optimized support processes with AI automation"
+    ]
+  },
+  "preferences": {
+    "role_types": ["ic", "team_lead"],
+    "company_stages": ["scaleup", "growth"],
+    "industries_interested": ["fintech", "enterprise_saas", "ai/automation"],
+    "industries_avoid": ["crypto", "gambling", "adult_content"],
+    "work_style": ["remote", "hybrid"],
+    "location_constraints": ["European time zones preferred"]
+  },
+  "education_certifications": {
+    "degrees": [
+      {
+        "level": "Master's",
+        "field": "Software Engineering",
+        "institution": "Anna University", 
+        "year": "2011"
+      }
+    ],
+    "certifications": [
+      {
+        "name": "Certified Scrum Product Owner",
+        "issuer": "Scrum Alliance",
+        "year": "2023",
+        "relevance": "Product management methodology"
+      }
+    ]
+  },
+  "extraction_confidence": 0.9,
+  "gaps_to_fill": [
+    "Specific payment processing technologies",
+    "Detailed regulatory compliance experience",
+    "International market experience"
+  ],
+  "extraction_metadata": {
+    "timestamp": "2025-11-14T06:25:00Z",
+    "source": "claude_skills",
+    "extraction_cost_usd": 0.0,
+    "llm_model": "sample_extraction",
+    "tokens_used": 0
+  }
+}

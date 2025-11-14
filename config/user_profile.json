@@ -1,0 +1,113 @@
+{
+  "basic_info": {
+    "experience_years": 7,
+    "experience_level": "senior",
+    "education": "mba",
+    "languages": ["english", "spanish"],
+    "location_preferences": ["remote", "europe"],
+    "visa_required": false
+  },
+  
+  "skills": {
+    "core_skills": [
+      "product strategy",
+      "roadmap planning", 
+      "stakeholder management",
+      "agile methodologies",
+      "user research",
+      "data analysis",
+      "api integration",
+      "cross-functional leadership",
+      "a/b testing",
+      "user experience design",
+      "market research",
+      "competitive analysis",
+      "feature prioritization",
+      "kpi tracking",
+      "sql",
+      "project management"
+    ],
+    "critical_skills": ["product_management", "stakeholder_management", "data_analysis"],
+    "skill_proficiency": {
+      "product_management": "expert",
+      "stakeholder_management": "expert",
+      "data_analysis": "advanced",
+      "agile_methodologies": "advanced",
+      "sql": "intermediate",
+      "api_integration": "intermediate"
+    }
+  },
+  
+  "experience": {
+    "industries": ["fintech", "saas", "technology", "financial_services", "e-commerce"],
+    "domains": ["product_management", "fintech", "saas", "technology"],
+    "avoid_domains": ["crypto", "blockchain", "gambling", "adult_content", "tobacco", "weapons"],
+    "company_stages": ["startup", "scaleup"],
+    "company_sizes": ["50-200", "200-1000"],
+    "management_experience": true,
+    "team_sizes_managed": [5, 12],
+    "budget_responsibility": true
+  },
+  
+  "projects": [
+    {
+      "title": "AI-Powered Knowledge Management System",
+      "description": "Led cross-functional team to build enterprise AI knowledge system with 94% accuracy",
+      "impact": "Reduced support tickets by 75%, enabled 200+ employees with 1,500+ weekly queries",
+      "skills_used": ["product_management", "cross_functional_leadership", "ai_integration", "stakeholder_management"],
+      "technologies": ["ai/ml", "apis", "databases"],
+      "team_size": 8,
+      "duration_months": 12,
+      "budget": "$2M"
+    },
+    {
+      "title": "Multi-Platform Integration Hub", 
+      "description": "Designed and launched integration platform connecting Salesforce, SAP, and internal tools",
+      "impact": "Improved workflow efficiency by 60%, processed 50K+ transactions daily",
+      "skills_used": ["product_strategy", "api_integration", "system_architecture", "vendor_management"],
+      "technologies": ["salesforce", "sap", "rest_apis", "webhooks"],
+      "team_size": 6,
+      "duration_months": 8,
+      "budget": "$1.5M"
+    },
+    {
+      "title": "Customer Analytics Dashboard",
+      "description": "Built comprehensive analytics platform for customer behavior tracking and insights",
+      "impact": "Increased customer retention by 30%, enabled data-driven product decisions",
+      "skills_used": ["data_analysis", "user_research", "dashboard_design", "sql"],
+      "technologies": ["sql", "tableau", "python", "google_analytics"],
+      "team_size": 4,
+      "duration_months": 6,
+      "budget": "$800K"
+    }
+  ],
+  
+  "preferences": {
+    "role_types": ["individual_contributor", "team_lead"],
+    "avoid_role_types": ["sales", "pure_management"],
+    "preferred_company_stages": ["scaleup", "growth"],
+    "preferred_industries": ["fintech", "saas", "healthtech"],
+    "work_environment": ["remote", "hybrid"],
+    "relocation_willing": false
+  },
+  
+  "certifications": [
+    {
+      "name": "Certified Scrum Product Owner",
+      "issuer": "Scrum Alliance", 
+      "year": 2023
+    },
+    {
+      "name": "Product Management Certificate",
+      "issuer": "Stanford Continuing Studies",
+      "year": 2020
+    }
+  ],
+  
+  "achievements": [
+    "Led product launches resulting in $5M+ ARR growth",
+    "Managed cross-functional teams of up to 12 people",
+    "Improved key metrics by 30%+ across multiple products",
+    "Successfully integrated 15+ enterprise systems"
+  ]
+}

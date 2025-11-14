@@ -20,10 +20,10 @@
 # - collections (built-in)
 # - dataclasses (built-in)
 
-# Future dependencies when LLM integration is added:
-# anthropic>=0.3.0  # For Claude API integration
-# openai>=1.0.0     # Alternative LLM provider
-# requests>=2.25.0  # For HTTP requests
+# LLM API integrations:
+anthropic>=0.3.0  # For Claude API integration
+openai>=1.0.0     # Alternative LLM provider  
+requests>=2.25.0  # For HTTP requests
 
 # Development dependencies:
 # pytest>=7.0.0     # For testing
