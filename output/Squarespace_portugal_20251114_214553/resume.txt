@@ -1,0 +1,64 @@
+# VINESH KUMAR
+**Senior Product Manager - AI | Enterprise Automation | RAG & Multi-Agent Systems**
+
++91-81230-79049 | vineshmuthukumar@gmail.com | linkedin.com/in/vinukum | Bangalore, India
+
+---
+
+## SUMMARY
+
+Senior Product Manager with 11 years in technology (7 in PM) specializing in **AI/ML systems, RAG architecture, and intelligent automation** across enterprise platforms. Built AI knowledge system achieving **94% accuracy serving 200+ users**, automated workflows reducing timelines from 42 days to 10 minutes (accelerating **$2M revenue**), and developed **ML-powered contract automation** saving 50+ resource hours daily. Expert in **RAG systems, vector databases, LLM integration**, Salesforce/SAP automation, and data-driven product strategy in Agile/SAFe environments.
+
+---
+
+## EXPERIENCE
+
+### Senior Product Manager
+**COWRKS** | Bangalore, India | 01/2023 - Present
+
+• Built AI-powered RAG knowledge system using pgvector and prompt engineering, achieving 94% accuracy with sub-second response times serving 200+ employees with 1,500+ weekly queries
+• Automated contract activation workflow through Salesforce-SAP-MuleSoft integration, reducing processing timeline by 99.6% from 42 days to 10 minutes and accelerating $2M revenue recognition
+• Orchestrated cross-functional automation initiatives across 15+ operational processes, achieving 60% support ticket reduction and saving 50+ resource hours daily through intelligent workflow optimization
+• Streamlined enterprise invoice processing through comprehensive system integration and automated workflows, reducing processing cycles from weeks to real-time execution with enhanced accuracy controls
+
+### Product Manager
+**COWRKS** | Bangalore, India | 08/2016 - 01/2020
+
+• Led end-to-end product strategy for Converge F&B ordering platform serving 600,000+ users across 24 business parks with 30,000+ daily orders achieving ₹168-180 crores annual GMV
+• Scaled Converge platform from MVP to full production in 6 months achieving 91% NPS and ₹1.5/sq ft revenue optimization
+• Generated €220K monthly revenue monetizing underutilized inventory through data-driven space optimization strategies
+• Increased app engagement 45%, customer satisfaction 65% through enhanced mobile self-service features
+• Reduced onboarding from 110 to 14 days, improved occupancy 25% via streamlined digital workflows
+• Developed IoT-enabled self-service platform with auto WiFi and booking systems, increased ARPA 35%
+
+### Frontend Engineer
+**Automne Technologies | Rukshaya Emerging Technologies** | Bangalore, India | 09/2012 - 07/2016
+
+• Built front-end applications using HTML5, CSS3, Angular.JS for 50+ enterprise clients
+• Handled end-to-end UX to UI development across banking and e-commerce sectors
+
+---
+
+## EDUCATION
+
+**Master of Science in Software Engineering** | Anna University | 2007-2011
+
+---
+
+## SKILLS
+
+**Product Management:** Product Discovery | Product Strategy | Product Vision | Product Roadmap | Stakeholder Management | Cross-functional Leadership
+
+**AI/ML & Automation:** RAG Architecture | Multi-Agent Systems | Prompt Engineering | Vector DBs (pgvector) | LLM Integration | AI/ML Automation | Machine Learning | Natural Language Processing
+
+**Technical:** Salesforce | SAP | MuleSoft | API Integration | SQL | Python | React | Next.js
+
+**Business & Strategy:** Revenue Growth | KPI/Metrics | ROI Analysis | Conversion Optimization | B2B/B2C Strategy | SaaS
+
+---
+
+## LANGUAGES
+
+English (Proficient)
+Tamil (Native)
+

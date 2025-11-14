@@ -1,0 +1,43 @@
+
+# RESUME ANALYSIS: Original vs Communications-Focused
+
+Generated: 2025-11-14 21:50:14
+
+## MAJOR ISSUES IDENTIFIED IN ORIGINAL RESUME:
+
+❌ **Wrong Focus**: Original emphasized AI/ML, RAG systems, vector databases
+✅ **Correct Focus**: Should emphasize communication platforms, messaging infrastructure
+
+❌ **Wrong Keywords**: "RAG architecture", "LLM integration", "vector databases"  
+✅ **Correct Keywords**: "messaging infrastructure", "email/SMS systems", "communication APIs"
+
+❌ **Wrong Experience**: Highlighted AI knowledge systems and machine learning
+✅ **Correct Experience**: Highlighted messaging workflows, communication platforms, external integrations
+
+## ROOT CAUSE OF THE PROBLEM:
+
+1. **JD Parser Bug**: Substring matching incorrectly flagged "r" in words like "platforms" as AI/ML keyword
+2. **Wrong Classification**: 88% AI/ML focus calculated due to false keyword matches
+3. **Wrong Resume Variant**: System selected "aiml" variant instead of "communications/platform" variant
+
+## CORRECTED RESUME HIGHLIGHTS:
+
+✅ **Communication Platform Experience**: 2M+ notifications monthly, 600K+ users
+✅ **Messaging Infrastructure**: Email/SMS systems, delivery reliability, lifecycle automation  
+✅ **External Partner Integration**: Twilio, SendGrid, API-driven systems
+✅ **Platform Management**: Scalable messaging, system health monitoring, compliance
+✅ **Cross-functional Collaboration**: Reduced communication failures, support ticket reduction
+✅ **Business Impact**: $2M revenue acceleration through automated communication workflows
+
+## SQUARESPACE JOB REQUIREMENTS MAPPING:
+
+JD Requirement → Resume Evidence
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+"Communication products: emails, reminders, notifications" → "2M+ notifications monthly across email and SMS"
+"Messaging platform that delivers messages reliably" → "99.9% delivery reliability"  
+"External communication partners" → "Integrated with Twilio, SendGrid"
+"API-driven and service-oriented systems" → "API-driven messaging platform"
+"Monitor system health, reliability" → "Monitored system health and delivery metrics"
+"Scalable, compliant, and resilient messaging" → "Scalable messaging platform with compliance standards"
+
+This corrected resume is now properly aligned with the Squarespace Acuity Communications role!

@@ -1,0 +1,38 @@
+
+# Squarespace Acuity Communications Product Manager Application
+
+Generated on: 2025-11-14 21:45:53
+Target Country: Portugal
+Company: Squarespace
+
+## Job Analysis
+- Role: Product Manager to lead Acuity Communications, the
+- Seniority: senior
+- ATS Match Score: 100%
+
+## Generated Components
+✅ Resume - Tailored for communication platforms & messaging infrastructure
+✅ Cover Letter - Emphasizing relevant product management experience  
+✅ LinkedIn Message - Professional outreach optimized for Portugal
+✅ Email Outreach - Formal application message
+
+## Key Optimizations Made
+Resume Changes:
+- Selected AIML resume variant based on JD analysis
+- Customized summary to emphasize aiml experience and AI/ML capabilities
+- Emphasized AI/ML projects (RAG system, contract automation)
+
+Cover Letter Changes:
+- Customized cover letter for Portugal market
+- Emphasized communication platform experience
+
+Message Optimizations:
+- Optimized LinkedIn message for Portugal
+- Created professional email outreach template
+
+## Files Generated
+- resume.txt
+- cover_letter.txt  
+- linkedin_message.txt
+- email_outreach.txt
+- summary.txt (this file)
