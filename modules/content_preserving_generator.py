@@ -225,18 +225,18 @@ class ContentPreservingGenerator:
         
         # Check if VO Product revamp is missing
         if not any('10X growth' in h or 'VO product' in h for h in role['highlights']):
-            missing_achievements.append("Led complete revamp of VO product achieving 10X growth, reducing client onboarding from days to 10 minutes with Digi KYC")
+            missing_achievements.append("Led complete VO product revamp implementing digital KYC and automated workflows, achieving 10X product adoption growth and reducing client onboarding from days to 10 minutes with 100% digital verification")
         
         # Check if lead generation improvements are missing  
         if not any('lead-to-conversion' in h or '5X' in h for h in role['highlights']):
             missing_achievements.extend([
-                "Improved lead-to-conversion speed by 50% and increased lead generation 5X via IVR integration",
-                "Saved 50+ resource hours daily by automating sales workflows, minimizing errors and delays"
+                "Implemented IVR integration strategy and automated lead routing system, improving lead-to-conversion speed by 50% and increasing overall lead generation by 5X with enhanced qualification process",
+                "Designed and deployed automated sales workflows with error detection and process optimization, saving 50+ resource hours daily while minimizing manual errors and reducing sales cycle delays"
             ])
         
         # Check if invoicing enhancement is missing
         if not any('invoicing' in h.lower() or '21 days to real-time' in h for h in role['highlights']):
-            missing_achievements.append("Enhanced invoicing through Salesforce-SAP integration reducing processing from 21 days to real-time, achieving 35% contract accuracy improvement")
+            missing_achievements.append("Enhanced invoicing system through comprehensive Salesforce-SAP integration and automated workflow design, reducing processing time from 21 days to real-time execution and achieving 35% improvement in contract accuracy")
         
         # Add missing achievements to reach 8 total bullet points
         for achievement in missing_achievements:
@@ -322,6 +322,124 @@ class ContentPreservingGenerator:
             'company_context': jd_data.get('company_description', ''),
             'role_emphasis': jd_data.get('role_focus', '')
         }
+
+    def generate_dynamic_resume(self, jd_data: Dict, application_strategy: 'ApplicationStrategy') -> Tuple[Dict[str, Any], List[str]]:
+        """Generate strategically optimized resume using application strategy"""
+        
+        try:
+            # Import dynamic generators (avoid circular imports)
+            from .dynamic_summary_generator import DynamicSummaryGenerator
+            from .dynamic_experience_generator import DynamicExperienceGenerator
+            
+            dynamic_summary_gen = DynamicSummaryGenerator()
+            dynamic_experience_gen = DynamicExperienceGenerator()
+            
+            changes_made = []
+            
+            # Step 1: Generate strategic summary
+            strategic_summary = dynamic_summary_gen.generate_strategic_summary(jd_data, application_strategy)
+            changes_made.append("Generated strategic summary using AI optimization")
+            
+            # Step 2: Generate strategic experience
+            strategic_experience_list = dynamic_experience_gen.generate_strategic_experience(jd_data, application_strategy)
+            
+            # Convert to standard format
+            enhanced_experience = []
+            for exp_enhancement in strategic_experience_list:
+                enhanced_experience.append({
+                    'title': exp_enhancement.role_title,
+                    'company': exp_enhancement.company,
+                    'duration': exp_enhancement.duration,
+                    'location': exp_enhancement.location,
+                    'highlights': exp_enhancement.strategic_bullets
+                })
+            
+            changes_made.append(f"Generated {len(enhanced_experience)} roles with strategic optimization")
+            
+            # Step 3: Generate strategic title
+            strategic_title = application_strategy.title_recommendation
+            changes_made.append(f"Applied strategic title: {strategic_title}")
+            
+            # Step 4: Generate strategic skills
+            strategic_skills = self._generate_strategic_skills_from_strategy(application_strategy)
+            changes_made.append("Generated strategic skills alignment")
+            
+            # Assemble strategic resume data
+            resume_data = {
+                'personal_info': {
+                    'name': self.user_profile['personal_info']['name'],
+                    'title': strategic_title,
+                    'phone': self.user_profile['personal_info']['phone'],
+                    'email': self.user_profile['personal_info']['email'],
+                    'linkedin': self.user_profile['personal_info']['linkedin'],
+                    'location': self.user_profile['personal_info']['location']
+                },
+                'summary': strategic_summary,
+                'skills': strategic_skills,
+                'experience': enhanced_experience,
+                'education': self.user_profile['education']
+            }
+            
+            return resume_data, changes_made
+            
+        except Exception as e:
+            # Fallback to standard generation if dynamic fails
+            print(f"   ⚠️  Dynamic generation failed: {e}, falling back to standard")
+            return self.generate_full_resume(jd_data, jd_data.get('country', 'netherlands'))
+    
+    def _generate_strategic_skills_from_strategy(self, application_strategy: 'ApplicationStrategy') -> str:
+        """Generate strategic skills based on application strategy"""
+        
+        # Extract skills from priority strengths
+        priority_skills = []
+        
+        for strength_mapping in application_strategy.priority_strengths[:6]:
+            # Map strength descriptions to actual skills
+            strength_text = strength_mapping.user_strength.lower()
+            
+            if 'automation' in strength_text:
+                priority_skills.extend(['Process Automation', 'Workflow Optimization'])
+            elif 'ai' in strength_text or 'rag' in strength_text:
+                priority_skills.extend(['AI/ML Systems', 'RAG Architecture'])
+            elif 'cross-functional' in strength_text:
+                priority_skills.append('Cross-functional Leadership')
+            elif 'revenue' in strength_text or 'growth' in strength_text:
+                priority_skills.append('Revenue Growth')
+            elif 'integration' in strength_text:
+                priority_skills.extend(['API Integration', 'System Integration'])
+            elif 'platform' in strength_text:
+                priority_skills.append('Platform Development')
+        
+        # Add core PM skills
+        core_pm_skills = ['Product Strategy', 'Product Management', 'Stakeholder Management', 'Agile/SAFe']
+        
+        # Get relevant technical skills from user profile
+        all_user_skills = []
+        for category_skills in self.user_profile.get('skills', {}).values():
+            if isinstance(category_skills, list):
+                all_user_skills.extend(category_skills)
+        
+        # Select technical skills that align with strategy themes
+        strategy_themes = [theme.lower() for theme in application_strategy.content_themes]
+        relevant_tech_skills = []
+        
+        for skill in all_user_skills:
+            skill_lower = skill.lower()
+            if any(theme in skill_lower for theme in strategy_themes):
+                relevant_tech_skills.append(skill)
+        
+        # Combine and deduplicate
+        all_skills = priority_skills + core_pm_skills + relevant_tech_skills[:8]
+        unique_skills = []
+        seen = set()
+        
+        for skill in all_skills:
+            if skill.lower() not in seen:
+                unique_skills.append(skill)
+                seen.add(skill.lower())
+        
+        # Limit to 15-20 skills for readability
+        return ' • '.join(unique_skills[:18])
 
 # Export the content preserving generator
 __all__ = ['ContentPreservingGenerator']

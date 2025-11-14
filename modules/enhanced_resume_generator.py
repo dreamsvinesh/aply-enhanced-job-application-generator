@@ -311,30 +311,30 @@ class EnhancedResumeGenerator:
         # RAG Knowledge System Project
         rag_project = next((p for p in detailed_projects if 'RAG' in p.get('title', '')), None)
         if rag_project:
-            bullets.append("• Built AI-powered RAG knowledge system achieving 94% accuracy, sub-second response")
+            bullets.append("• Built AI-powered RAG knowledge system using pgvector and prompt engineering, achieving 94% accuracy with sub-second response times serving 200+ employees with 1,500+ weekly queries")
         
         # Contract Automation Project  
         contract_project = next((p for p in detailed_projects if 'Contract' in p.get('title', '')), None)
         if contract_project:
-            bullets.append("• Automated contract activation reducing timeline 99.6% (42 days→10 minutes)")
+            bullets.append("• Automated contract activation workflow through Salesforce-SAP-MuleSoft integration, reducing processing timeline by 99.6% from 42 days to 10 minutes and accelerating $2M revenue recognition")
         
         # VO Product Revamp Project
         vo_project = next((p for p in detailed_projects if 'VO Product' in p.get('title', '')), None)
         if vo_project:
-            bullets.append("• Led complete revamp of VO product achieving 10X growth, reducing client onboarding from days to 10 minutes with Digi KYC")
+            bullets.append("• Led complete VO product revamp implementing digital KYC and automated workflows, achieving 10X product adoption growth and reducing client onboarding from days to 10 minutes with 100% digital verification")
         
         # Sales & Lead Generation Project
         sales_project = next((p for p in detailed_projects if 'Sales' in p.get('title', '') or 'Lead Generation' in p.get('title', '')), None)
         if sales_project:
             bullets.extend([
-                "• Improved lead-to-conversion speed by 50% and increased lead generation 5X via IVR integration",
-                "• Saved 50+ resource hours daily by automating sales workflows, minimizing errors and delays"
+                "• Implemented IVR integration strategy and automated lead routing system, improving lead-to-conversion speed by 50% and increasing overall lead generation by 5X with enhanced qualification process",
+                "• Designed and deployed automated sales workflows with error detection and process optimization, saving 50+ resource hours daily while minimizing manual errors and reducing sales cycle delays"
             ])
         
         # Additional core achievements
         bullets.extend([
-            "• Streamlined 15+ operational processes achieving 60% support ticket reduction",
-            "• Enhanced invoicing through Salesforce-SAP integration reducing processing from 21 days to real-time, achieving 35% contract accuracy improvement"
+            "• Orchestrated cross-functional automation initiatives across 15+ operational processes, achieving 60% support ticket reduction and saving 50+ resource hours daily through intelligent workflow optimization",
+            "• Enhanced invoicing system through comprehensive Salesforce-SAP integration and automated workflow design, reducing processing time from 21 days to real-time execution and achieving 35% improvement in contract accuracy"
         ])
         
         return bullets

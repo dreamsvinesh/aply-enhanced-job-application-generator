@@ -96,10 +96,10 @@
       "duration": "01/2023 - Present",
       "location": "Bangalore, India",
       "highlights": [
-        "Built AI-powered RAG knowledge system achieving 94% accuracy, sub-second response",
-        "Automated contract activation reducing timeline 99.6% (42 days→10 minutes)",
-        "Accelerated $2M revenue recognition, saved 50+ resource hours daily",
-        "Streamlined 15+ operational processes achieving 60% support ticket reduction"
+        "Built AI-powered RAG knowledge system using pgvector and prompt engineering, achieving 94% accuracy with sub-second response times serving 200+ employees with 1,500+ weekly queries",
+        "Automated contract activation workflow through Salesforce-SAP-MuleSoft integration, reducing processing timeline by 99.6% from 42 days to 10 minutes and accelerating $2M revenue recognition",
+        "Orchestrated cross-functional automation initiatives across 15+ operational processes, achieving 60% support ticket reduction and saving 50+ resource hours daily through intelligent workflow optimization",
+        "Streamlined enterprise invoice processing through comprehensive system integration and automated workflows, reducing processing cycles from weeks to real-time execution with enhanced accuracy controls"
       ]
     },
     {
