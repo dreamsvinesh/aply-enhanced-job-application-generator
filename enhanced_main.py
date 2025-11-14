@@ -305,6 +305,8 @@ class EnhancedJobApplicationGenerator:
     def _apply_validation_fixes(self, html_content: str, validation_result: Dict) -> str:
         """Apply automated fixes for common validation issues"""
         
+        import re
+        
         fixed_content = html_content
         
         # Fix content artifacts
@@ -312,7 +314,6 @@ class EnhancedJobApplicationGenerator:
         fixed_content = re.sub(r'\\\\n', '<br>', fixed_content)
         
         # Fix bullet point formatting in email templates
-        import re
         
         # Find email message boxes and fix bullet points
         email_pattern = r'(<div class="message-box">)(.*?)(</div>)'
