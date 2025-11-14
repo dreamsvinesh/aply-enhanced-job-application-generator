@@ -68,7 +68,8 @@
         "Sub-second response time",
         "200+ employees actively using",
         "1,500+ weekly queries handled",
-        "75% reduction in support tickets"
+        "75% reduction in support tickets",
+        "60% reduction in support tickets by streamlining 15+ processes"
       ],
       "business_impact": "Saved equivalent of 2 FTE support roles, improved employee productivity",
       "skills_demonstrated": ["AI product development", "cross-functional leadership", "technical strategy"],
@@ -78,6 +79,52 @@
         "User adoption and change management"
       ],
       "relevant_for_roles": ["ai_pm", "enterprise_pm", "technical_pm"]
+    },
+    {
+      "title": "VO Product Complete Revamp & Digital Transformation",
+      "context": "Legacy VO product needed modernization to achieve growth and reduce client onboarding friction",
+      "role": "Product Manager - led complete product strategy, design, and implementation",
+      "approach": "Redesigned entire product architecture, introduced digital KYC, automated onboarding workflows",
+      "technologies": ["Digital KYC", "automation workflows", "mobile app", "backend systems"],
+      "team_size": "12 people",
+      "duration": "10 months",
+      "quantified_results": [
+        "10X growth in product adoption",
+        "Client onboarding reduced from days to 10 minutes",
+        "100% digital verification through Digi KYC",
+        "Seamless digital verification process"
+      ],
+      "business_impact": "Transformed legacy product into modern digital solution, dramatically improved user experience",
+      "skills_demonstrated": ["product transformation", "digital strategy", "user experience design"],
+      "challenges_overcome": [
+        "Legacy system modernization",
+        "Regulatory compliance for digital KYC",
+        "User behavior change management"
+      ],
+      "relevant_for_roles": ["fintech_pm", "digital_transformation", "growth_pm"]
+    },
+    {
+      "title": "Sales Workflow Automation & Lead Generation System",
+      "context": "Manual sales processes creating bottlenecks and limiting lead conversion efficiency",
+      "role": "Product Manager - designed automation strategy and IVR integration",
+      "approach": "Built automated sales workflows, integrated IVR system, optimized lead generation process",
+      "technologies": ["IVR integration", "sales automation", "workflow engines", "CRM systems"],
+      "team_size": "8 people", 
+      "duration": "6 months",
+      "quantified_results": [
+        "50% improvement in lead-to-conversion speed",
+        "5X increase in lead generation via IVR integration",
+        "50+ resource hours saved daily",
+        "Minimized errors and delays in sales process"
+      ],
+      "business_impact": "Dramatically improved sales efficiency and lead generation capacity",
+      "skills_demonstrated": ["sales automation", "process optimization", "system integration"],
+      "challenges_overcome": [
+        "Complex IVR system integration",
+        "Sales team workflow adaptation",
+        "Multi-system data synchronization"
+      ],
+      "relevant_for_roles": ["enterprise_pm", "automation_pm", "sales_tech"]
     },
     {
       "title": "Enterprise Contract Automation Platform",

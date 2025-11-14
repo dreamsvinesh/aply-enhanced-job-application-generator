@@ -269,26 +269,99 @@ class EnhancedResumeGenerator:
         return experience_section, changes_made
     
     def _enhance_role_with_ai(self, role: Dict, jd_data: Dict, variant: str, country: str) -> str:
-        """Enhance individual role with AI optimization"""
+        """Enhance individual role with AI optimization using detailed project data"""
         
         role_header = f"### {role['title']}\\n**{role['company']}** | {role['location']} | {role['duration']}\\n\\n"
         
         enhanced_bullets = []
         
-        # Process each highlight with AI enhancement
-        for highlight in role.get('highlights', []):
-            # Use content rewriter to optimize bullet points
-            requirements = {
-                'focus_areas': jd_data.get('required_skills', []),
-                'company_priorities': [jd_data.get('company', ''), 'internal tools', 'cross-functional'],
-                'role_emphasis': 'operations tools and system integration'
-            }
-            
-            # For demonstration, enhance bullets with job-specific keywords
-            enhanced_bullet = self._enhance_bullet_point(highlight, jd_data)
-            enhanced_bullets.append(f"• {enhanced_bullet}")
+        # Load detailed projects data for comprehensive content
+        detailed_projects = self._load_detailed_projects()
+        
+        # For current role, use extensive project details
+        if role.get('duration', '').startswith('01/2023') or 'Present' in role.get('duration', ''):
+            enhanced_bullets = self._build_comprehensive_current_role(role, jd_data, detailed_projects)
+        
+        # For previous PM role, expand major achievements
+        elif role.get('duration', '').startswith('08/2016') or '2016' in role.get('duration', ''):
+            enhanced_bullets = self._build_comprehensive_previous_role(role, jd_data, detailed_projects)
+        
+        # For other roles, use original highlights with enhancements
+        else:
+            for highlight in role.get('highlights', []):
+                enhanced_bullet = self._enhance_bullet_point(highlight, jd_data)
+                enhanced_bullets.append(f"• {enhanced_bullet}")
         
         return role_header + "\\n".join(enhanced_bullets)
+    
+    def _load_detailed_projects(self) -> List[Dict]:
+        """Load detailed projects from extracted profile"""
+        try:
+            extracted_path = Path(__file__).parent.parent / "data" / "extracted_profile.json"
+            with open(extracted_path, 'r', encoding='utf-8') as f:
+                extracted_data = json.load(f)
+            return extracted_data.get('detailed_projects', [])
+        except:
+            return []
+    
+    def _build_comprehensive_current_role(self, role: Dict, jd_data: Dict, detailed_projects: List[Dict]) -> List[str]:
+        """Build comprehensive current role with 8-10 bullet points"""
+        bullets = []
+        
+        # RAG Knowledge System Project
+        rag_project = next((p for p in detailed_projects if 'RAG' in p.get('title', '')), None)
+        if rag_project:
+            bullets.append("• Built AI-powered RAG knowledge system achieving 94% accuracy, sub-second response")
+        
+        # Contract Automation Project  
+        contract_project = next((p for p in detailed_projects if 'Contract' in p.get('title', '')), None)
+        if contract_project:
+            bullets.append("• Automated contract activation reducing timeline 99.6% (42 days→10 minutes)")
+        
+        # VO Product Revamp Project
+        vo_project = next((p for p in detailed_projects if 'VO Product' in p.get('title', '')), None)
+        if vo_project:
+            bullets.append("• Led complete revamp of VO product achieving 10X growth, reducing client onboarding from days to 10 minutes with Digi KYC")
+        
+        # Sales & Lead Generation Project
+        sales_project = next((p for p in detailed_projects if 'Sales' in p.get('title', '') or 'Lead Generation' in p.get('title', '')), None)
+        if sales_project:
+            bullets.extend([
+                "• Improved lead-to-conversion speed by 50% and increased lead generation 5X via IVR integration",
+                "• Saved 50+ resource hours daily by automating sales workflows, minimizing errors and delays"
+            ])
+        
+        # Additional core achievements
+        bullets.extend([
+            "• Streamlined 15+ operational processes achieving 60% support ticket reduction",
+            "• Enhanced invoicing through Salesforce-SAP integration reducing processing from 21 days to real-time, achieving 35% contract accuracy improvement"
+        ])
+        
+        return bullets
+    
+    def _build_comprehensive_previous_role(self, role: Dict, jd_data: Dict, detailed_projects: List[Dict]) -> List[str]:
+        """Build comprehensive previous role with 8-10 bullet points"""
+        bullets = []
+        
+        # Converge F&B Platform
+        converge_project = next((p for p in detailed_projects if 'Converge' in p.get('title', '')), None)
+        if converge_project:
+            bullets.extend([
+                "• Led end-to-end product strategy for Converge F&B ordering platform serving 600,000+ users across 24 business parks",
+                "• Scaled platform from MVP to full production in 6 months achieving 30,000+ daily orders and ₹168-180 crores annual GMV", 
+                "• Achieved 91% NPS and ₹1.5/sq ft revenue optimization through multi-tenant architecture and real-time order processing",
+                "• Managed cross-functional team of 15 people developing mobile app, integrated payments, and real-time tracking systems"
+            ])
+        
+        # Space Optimization & Revenue Generation
+        bullets.extend([
+            "• Generated €220K monthly revenue monetizing underutilized inventory through data-driven space optimization strategies",
+            "• Increased app engagement 45% and customer satisfaction 65% through enhanced mobile self-service features",
+            "• Reduced customer onboarding from 110 to 14 days, improved occupancy 25% via streamlined digital workflows",
+            "• Developed IoT-enabled self-service platform with auto WiFi and booking systems, increased ARPA 35%"
+        ])
+        
+        return bullets
     
     def _enhance_bullet_point(self, bullet: str, jd_data: Dict) -> str:
         """Enhance bullet point with job-relevant keywords and framing"""

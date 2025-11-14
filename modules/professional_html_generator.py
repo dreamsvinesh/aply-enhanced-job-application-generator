@@ -368,46 +368,30 @@ class ProfessionalHTMLGenerator:
         return html
     
     def _generate_skills_section(self, skills_raw: str) -> str:
-        """Generate properly formatted skills section like the PDF"""
+        """Generate clean skills section without categories, based on JD matching"""
         
-        # Clean skills and organize them properly
+        # Clean skills and convert to list
         if isinstance(skills_raw, str):
-            skills_list = [skill.strip() for skill in skills_raw.replace('\\n---', '').split('|')]
+            skills_list = [skill.strip() for skill in skills_raw.replace('\\n---', '').split('|') if skill.strip()]
         else:
             skills_list = []
         
-        # Organize skills into categories like the PDF
-        product_skills = []
-        technical_skills = []
-        
-        for skill in skills_list:
-            skill = skill.strip()
-            if any(term in skill.lower() for term in ['product', 'roadmap', 'vision', 'strategy', 'stakeholder', 'agile', 'discovery']):
-                product_skills.append(skill)
-            else:
-                technical_skills.append(skill)
-        
         html = '<div class="section-header">SKILLS</div>'
-        html += '<div class="skills-container">'
         
-        # Left column
-        html += '<div class="skills-column">'
-        html += '<div class="skills-category">Vision & Roadmap</div><div class="skills-list">Roadmap Planning</div>'
-        html += '<div class="skills-category">PRDs & User Stories</div><div class="skills-list">Prioritization</div>'
-        html += '<div class="skills-category">Cross-Functional Teams</div>'
-        html += '<div class="skills-category">Stakeholder Management</div><div class="skills-list">Agile/SAFe</div>'
-        html += '<div class="skills-category">Product Discovery</div><div class="skills-list">Design Thinking</div>'
-        html += '<div class="skills-category">User Research</div><div class="skills-list">Process Optimization</div>'
-        html += '</div>'
-        
-        # Right column
-        html += '<div class="skills-column">'
-        html += '<div class="skills-category">RAG Architecture</div><div class="skills-list">Multi-Agent Systems</div>'
-        html += '<div class="skills-category">Prompt Engineering</div><div class="skills-list">Vector DBs (pgvector)</div>'
-        html += '<div class="skills-category">LLM Integration</div><div class="skills-list">Salesforce</div>'
-        html += '</div>'
-        
-        html += '</div>'
+        if skills_list:
+            # Create a clean, flowing skills section
+            html += '<div style="margin: 8pt 0;">'
+            html += '<div style="font-size: 11pt; color: #000000; line-height: 1.4;">'
+            html += ' • '.join(skills_list[:15])  # Limit to 15 most relevant skills
+            html += '</div>'
+            html += '</div>'
+        else:
+            # Fallback if no skills data available
+            html += '<div style="margin: 8pt 0;">'
+            html += '<div style="font-size: 11pt; color: #000000; line-height: 1.4;">'
+            html += 'Product Strategy • Roadmap Planning • Cross-Functional Leadership • AI/ML Systems • RAG Architecture • Salesforce • SAP • Process Automation • Agile/SAFe • Data Analysis'
+            html += '</div>'
+            html += '</div>'
         
         return html
     

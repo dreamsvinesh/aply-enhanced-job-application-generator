@@ -74,42 +74,36 @@ class ContentPreservingGenerator:
         return resume_data, changes_made
     
     def _generate_job_specific_title(self, jd_data: Dict, skills_analysis) -> str:
-        """Generate job-specific title while keeping 'Senior Product Manager' core"""
+        """Generate job-specific title - use 'Senior Product Manager' unless B2B SaaS specific"""
         
-        base_title = "Senior Product Manager - "
-        
-        # Analyze JD requirements for specializations
+        # Analyze JD requirements for B2B SaaS specific focus
         jd_text = ' '.join([
             jd_data.get('job_description', ''),
             ' '.join(jd_data.get('required_skills', [])),
             ' '.join(jd_data.get('preferred_skills', []))
         ]).lower()
         
-        specializations = []
+        # Only add specializations if the JD is specifically for B2B SaaS roles
+        if any(term in jd_text for term in ['b2b saas', 'enterprise saas', 'saas platform', 'saas product']):
+            base_title = "Senior Product Manager - "
+            specializations = []
+            
+            # Check for specific focuses mentioned in JD
+            if any(term in jd_text for term in ['ai', 'ml', 'artificial intelligence', 'machine learning', 'automation']):
+                specializations.append("AI Automation")
+            
+            if any(term in jd_text for term in ['system', 'integration', 'api', 'technical']):
+                specializations.append("System Integration")
+            
+            if any(term in jd_text for term in ['enterprise', 'saas', 'platform']):
+                specializations.append("Enterprise SaaS")
+            
+            # Use top 2 most relevant specializations for B2B SaaS roles
+            if specializations:
+                return base_title + " | ".join(specializations[:2])
         
-        # Check for specific focuses mentioned in JD
-        if any(term in jd_text for term in ['internal', 'operations', 'tools', 'workflow', 'process']):
-            specializations.append("Operations Tools")
-        
-        if any(term in jd_text for term in ['ai', 'ml', 'artificial intelligence', 'machine learning', 'automation']):
-            specializations.append("AI Automation")
-        
-        if any(term in jd_text for term in ['enterprise', 'saas', 'platform', 'scale']):
-            specializations.append("Enterprise SaaS")
-        
-        if any(term in jd_text for term in ['system', 'integration', 'api', 'technical']):
-            specializations.append("System Integration")
-        
-        if any(term in jd_text for term in ['cross-functional', 'leadership', 'team', 'collaboration']):
-            specializations.append("Cross-functional Leadership")
-        
-        # Use top 3 most relevant specializations
-        if specializations:
-            title = base_title + " | ".join(specializations[:3])
-        else:
-            title = self.user_profile['personal_info']['title']  # Fallback to original
-        
-        return title
+        # For all other roles, just use "Senior Product Manager"
+        return "Senior Product Manager"
     
     def _preserve_and_enhance_summary(self, jd_data: Dict, country: str) -> str:
         """Preserve original summary content while enhancing for JD alignment"""
@@ -167,7 +161,7 @@ class ContentPreservingGenerator:
                 enhanced_role['highlights'].append(enhanced_highlight)
             
             # For the first Product Manager role (current), add major projects if they're missing
-            if i == 0 and role.get('title', '').startswith('Product Manager') and len(enhanced_role['highlights']) < 6:
+            if i == 0 and ('Product Manager' in role.get('title', '')) and len(enhanced_role['highlights']) < 8:
                 self._add_major_project_highlights(enhanced_role, jd_data)
             
             # For the second Product Manager role, ensure Converge F&B platform is included
@@ -215,15 +209,39 @@ class ContentPreservingGenerator:
         return enhanced
     
     def _add_major_project_highlights(self, role: Dict[str, Any], jd_data: Dict):
-        """Add major project highlights from projects section to ensure completeness"""
-        projects = self.user_profile.get('projects', {})
+        """Add major project highlights from detailed projects to ensure completeness"""
         
-        # Add Salesforce-SAP integration if not already covered
-        if 'salesforce_sap_integration' in projects and len(role['highlights']) < 6:
-            sap_project = projects['salesforce_sap_integration']
-            role['highlights'].append(
-                f"Enhanced invoicing through Salesforce-SAP integration reducing processing from 21 days to real-time, achieving 35% contract accuracy improvement"
-            )
+        # Load detailed projects from extracted profile
+        try:
+            extracted_path = Path(__file__).parent.parent / "data" / "extracted_profile.json"
+            with open(extracted_path, 'r', encoding='utf-8') as f:
+                extracted_data = json.load(f)
+            detailed_projects = extracted_data.get('detailed_projects', [])
+        except:
+            detailed_projects = []
+        
+        # Current achievements from your latest resume that should be included
+        missing_achievements = []
+        
+        # Check if VO Product revamp is missing
+        if not any('10X growth' in h or 'VO product' in h for h in role['highlights']):
+            missing_achievements.append("Led complete revamp of VO product achieving 10X growth, reducing client onboarding from days to 10 minutes with Digi KYC")
+        
+        # Check if lead generation improvements are missing  
+        if not any('lead-to-conversion' in h or '5X' in h for h in role['highlights']):
+            missing_achievements.extend([
+                "Improved lead-to-conversion speed by 50% and increased lead generation 5X via IVR integration",
+                "Saved 50+ resource hours daily by automating sales workflows, minimizing errors and delays"
+            ])
+        
+        # Check if invoicing enhancement is missing
+        if not any('invoicing' in h.lower() or '21 days to real-time' in h for h in role['highlights']):
+            missing_achievements.append("Enhanced invoicing through Salesforce-SAP integration reducing processing from 21 days to real-time, achieving 35% contract accuracy improvement")
+        
+        # Add missing achievements to reach 8 total bullet points
+        for achievement in missing_achievements:
+            if len(role['highlights']) < 8:
+                role['highlights'].append(achievement)
     
     def _add_converge_platform_highlights(self, role: Dict[str, Any]):
         """Add Converge F&B platform highlights which are major achievements"""
