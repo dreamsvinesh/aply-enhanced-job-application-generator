@@ -20,6 +20,8 @@ from modules.cover_letter_generator import CoverLetterGenerator
 from modules.message_generator import MessageGenerator
 from modules.professional_html_generator import ProfessionalHTMLGenerator
 from modules.html_validation_agent import HTMLValidationAgent
+from modules.pre_generation_validator import PreGenerationValidator
+from modules.content_quality_validator import ContentQualityValidator
 from modules.llm_agents import AgentOrchestrator
 from modules.human_voice_agent import HumanVoiceAgent
 
@@ -33,6 +35,8 @@ class EnhancedJobApplicationGenerator:
         self.message_generator = MessageGenerator()
         self.html_generator = ProfessionalHTMLGenerator()
         self.html_validator = HTMLValidationAgent()
+        self.pre_generation_validator = PreGenerationValidator()
+        self.content_quality_validator = ContentQualityValidator()
         self.agent_orchestrator = AgentOrchestrator()
         self.human_voice_agent = HumanVoiceAgent()
         
@@ -84,6 +88,20 @@ class EnhancedJobApplicationGenerator:
         except Exception as e:
             print(f"❌ Error parsing job description: {str(e)}")
             raise ValueError(f"Job description parsing failed: {str(e)}")
+        
+        # Step 1.5: Pre-Generation Validation
+        print("🛡️  Running pre-generation validation...")
+        pre_validation_result = self.pre_generation_validator.validate_pre_generation(
+            self.user_profile, jd_data
+        )
+        self.pre_generation_validator.print_validation_report(pre_validation_result)
+        
+        # Handle pre-validation decision
+        if not pre_validation_result.should_proceed:
+            raise ValueError(f"Pre-generation validation failed: {pre_validation_result.summary}")
+        
+        if pre_validation_result.decision == 'PROCEED_WITH_WARNINGS':
+            print("⚠️  Proceeding with warnings - please review final output carefully")
         
         try:
             # Step 2: Generate content-preserving resume
@@ -163,6 +181,18 @@ class EnhancedJobApplicationGenerator:
             if 'overall_human_score' in scores:
                 print(f"   📊 {content_type.title()} human score: {scores['overall_human_score']:.1f}/10")
         
+        # Step 6.6: Content Quality Validation
+        print("🔍 Validating content quality...")
+        content_validation_result = self.content_quality_validator.validate_generated_content(
+            content_dict, self.user_profile, jd_data
+        )
+        self.content_quality_validator.print_validation_report(content_validation_result)
+        
+        # Handle content validation decision
+        if content_validation_result.should_regenerate:
+            print("🔄 Content quality issues detected - would regenerate in production")
+            print("   ⚠️  Continuing for demo purposes, but review output carefully")
+        
         # Prepare metadata
         metadata = {
             'company': jd_data['company'],
@@ -183,7 +213,23 @@ class EnhancedJobApplicationGenerator:
                 'voice_processing_time': voice_processing_time,
                 'total_generation_time': resume_time + cl_time + message_time + orchestration_time + voice_processing_time
             },
-            'human_voice_scores': voice_scores
+            'human_voice_scores': voice_scores,
+            'validation_results': {
+                'pre_generation': {
+                    'decision': pre_validation_result.decision,
+                    'confidence': pre_validation_result.confidence_score,
+                    'issues_count': len(pre_validation_result.issues)
+                },
+                'content_quality': {
+                    'decision': content_validation_result.decision,
+                    'overall_score': content_validation_result.scores['overall_content_score'],
+                    'factual_accuracy': content_validation_result.scores['factual_accuracy_score'],
+                    'completeness': content_validation_result.scores['content_completeness_score'],
+                    'professional_standards': content_validation_result.scores['professional_standards_score'],
+                    'human_writing_quality': content_validation_result.scores['human_writing_score'],
+                    'issues_count': len(content_validation_result.issues)
+                }
+            }
         }
         
         # Generate HTML
@@ -305,8 +351,25 @@ class EnhancedJobApplicationGenerator:
         print(f"🤖 AI Confidence: {orchestration_result.get('overall_confidence', 0):.1%}")
         print(f"⚡ Generation Time: {metadata['performance_metrics']['total_generation_time']:.2f}s")
         
-        # Quality scores
-        print(f"\\n📊 Quality Assessment:")
+        # Validation Results Summary
+        validation_results = metadata.get('validation_results', {})
+        if validation_results:
+            print(f"\\n🛡️  Validation Results:")
+            
+            # Pre-generation validation
+            pre_gen = validation_results.get('pre_generation', {})
+            print(f"   • Pre-generation: {pre_gen.get('decision', 'N/A')} ({pre_gen.get('confidence', 0):.1%} confidence)")
+            
+            # Content quality validation  
+            content_qual = validation_results.get('content_quality', {})
+            print(f"   • Content Quality: {content_qual.get('decision', 'N/A')} ({content_qual.get('overall_score', 0):.1f}/100)")
+            print(f"     - Factual Accuracy: {content_qual.get('factual_accuracy', 0):.1f}/100")
+            print(f"     - Completeness: {content_qual.get('completeness', 0):.1f}/100")
+            print(f"     - Professional Standards: {content_qual.get('professional_standards', 0):.1f}/100")
+            print(f"     - Human Writing Quality: {content_qual.get('human_writing_quality', 0):.1f}/100")
+        
+        # Quality scores (HTML validation)
+        print(f"\\n📊 HTML Quality Assessment:")
         print(f"   • Overall Quality: {validation_result['overall_score']:.1f}/100")
         print(f"   • Formatting: {validation_result['formatting_score']:.1f}/100")
         print(f"   • Content: {validation_result['content_score']:.1f}/100")

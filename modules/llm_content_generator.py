@@ -83,12 +83,12 @@ class LLMContentGenerator:
         country_prefs = self.country_config.get_country_preferences(country)
         
         return f"""
-You are an expert resume writer specializing in product management roles. Create a tailored resume based on the job requirements and candidate profile.
+You are an expert resume writer specializing in {jd_analysis.domain_focus} product management roles. Create a tailored resume that PRIORITIZES {jd_analysis.domain_focus.upper()} experience and skills.
 
 JOB ANALYSIS:
 Company: {jd_analysis.company}
-Role: {jd_analysis.role_title}
-Domain Focus: {jd_analysis.domain_focus}
+Role: {jd_analysis.role_title} 
+Domain Focus: {jd_analysis.domain_focus} ⭐ PRIMARY FOCUS
 Industry: {jd_analysis.industry}
 Required Skills: {', '.join(jd_analysis.required_skills)}
 Key Responsibilities: {', '.join(jd_analysis.key_responsibilities[:3])}
@@ -106,18 +106,19 @@ Cultural Preferences: {country_prefs.get('resume_style', 'Professional and conci
 
 RESUME GENERATION INSTRUCTIONS:
 
-1. **Professional Summary (2-3 lines)**:
-   - Highlight {jd_analysis.experience_years}+ years PM experience
-   - Emphasize {jd_analysis.domain_focus} domain expertise if user has relevant experience
-   - Mention specific technologies/skills from job requirements that user possesses
+1. **Professional Summary (2-3 lines)** - CRITICAL DOMAIN FOCUS:
+   - Lead with "{jd_analysis.domain_focus.title()} Product Manager" title
+   - Highlight {jd_analysis.experience_years}+ years PM experience IN {jd_analysis.domain_focus.upper()} domain
+   - Emphasize ONLY {jd_analysis.domain_focus} relevant achievements from candidate profile
+   - Mention specific {jd_analysis.domain_focus} technologies/skills from job requirements
    - Use {country} business communication style
 
-2. **Experience Section**:
-   - Select and customize 2-3 most relevant projects from profile
-   - Rewrite bullet points to match job requirements language
-   - Emphasize quantified results that align with role's success metrics
-   - Use action verbs relevant to {jd_analysis.domain_focus} domain
-   - Highlight technologies mentioned in job requirements
+2. **Experience Section** - PRIORITIZE {jd_analysis.domain_focus.upper()} PROJECTS:
+   - SELECT ONLY projects relevant to {jd_analysis.domain_focus} domain from profile
+   - REFRAME other projects to highlight {jd_analysis.domain_focus} aspects if applicable
+   - EMPHASIZE {jd_analysis.domain_focus} technologies and outcomes
+   - Use domain-specific action verbs for {jd_analysis.domain_focus}
+   - Highlight regulatory/compliance experience if {jd_analysis.domain_focus} is fintech
 
 3. **Skills Section**:
    - Prioritize skills mentioned in job requirements
@@ -175,19 +176,27 @@ Generate a compelling, accurate resume that positions the candidate for this spe
         
         score = 0.0
         
-        # Domain relevance
+        # Domain relevance - PRIORITIZE EXACT DOMAIN MATCHES
         relevant_for_roles = project.get('relevant_for_roles', [])
         domain_mapping = {
-            'payments': ['fintech_pm', 'payments_pm'],
-            'fintech': ['fintech_pm', 'payments_pm', 'banking_pm'],
-            'enterprise': ['enterprise_pm', 'b2b_pm'],
+            'payments': ['fintech_pm', 'payments_pm', 'banking_pm', 'automation_pm'],
+            'fintech': ['fintech_pm', 'payments_pm', 'banking_pm', 'automation_pm'],
+            'banking': ['fintech_pm', 'payments_pm', 'banking_pm', 'enterprise_pm'],
+            'enterprise': ['enterprise_pm', 'b2b_pm', 'automation_pm'],
             'saas': ['saas_pm', 'b2b_pm', 'enterprise_pm'],
             'ai_ml': ['ai_pm', 'technical_pm']
         }
         
         domain_keywords = domain_mapping.get(jd_analysis.domain_focus.lower(), [])
         if any(keyword in relevant_for_roles for keyword in domain_keywords):
-            score += 0.4
+            # BOOST fintech/payments match significantly 
+            if jd_analysis.domain_focus.lower() in ['payments', 'fintech', 'banking']:
+                if any(fk in relevant_for_roles for fk in ['fintech_pm', 'payments_pm', 'banking_pm']):
+                    score += 0.8  # Much higher weight for direct fintech match
+                else:
+                    score += 0.4
+            else:
+                score += 0.4
         
         # Technology overlap
         project_tech = [tech.lower() for tech in project.get('technologies', [])]

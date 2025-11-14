@@ -1,0 +1,52 @@
+{
+  "success": true,
+  "company": "Lunar",
+  "role_title": "Senior Product Manager",
+  "industry": "fintech",
+  "role_type": "product_manager",
+  "experience_years": 5,
+  "seniority_level": "senior",
+  "required_skills": [
+    "Product Management",
+    "Payments expertise",
+    "Technical acumen",
+    "Strategic Leadership"
+  ],
+  "preferred_skills": [
+    "Nordic payments landscape knowledge"
+  ],
+  "tech_stack": [],
+  "company_stage": "scaleup",
+  "company_size": "medium",
+  "remote_friendly": false,
+  "location": "Copenhagen, Aarhus, Stockholm",
+  "culture_keywords": [
+    "Innovative",
+    "Tech-driven",
+    "Disruptive"
+  ],
+  "key_responsibilities": [
+    "Define product strategy",
+    "Lead development of payment solutions",
+    "Ensure compliance and scalability",
+    "Manage key partners and vendors",
+    "Define and monitor KPIs"
+  ],
+  "success_metrics": [
+    "Measurement of effortlessness and efficiency"
+  ],
+  "domain_focus": "payments",
+  "regulatory_requirements": [
+    "PSD2",
+    "GDPR"
+  ],
+  "team_structure": "Not specified",
+  "growth_opportunities": [
+    "Opportunity to shape the future of banking"
+  ],
+  "confidence_score": 0.85,
+  "analysis_cost": 0.001256,
+  "raw_jd": "As a Senior Product Manager, you will ensure that the cards and account top-up experiences are so simple, intuitive and scalable that it becomes an automated and frictionlessly journey of the customer's financial life. Your ultimate goal: simplify and scale the card and account top up capabilities, so that it becomes highly automated and built for hyper-personal experiences.\n\nAt Lunar, we are democratizing the power of money and changing the way we all bank, pay, and invest. Since starting in Aarhus in 2015, we've grown rapidly and are now a major player in the Nordics, with offices in Copenhagen, Aarhus, and Stockholm \ud83d\ude80\n\nSo, who are we? Are we a tech company or a bank? Well, we're both breaking free from the usual categories. At Lunar, tech isn't just a cool add-on; it's the core of how we do things. With our own banking license, we go head-to-head with traditional banks. What sets us apart is the mix of tech and financial services, giving us the power to shake up a dusty industry that's ready for a change.\n\nAs we continue our journey to becoming the best everyday bank in the Nordics, we are looking for a/an {insert role} to {insert brief role purpose} so that we can {insert brief business driver}.\n\nWhat will you do?\n\nProduct Strategy & roadmap: Define the strategy for card payments and account-top-ups that aligns with our Nordic presence ambitions, our core Invisible Banking differentiator and our Scalable banking mantra. Translate this into a clear roadmap.\n\nProduct Lifecycle: Lead the development of card issuing & processing and account-top-ups payment solutions for Lunar customers. Work intimately with Engineering (and other stakeholders) to build a hyper-efficient foundation.\n\nScale & compliance: Build and run a foundation that ensures our payment infrastructure is robust, fast, and compliant (PSD2, GDPR, etc.), turning scalability into a competitive advantage for our growth.\n\nVendor & Innovation pipeline: Proactively manage key partners and vendors, ensuring they power our future vision and feed an innovation pipeline that keeps Lunar at the cutting edge of fintech.\n\nPerformance: Be data-driven, defining and monitoring KPIs that measure effortlessness and efficiency, not just usage.\n\nWhat are we looking for in you?\n\nWe're excited to welcome everyone to apply for this impactful role! We can't wait to follow up with talents who we believe are the best fit based on the following criteria:\n\nDomain mastery (5+ years): Deep, hands-on experience in product management with a focus on payment products within a regulated fintech or banking environment.\n\nPayments expertise: A strong understanding of the payments ecosystem, including card network rules (Visa/Mastercard), alternative payment methods foundations and payments processing flows.\n\nTechnical acumen: The ability to understand complex system architecture and engage effectively with engineering teams to build a fast, low-cost, high-velocity foundation for growth.\n\nStrategic Leadership: Proven ability to define a product strategy, influence stakeholders across the organization (including senior leadership), and be able to guide and motivate a high-performing team. \n\nNordic focus (desirable): Experience or a strong understanding of the unique Nordic payments landscape and its regulatory environment.",
+  "llm_reasoning": "Clear indications of fintech payments domain, regulatory requirements mentioned, and specific experience level required",
+  "error_message": null
+}

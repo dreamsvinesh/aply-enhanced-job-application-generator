@@ -342,3 +342,16 @@ class CountryConfig:
     def get_supported_countries(self) -> List[str]:
         """Get list of supported countries"""
         return list(self.countries.keys())
+    
+    def get_country_preferences(self, country: str) -> Dict:
+        """Get country-specific preferences for content generation"""
+        country = country.lower()
+        if country in self.countries:
+            return self.countries[country]
+        else:
+            # Return default preferences for unknown countries
+            return {
+                'resume_style': 'Professional and concise',
+                'resume_tone': 'Use professional tone',
+                'achievement_style': 'Include quantified achievements'
+            }

@@ -28,7 +28,7 @@ class ProfileExtractor:
     """Extract comprehensive profile from various sources"""
     
     def __init__(self):
-        self.profile_file = Path(__file__).parent.parent / "data" / "comprehensive_profile.json"
+        self.profile_file = Path(__file__).parent.parent / "data" / "extracted_profile.json"
         self.backup_dir = Path(__file__).parent.parent / "data" / "profile_backups"
         self.backup_dir.mkdir(exist_ok=True)
         

@@ -1,0 +1,46 @@
+{
+  "success": true,
+  "company": "TechFlow Solutions",
+  "role_title": "Senior Product Manager",
+  "industry": "Fintech",
+  "role_type": "product_manager",
+  "experience_years": 5,
+  "seniority_level": "senior",
+  "required_skills": [
+    "Product management",
+    "Fintech or payment processing systems",
+    "Analytical skills",
+    "Data-driven decision making",
+    "Knowledge of PCI DSS"
+  ],
+  "preferred_skills": [
+    "PSD2 compliance",
+    "Agile development methodologies"
+  ],
+  "tech_stack": [],
+  "company_stage": "growth",
+  "company_size": "medium",
+  "remote_friendly": false,
+  "location": "London, UK (Hybrid)",
+  "culture_keywords": [],
+  "key_responsibilities": [
+    "Define product strategy for payment processing features",
+    "Work closely with engineering teams to deliver scalable solutions",
+    "Analyze user feedback and market trends to prioritize features",
+    "Collaborate with compliance team on regulatory requirements",
+    "Lead cross-functional teams to launch new payment products"
+  ],
+  "success_metrics": [],
+  "domain_focus": "payments",
+  "regulatory_requirements": [
+    "PCI DSS",
+    "PSD2"
+  ],
+  "team_structure": "Not specified",
+  "growth_opportunities": [],
+  "confidence_score": 0.85,
+  "analysis_cost": 0.001055,
+  "raw_jd": "Senior Product Manager - Fintech Platform\n\nWe're looking for a Senior Product Manager to join our growing fintech team at TechFlow Solutions. You'll be responsible for driving our payment processing platform and ensuring seamless user experiences for our enterprise customers.\n\nKey Responsibilities:\n- Define product strategy for payment processing features\n- Work closely with engineering teams to deliver scalable solutions\n- Analyze user feedback and market trends to prioritize features\n- Collaborate with compliance team on regulatory requirements\n- Lead cross-functional teams to launch new payment products\n\nRequirements:\n- 5+ years of product management experience\n- Experience with fintech or payment processing systems\n- Strong analytical skills and data-driven decision making\n- Knowledge of PCI DSS, PSD2 compliance preferred\n- Bachelor's degree in Business, Engineering, or related field\n- Experience with agile development methodologies\n\nWe offer competitive compensation, equity, and the opportunity to shape the future of financial technology.\n\nLocation: London, UK (Hybrid)\nCompany: TechFlow Solutions\nIndustry: Financial Technology",
+  "llm_reasoning": "The skills, experience level, industry, and specific responsibilities align well with the role of a Senior Product Manager in a fintech company focused on payment processing with regulatory compliance requirements.",
+  "error_message": null
+}
