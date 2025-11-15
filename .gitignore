@@ -90,3 +90,19 @@ output/*.pdf
 # Temporary test files
 test_*.py
 !tests/test_*.py
+
+# Debug and diagnostic files (added Nov 15, 2024)
+debug_*.py
+debug_*.txt
+diagnose_*.py
+diagnosis_*.txt
+analyze_*.py
+
+# Output cleanup (keep only final successful packages)
+output/Dealfront_Denmark_FactAware_2025111[0-4]*
+output/enhanced_dealfront_2025*
+output/ats_analysis_test/
+
+# Keep final application packages
+!output/HelloFresh_*
+!output/Dealfront_Denmark_FactAware_20251115_145918/

@@ -69,7 +69,12 @@ class LLMService:
         # Model pricing (per 1M tokens) - Updated with latest prices
         self.pricing = {
             'claude-3-haiku': {'input': 0.25, 'output': 1.25},
+            'claude-3-haiku-20240307': {'input': 0.25, 'output': 1.25},
+            'claude-3-5-haiku-20240307': {'input': 1.0, 'output': 5.0},
+            'claude-3-5-haiku-20241022': {'input': 1.0, 'output': 5.0},
             'claude-3-sonnet': {'input': 3.0, 'output': 15.0},
+            'claude-3-5-sonnet-20241022': {'input': 3.0, 'output': 15.0},
+            'claude-3-sonnet-20241022': {'input': 3.0, 'output': 15.0},
             'claude-3-opus': {'input': 15.0, 'output': 75.0},
             'gpt-4o-mini': {'input': 0.15, 'output': 0.60},  # CHEAPEST OPTION!
             'gpt-3.5-turbo': {'input': 0.50, 'output': 1.50},
@@ -351,23 +356,23 @@ class LLMService:
             temperature: Controls randomness (0.0-1.0, default 0.3)
         """
         
-        # Model selection optimized for cost - prioritize GPT if available
-        if self.openai_client and not self.claude_client:
-            # User has GPT API - use cheapest GPT model (0.2¢ per application!)
-            primary_model = "gpt-4o-mini"
-            fallback_model = "gpt-3.5-turbo"
-        elif self.claude_client and not self.openai_client:
-            # User has Claude API - use cheapest Claude (0.3¢ per application)
-            primary_model = "claude-3-haiku-20240307"
-            fallback_model = "claude-3-sonnet-20241022"
+        # Model selection prioritizes Claude 3.5 Haiku (best available Claude model)
+        if self.claude_client and not self.openai_client:
+            # User has Claude API - use Claude 3.5 Haiku (best available)
+            primary_model = "claude-3-5-haiku-20241022"
+            fallback_model = "claude-3-haiku-20240307"
         elif self.openai_client and self.claude_client:
-            # Both available - use Claude Haiku (cheapest option)
-            primary_model = "claude-3-haiku-20240307" 
+            # Both available - prioritize Claude 3.5 Haiku, fallback to OpenAI
+            primary_model = "claude-3-5-haiku-20241022" 
+            fallback_model = "gpt-4o-mini"
+        elif self.openai_client and not self.claude_client:
+            # User has only OpenAI - use as backup
+            primary_model = "gpt-4o-mini"
             fallback_model = "gpt-3.5-turbo"
         else:
             # No API keys - will fail gracefully
-            primary_model = "gpt-3.5-turbo"
-            fallback_model = "claude-3-haiku-20240307"
+            primary_model = "claude-3-5-haiku-20241022"
+            fallback_model = "gpt-4o-mini"
         
         # Check cache first
         if use_cache:

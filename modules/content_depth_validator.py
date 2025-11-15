@@ -84,6 +84,22 @@ class ContentDepthValidator:
             'role_validations': []
         }
         
+        # Check for professional title after name (CRITICAL REQUIREMENT)
+        lines = resume_content.strip().split('\n')
+        if len(lines) < 2:
+            validation_result['is_valid'] = False
+            validation_result['issues'].append("Missing professional title line after name")
+            return validation_result
+        
+        # Check if second line contains professional title
+        name_line = lines[0].strip()
+        title_line = lines[1].strip()
+        
+        if not title_line or 'Product Manager' not in title_line or ('Product Operations' not in title_line and 'AI' not in title_line):
+            validation_result['is_valid'] = False
+            validation_result['issues'].append(f"Missing or invalid professional title. Expected: 'Senior Product Manager - Product Operations | AI & Process Automation' but found: '{title_line}'")
+            return validation_result
+        
         # Extract experience sections
         experience_sections = self._extract_experience_sections(resume_content)
         

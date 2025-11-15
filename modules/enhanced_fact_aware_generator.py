@@ -11,8 +11,9 @@ from typing import Dict, List, Any, Optional
 from pathlib import Path
 from datetime import datetime
 
-from modules.user_data_extractor import UserDataExtractor
+from modules.real_user_data_extractor import RealUserDataExtractor
 from modules.llm_service import LLMService
+from modules.adlina_style_guide import AdlinaStyleGuide
 from modules.content_quality_validator import ContentQualityValidator
 from modules.ats_scoring_engine import ATSScoringEngine
 from modules.ats_resume_optimizer import ATSResumeOptimizer
@@ -43,7 +44,7 @@ class EnhancedFactAwareGenerator:
                  enable_brutal_validation: bool = True):
         
         # Core components
-        self.user_extractor = UserDataExtractor()
+        self.user_extractor = RealUserDataExtractor()
         self.llm_service = LLMService()
         self.quality_validator = ContentQualityValidator()
         self.ats_scoring = ATSScoringEngine()
@@ -330,32 +331,102 @@ class EnhancedFactAwareGenerator:
         pm_achievements = extracted_data['work_experience'][1]['exact_achievements'] if len(extracted_data['work_experience']) > 1 else []
         engineer_achievements = extracted_data['work_experience'][2]['exact_achievements'] if len(extracted_data['work_experience']) > 2 else []
         
-        # Enhanced prompt with explicit achievement requirements
+        # EXTRACT F&B PROJECT DATA for enhanced context
+        fnb_project_data = ""
+        if 'project_documentation' in extracted_data and 'fnb_platform' in extracted_data['project_documentation']:
+            fnb_project = extracted_data['project_documentation']['fnb_platform']
+            fnb_project_data = f"""
+F&B PROJECT CONTEXT (RAG SOURCE - THIS IS PART OF SENIOR PM ROLE):
+- Project: {fnb_project['project_name']} ({fnb_project['duration']})
+- Role: {fnb_project['role']}
+- Scope: {fnb_project['scope']}
+- Key Business Metrics: {', '.join(fnb_project['key_metrics'][:6])}
+- Technical Achievements: {', '.join(fnb_project['technical_achievements'][:4])}
+- Business Impact: {', '.join(fnb_project['business_impact'][:4])}
+
+⚠️ CRITICAL: F&B achievements should be included in SENIOR PRODUCT MANAGER role (01/2023 - Present), NOT in old PM role.
+"""
+        
+        # ULTRA-STRICT RAG-ONLY PROMPT WITH ADLINA-STYLE WRITING
         prompt = f"""
-{constraints_prompt}
+🛡️ CRITICAL RAG SYSTEM CONSTRAINTS - VIOLATION = IMMEDIATE FAILURE
+================================================================================
+YOU ARE A RAG CONTENT ASSEMBLER - NOT A CREATIVE WRITER
+YOUR JOB: Copy and arrange ONLY the provided data below using ADLINA'S WRITING STYLE.
+FORBIDDEN: Adding any content not explicitly provided in this prompt.
 
-TASK: Create resume for {extracted_data['personal_info']['name']} for Product Operations role at Dealfront.
+⚠️  STRICT RULES:
+1. Use ONLY achievements listed below - word for word
+2. Use ONLY personal info provided below  
+3. Use ONLY education listed below
+4. Use ONLY companies mentioned: COWRKS, Automne Technologies, Rukshaya Emerging Technologies
+5. DO NOT ADD any achievements, metrics, or details not in the RAG data below
+6. DO NOT use general knowledge about product management
+7. DO NOT create new bullet points beyond what's provided
 
-CRITICAL: You MUST use ALL achievements listed below. Do NOT summarize or shorten them.
+{AdlinaStyleGuide.generate_style_prompt(f"Product Operations at {jd_analysis.get('extracted_info', {}).get('company', 'target company')}")}
 
-SENIOR PM ROLE - COWRKS (01/2023 - Present):
-REQUIREMENT: Write exactly {len(senior_pm_achievements)} bullets using these EXACT achievements:
-{chr(10).join([f"• {achievement}" for achievement in senior_pm_achievements])}
+🔒 RAG DATA VAULT - THIS IS YOUR ONLY SOURCE:
+================================================================================
 
-PM ROLE - COWRKS (08/2016 - 01/2020):
-REQUIREMENT: Write exactly {len(pm_achievements)} bullets using these EXACT achievements:
-{chr(10).join([f"• {achievement}" for achievement in pm_achievements])}
+PERSONAL INFO (COPY EXACTLY):
+- Name: {extracted_data['personal_info']['name']}
+- Email: {extracted_data['personal_info']['email']}
+- Phone: {extracted_data['personal_info']['phone']}
 
-ENGINEER ROLE - Automne/Rukshaya (09/2012 - 07/2016):
-REQUIREMENT: Write exactly {len(engineer_achievements)} bullets using these EXACT achievements:
-{chr(10).join([f"• {achievement}" for achievement in engineer_achievements])}
+EDUCATION (COPY EXACTLY):
+- Master of Science in Software Engineering • Anna University • 01/2007 - 01/2011
 
-WRITING STYLE: Human, direct, action-focused. NO words like "comprehensive", "facilitate", "leverage".
-BULLET LENGTH: Each bullet 20-35 words (current ones are perfect length).
-SECTIONS: Include "PROFESSIONAL SUMMARY", "EXPERIENCE", "EDUCATION" headers.
-FORMAT: Role • Company • Duration • Location
+{fnb_project_data}
 
-Create the resume now using ALL achievements exactly as provided above.
+RAG ACHIEVEMENT VAULT - SENIOR PM (USE ALL {len(senior_pm_achievements)} EXACTLY AS WRITTEN):
+{chr(10).join([f"   • {achievement}" for achievement in senior_pm_achievements])}
+
+RAG ACHIEVEMENT VAULT - PM ROLE (USE ALL {len(pm_achievements)} EXACTLY AS WRITTEN):
+{chr(10).join([f"   • {achievement}" for achievement in pm_achievements])}
+
+RAG ACHIEVEMENT VAULT - ENGINEER (USE EXACTLY AS WRITTEN):
+{chr(10).join([f"   • {achievement}" for achievement in engineer_achievements])}
+
+🎯 ASSEMBLY INSTRUCTIONS:
+================================================================================
+Create resume using ONLY RAG vault data above. Format EXACTLY as follows:
+
+{extracted_data['personal_info']['name']}
+Senior Product Manager - Product Operations | AI & Process Automation
+Email: {extracted_data['personal_info']['email']} | Phone: {extracted_data['personal_info']['phone']}
+
+⚠️  CRITICAL: The professional title line is MANDATORY and must appear immediately after the name.
+
+PROFESSIONAL SUMMARY (70+ words using ONLY RAG data - ADLINA STYLE):
+[FORBIDDEN: "innovative", "transformative", "cutting-edge", "leveraged", "strategic", "comprehensive"
+⚠️ CRITICAL: DO NOT MIX PROJECTS - Each achievement is from separate projects:
+• AI RAG system: 94% accuracy with sub-second response times (separate project)
+• F&B platform: €20-22M GMV from 1,330 to 30,000+ orders (separate project)  
+• Contract automation: 42 days→10 minutes (separate project)
+• Salesforce integration: 21 days→real-time invoicing, 35% contract accuracy (separate project)
+START WITH: "Senior Product Manager with 6+ years..." 
+STRUCTURE: Built X achieving Y. Led Z generating W. Specialized in A—reducing B and accelerating C through D.]
+
+EXPERIENCE
+
+Senior Product Manager • COWRKS • 01/2023 - Present • Bangalore, India
+[COPY ALL {len(senior_pm_achievements)} RAG achievements exactly - no additions, no modifications]
+
+Product Manager • COWRKS • 08/2016 - 01/2020 • Bangalore, India  
+[COPY ALL {len(pm_achievements)} RAG achievements exactly - no additions, no modifications]
+
+Frontend Engineer • Automne Technologies | Rukshaya Emerging Technologies • 09/2012 - 07/2016 • Bangalore, India
+[COPY RAG achievement exactly - no additions, no modifications]
+
+EDUCATION
+Master of Science in Software Engineering • Anna University • 01/2007 - 01/2011
+
+SKILLS
+[Only skills evidenced in RAG achievements: Product Management, AI/ML Systems, Process Automation, Enterprise Software, Cross-functional Leadership, Data Analysis]
+
+⚠️  FINAL WARNING: Any content not from RAG vault above = FAILURE
+Execute assembly now using ONLY provided RAG data.
 """
         
         try:
@@ -366,6 +437,10 @@ Create the resume now using ALL achievements exactly as provided above.
                 max_tokens=3000   # Increased for comprehensive content
             )
             
+            # Convert currency for target country
+            if response and hasattr(response, 'content'):
+                response.content = self.user_extractor.convert_currency_for_country(response.content, country)
+            
             # Validate content depth
             depth_validation = self.depth_validator.validate_content_depth(response.content, jd_analysis)
             
@@ -374,6 +449,7 @@ Create the resume now using ALL achievements exactly as provided above.
             
             return {
                 'content': response.content,
+                'model': response.model,
                 'depth_validation': depth_validation,
                 'fact_validation': fact_validation,
                 'preserves_facts': fact_validation['is_valid'],

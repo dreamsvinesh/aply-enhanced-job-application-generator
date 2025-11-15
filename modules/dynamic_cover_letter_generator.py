@@ -11,10 +11,10 @@ from typing import Dict, List, Optional
 from pathlib import Path
 
 # Import existing modules
-from llm_service import LLMService
-from country_config import CountryConfig
-from database_manager import DatabaseManager
-from dynamic_template_generator import DynamicTemplateGenerator
+from modules.llm_service import LLMService
+from modules.country_config import CountryConfig
+from modules.database_manager import DatabaseManager
+from modules.dynamic_template_generator import DynamicTemplateGenerator
 
 class DynamicCoverLetterGenerator:
     """

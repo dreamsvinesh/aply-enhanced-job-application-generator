@@ -13,13 +13,15 @@ from datetime import datetime
 sys.path.append(str(Path(__file__).parent / "modules"))
 
 try:
-    from modules.enhanced_jd_parser import EnhancedJDParser
-    from modules.fact_aware_content_generator import FactAwareContentGenerator
-    from modules.user_data_extractor import UserDataExtractor
-    from modules.content_quality_validator import ContentQualityValidator
+    from modules.enhanced_fact_aware_generator import EnhancedFactAwareGenerator
+    from modules.real_user_data_extractor import RealUserDataExtractor
+    from modules.dynamic_cover_letter_generator import DynamicCoverLetterGenerator
+    from modules.dynamic_email_linkedin_generator import DynamicEmailLinkedInGenerator
+    generator_available = True
 except ImportError as e:
     print(f"Import error: {e}")
     print("Using mock implementation for demo...")
+    generator_available = False
 
 def main():
     print("🚀 DEALFRONT DENMARK APPLICATION PACKAGE GENERATION")
@@ -150,176 +152,145 @@ Engagement with documentation and enablement assets ↑"""
     print("🛡️ **GENERATING FACT-AWARE CONTENT WITH REAL USER DATA**")
     print("-" * 70)
     
-    # Real user profile from extracted data
-    real_user_profile = {
-        'personal_info': {
-            'name': 'Vinesh Kumar',
-            'email': 'vineshmuthukumar@gmail.com', 
-            'phone': '+91-81230-79049',
-            'location': 'Bangalore, India'
-        },
-        'professional_summary': {
-            'years_experience': '11 years in technology (7 in PM)',
-            'specialization': 'AI/ML systems, RAG architecture, and enterprise automation across B2B SaaS platforms'
-        },
-        'work_experience': [
-            {
-                'role': 'Senior Product Manager',
-                'company': 'COWRKS',
-                'duration': '01/2023 - Present',
-                'location': 'Bangalore, India',
-                'achievements': [
-                    'Created AI RAG system with pgvector achieving 94% accuracy, serving 200+ employees in 1,500+ weekly queries',
-                    'Automated contract activation workflow reducing timeline 99.6% from 42 days to 10 minutes, accelerating $2M revenue recognition',
-                    'Led automation rollout achieving 100% adoption across 5 departments in 2 weeks, boosting team efficiency',
-                    'Secured CEO approval and $2M investment through ROI presentations and competitive analysis',
-                    'Cut support tickets 75% (500→125 monthly) through intelligent automation and process optimization'
-                ]
-            },
-            {
-                'role': 'Product Manager', 
-                'company': 'COWRKS',
-                'duration': '08/2016 - 01/2020',
-                'location': 'Bangalore, India',
-                'achievements': [
-                    'Developed mobile app features increasing engagement 45% and customer satisfaction 65% across 80+ locations',
-                    'Generated €220K monthly revenue through monetizing underutilized inventory, creating 15% new revenue stream',
-                    'Reduced lead conversion time 32% and accelerated onboarding from 110 days to 14 days through process redesign'
-                ]
-            },
-            {
-                'role': 'Frontend Engineer',
-                'company': 'Automne Technologies | Rukshaya Emerging Technologies', 
-                'duration': '09/2012 - 07/2016',
-                'location': 'Bangalore, India',
-                'achievements': [
-                    'Built and maintained front-end web applications using HTML5, CSS3, and Angular.JS for 50+ enterprise clients across banking and e-commerce sectors'
-                ]
-            }
-        ],
-        'education': [
-            {
-                'degree': 'Master of Science in Software Engineering',
-                'institution': 'Anna University',
-                'duration': '01/2007 - 01/2011'
-            }
-        ],
-        'key_achievements': [
-            'Built product operations framework enabling 10→50+ team scaling with maintained velocity',
-            'Implemented AI-powered process automation reducing manual work by 80%',
-            'Achieved 95% process adoption rate across product and engineering teams',
-            'Improved roadmap predictability by 40% through structured planning and governance', 
-            'Designed enablement systems reducing decision latency by 60%'
-        ]
-    }
+    if not generator_available:
+        print("❌ RAG system modules not available - cannot generate content")
+        return
     
-    # Generate content with Denmark cultural adaptation
+    # Initialize the RAG-based fact-aware generators
+    resume_generator = EnhancedFactAwareGenerator()
+    resume_generator.enable_brutal_validation = True  # Enable with professional title validation
+    
+    cover_letter_generator = DynamicCoverLetterGenerator()
+    email_linkedin_generator = DynamicEmailLinkedInGenerator()
+    
+    print("✅ RAG system initialized with brutal validation enabled")
+    print("📄 Using real user data + F&B project documentation")
+    print()
+    
+    # Generate RAG-based content with brutal validation
     print("📄 **1. GENERATING FACT-AWARE RESUME**")
-    resume_content = f"""VINESH KUMAR
-Senior Product Manager | B2B SaaS Product Operations | AI & Process Automation
-+91-81230-79049 • vineshmuthukumar@gmail.com • Bangalore, India
+    
+    try:
+        resume_result = resume_generator.generate_comprehensive_resume(jd_analysis, country)
+        
+        if resume_result.get('generation_summary', {}).get('workflow_success', False):
+            resume_content = resume_result['resume_generation']['content']
+            print("✅ Resume generated with real COWRKS experience and Denmark-appropriate tone")
+            print(f"• Word Count: {len(resume_content.split())} words")
+            print("• Emphasis: 0→1 experience, AI automation, process operations, measurable impact")
+            
+            # Check if F&B project data was included
+            if 'F&B' in resume_content or 'food ordering' in resume_content:
+                print("• F&B project data: ✅ Included")
+            else:
+                print("• F&B project data: ⚠️ Not detected")
+            
+            # Show validation results
+            if 'validation_results' in resume_result:
+                validation = resume_result['validation_results']
+                print(f"• Brutal validation: {'✅ PASSED' if validation.get('is_valid', False) else '❌ FAILED'}")
+            
+        else:
+            print(f"❌ Resume generation failed: {resume_result.get('error', 'Unknown error')}")
+            # Fallback to a minimal resume
+            resume_content = """VINESH KUMAR
++91-81230-79049 • vineshmuthukumar@gmail.com
 
 PROFESSIONAL SUMMARY
-
-Senior Product Manager with 11 years in technology (7 in PM) specializing in AI-powered product operations and enterprise automation for B2B SaaS platforms. Proven expertise building process frameworks from 0→1 in high-growth environments, with particular strength in AI-enabled automation, team enablement, and strategic operations. Track record includes AI RAG system achieving 94% accuracy, workflow automation reducing timelines from 42 days to 10 minutes, and $2M revenue acceleration through intelligent process optimization.
+Senior Product Manager with expertise in AI/ML systems, RAG implementations, and multi-agent architectures.
 
 EXPERIENCE
-
 Senior Product Manager • COWRKS • 01/2023 - Present • Bangalore, India
-• Spearheaded AI RAG system implementation achieving 94% accuracy and serving 200+ employees in 1,500+ weekly queries through intelligent automation and hybrid search capabilities
-• Automated contract activation workflow reducing timeline 99.6% from 42 days to 10 minutes, accelerating $2M revenue recognition and establishing new industry benchmark 
-• Led enterprise automation rollout achieving 100% adoption across 5 departments in 2 weeks, boosting team efficiency for revenue-generating activities through structured change management
-• Secured CEO approval and $2M investment through comprehensive ROI presentations and competitive landscape analysis demonstrating operational efficiency advantages
-• Cut support tickets 75% (500→125 monthly) through intelligent process automation, saving 50+ resource hours daily while maintaining high service quality standards
-
 Product Manager • COWRKS • 08/2016 - 01/2020 • Bangalore, India  
-• Developed mobile app features (auto WiFi, room booking, food ordering) increasing user engagement 45% and customer satisfaction 65% across 80+ locations through user-centered design
-• Generated €220K monthly revenue by monetizing underutilized non-desk inventory (parking, lounges), creating 15% new revenue stream per location through strategic pricing and positioning
-• Reduced lead conversion time 32% and accelerated customer onboarding from 110 days to 14 days through process redesign and cross-functional stakeholder alignment
-• Improved occupancy rates 25% enabling faster time-to-value for clients through streamlined operational workflows and feedback loop implementation
-
-Frontend Engineer • Automne Technologies | Rukshaya Emerging Technologies • 09/2012 - 07/2016 • Bangalore, India
-• Built and maintained scalable front-end web applications using HTML5, CSS3, and Angular.JS for 50+ enterprise clients across banking and e-commerce sectors
-• Delivered end-to-end UX to UI development for high-volume transaction systems handling complex business requirements
+Frontend Engineer • Automne Technologies | Rukshaya Emerging Technologies • 09/2012 - 07/2016
 
 EDUCATION
-
-Master of Science in Software Engineering • Anna University • 01/2007 - 01/2011
-
-CORE COMPETENCIES
-
-Product Operations: Process design, planning cadences, delivery governance, team enablement, strategic operations
-AI & Automation: Process automation, intelligent workflows, AI-powered analytics, system integration, data-driven optimization  
-Team Leadership: Cross-functional collaboration, change management, stakeholder alignment, process adoption, performance improvement
-Business Impact: Revenue acceleration, efficiency optimization, cost reduction, operational excellence, measurable outcome delivery"""
-
-    print("✅ Resume generated with real COWRKS experience and Denmark-appropriate tone")
-    print(f"• Word Count: {len(resume_content.split())} words")
-    print("• Emphasis: 0→1 experience, AI automation, process operations, measurable impact")
+Master of Science in Software Engineering • Anna University • 01/2007 - 01/2011"""
+            
+    except Exception as e:
+        print(f"❌ Error generating resume: {str(e)}")
+        resume_content = "Resume generation failed"
     print()
     
     print("📝 **2. GENERATING FACT-AWARE COVER LETTER**")
-    cover_letter_content = f"""Dear Dealfront Hiring Team,
+    
+    try:
+        cover_letter_result = cover_letter_generator.generate_dynamic_cover_letter(jd_analysis, resume_content, "denmark")
+        
+        if cover_letter_result.get('success', False):
+            cover_letter_content = cover_letter_result['content']
+            print("✅ Cover letter generated with founding role positioning and Denmark cultural adaptation")
+            print(f"• Word Count: {len(cover_letter_content.split())} words")
+            print("• Focus: 0→1 experience, AI automation, measurable impact, cultural fit")
+        else:
+            print("❌ Cover letter generation failed, using fallback")
+            cover_letter_content = """Dear Dealfront Hiring Team,
 
-I am writing to express my strong interest in the founding Product Operations role at Dealfront. Your mission to transform B2B go-to-market through intelligent signal orchestration resonates deeply with my experience building scalable product operations frameworks that enable high-growth teams to execute with clarity and velocity.
+I am writing to express my interest in the founding Product Operations role at Dealfront. With my experience building product operations frameworks from 0→1 in high-growth SaaS environments, I am excited about establishing the operating model for your scaling organization.
 
-In my current role as Senior Product Manager at COWRKS, I have built product operations infrastructure from the ground up that directly aligns with Dealfront's needs. I created an AI RAG system achieving 94% accuracy that serves 200+ employees, demonstrating the AI-first approach your role emphasizes. Most relevantly, I automated contract activation workflows reducing timelines 99.6% from 42 days to 10 minutes while accelerating $2M revenue recognition—exactly the type of process automation and measurable impact Dealfront seeks.
-
-My experience establishing product operations from 0→1 positions me perfectly for this founding role. At COWRKS, I led automation rollout achieving 100% adoption across 5 departments in 2 weeks and cut support tickets 75% through intelligent process optimization. This demonstrates my ability to design enablement systems, drive adoption, and deliver the structured accountability frameworks that will enable Dealfront's Product Core & Growth and Tech teams to scale effectively.
-
-Denmark's business culture values directness, efficiency, and results-oriented execution—principles that align with my approach to product operations. I secured CEO approval and $2M investment through data-driven ROI presentations and consistently deliver measurable outcomes: 94% accuracy improvements, 99.6% timeline reductions, and 75% efficiency gains. My track record building process foundations in high-growth SaaS environments makes me confident I can establish the operating model that will connect Dealfront's strategy to execution.
-
-I am particularly excited about leveraging AI for process automation at Dealfront, an area where my hands-on experience with intelligent systems and automation can drive immediate value. My proven ability to identify and close operational gaps while establishing scalable frameworks will ensure your teams move faster, smarter, and with measurable impact.
-
-Thank you for considering my application. I would welcome the opportunity to discuss how my experience building product operations foundations can accelerate Dealfront's scaling ambitions.
+My background directly addresses Dealfront's need for AI-enabled process automation, structured enablement systems, and measurable impact delivery.
 
 Best regards,
 Vinesh Kumar"""
-
-    print("✅ Cover letter generated with founding role positioning and Denmark cultural adaptation")
-    print(f"• Word Count: {len(cover_letter_content.split())} words")
-    print("• Focus: 0→1 experience, AI automation, measurable impact, cultural fit")
+            
+    except Exception as e:
+        print(f"❌ Error generating cover letter: {str(e)}")
+        cover_letter_content = "Cover letter generation failed"
+    
+    print()
     print()
     
     print("📧 **3. GENERATING FACT-AWARE EMAIL TEMPLATE**")
-    email_subject = "Application: Founding Product Operations Role - Proven 0→1 Scaling & AI Automation Experience"
     
-    email_body = f"""Dear Dealfront Team,
+    try:
+        email_result = email_linkedin_generator.generate_email_template(jd_analysis, resume_content, "denmark")
+        
+        if email_result.get('success', False):
+            email_subject = email_result['subject']
+            email_body = email_result['content']
+            print("✅ Email template generated with professional Denmark-appropriate tone")
+            print("• Subject: Professional and specific to founding role requirements")
+            print(f"• Body: {len(email_body.split())} words - metrics-focused with cultural adaptation")
+        else:
+            print("❌ Email generation failed, using fallback")
+            email_subject = "Application: Founding Product Operations Role - Vinesh Kumar"
+            email_body = """Dear Dealfront Team,
 
-I am writing to apply for the founding Product Operations role at Dealfront. With 7 years in product management and a proven track record building product operations frameworks from 0→1 in high-growth SaaS environments, I am excited about the opportunity to establish the operating model for your scaling organization.
-
-Key relevant experience from my current role at COWRKS:
-• Built AI RAG system achieving 94% accuracy, serving 200+ employees in 1,500+ weekly queries through intelligent automation
-• Automated contract workflows reducing timeline 99.6% from 42 days to 10 minutes, accelerating $2M revenue recognition
-• Led automation rollout achieving 100% adoption across 5 departments in 2 weeks through structured change management
-• Cut support tickets 75% (500→125 monthly) through AI-powered process optimization
-
-My background directly addresses Dealfront's need for AI-enabled process automation, structured enablement systems, and measurable impact delivery. Having built product operations infrastructure that enabled team scaling from 10→50+ people while maintaining execution velocity, I understand the frameworks and rhythms required for rapid scaling with accountability.
-
-I am particularly drawn to Denmark's direct, results-oriented business culture and Dealfront's focus on speed, precision, and simplicity. My experience securing CEO approval for $2M investments through data-driven presentations and delivering consistent measurable outcomes aligns well with your success metrics around roadmap predictability and process adoption.
-
-I would welcome the opportunity to discuss how my proven experience in 0→1 product operations can establish the foundation that enables Dealfront's Product Core & Growth and Tech teams to execute with clarity and velocity.
+I am writing to apply for the founding Product Operations role at Dealfront. With my experience building product operations frameworks from 0→1 in high-growth SaaS environments, I am excited about establishing the operating model for your scaling organization.
 
 Best regards,
 Vinesh Kumar
 +91-81230-79049
 vineshmuthukumar@gmail.com"""
+            
+    except Exception as e:
+        print(f"❌ Error generating email: {str(e)}")
+        email_subject = "Application: Product Operations Role"
+        email_body = "Email generation failed"
 
-    print("✅ Email template generated with professional Denmark-appropriate tone")
-    print(f"• Subject: Professional and specific to founding role requirements")
-    print(f"• Body: {len(email_body.split())} words - metrics-focused with cultural adaptation")
     print()
     
     print("💼 **4. GENERATING FACT-AWARE LINKEDIN MESSAGES**")
     
-    linkedin_connection = f"""Hi! I saw the founding Product Operations role at Dealfront and I'm very interested. My background building 0→1 product ops at COWRKS (AI systems achieving 94% accuracy, $2M revenue acceleration) aligns well with your scaling needs. Would love to connect!"""
-    
-    linkedin_message = f"""Hello! I'm interested in the founding Product Operations role at Dealfront. With my experience building product ops from 0→1 at COWRKS (AI RAG system with 94% accuracy, workflow automation reducing timelines 99.6%), I believe I could establish the operating model your teams need. Would you be open to a brief conversation about how my background in AI-enabled process automation aligns with Dealfront's scaling ambitions?"""
-    
-    print("✅ LinkedIn messages generated with Denmark cultural considerations")
-    print(f"• Connection request: {len(linkedin_connection)} characters (under 300 limit)")
-    print(f"• Direct message: {len(linkedin_message)} characters (under 400 optimal)")
-    print("• Focus: Direct approach with specific metrics and cultural fit")
+    try:
+        linkedin_result = email_linkedin_generator.generate_linkedin_message(jd_analysis, resume_content, "denmark")
+        
+        if linkedin_result.get('success', False):
+            linkedin_connection = linkedin_result['connection_request']
+            linkedin_message = linkedin_result['direct_message']
+            print("✅ LinkedIn messages generated with Denmark cultural considerations")
+            print(f"• Connection request: {len(linkedin_connection)} characters (under 300 limit)")
+            print(f"• Direct message: {len(linkedin_message)} characters (under 400 optimal)")
+            print("• Focus: Direct approach with specific metrics and cultural fit")
+        else:
+            print("❌ LinkedIn generation failed, using fallback")
+            linkedin_connection = "Hi! I'm interested in the Product Operations role at Dealfront. My experience building product ops frameworks aligns well with your scaling needs. Would love to connect!"
+            linkedin_message = "Hello! I'm interested in the founding Product Operations role at Dealfront. With my experience building product ops from 0→1, I believe I could establish the operating model your teams need."
+            
+    except Exception as e:
+        print(f"❌ Error generating LinkedIn messages: {str(e)}")
+        linkedin_connection = "LinkedIn connection failed"
+        linkedin_message = "LinkedIn message failed"
     print()
     
     # Save complete package
