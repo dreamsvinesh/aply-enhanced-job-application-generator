@@ -1,0 +1,16 @@
+Dear Dealfront Hiring Team,
+
+I am writing to express my strong interest in the founding Product Operations role at Dealfront. Your mission to transform B2B go-to-market through intelligent signal orchestration resonates deeply with my experience building scalable product operations frameworks that enable high-growth teams to execute with clarity and velocity.
+
+In my current role as Senior Product Manager at COWRKS, I have built product operations infrastructure from the ground up that directly aligns with Dealfront's needs. I created an AI RAG system achieving 94% accuracy that serves 200+ employees, demonstrating the AI-first approach your role emphasizes. Most relevantly, I automated contract activation workflows reducing timelines 99.6% from 42 days to 10 minutes while accelerating $2M revenue recognition—exactly the type of process automation and measurable impact Dealfront seeks.
+
+My experience establishing product operations from 0→1 positions me perfectly for this founding role. At COWRKS, I led automation rollout achieving 100% adoption across 5 departments in 2 weeks and cut support tickets 75% through intelligent process optimization. This demonstrates my ability to design enablement systems, drive adoption, and deliver the structured accountability frameworks that will enable Dealfront's Product Core & Growth and Tech teams to scale effectively.
+
+Denmark's business culture values directness, efficiency, and results-oriented execution—principles that align with my approach to product operations. I secured CEO approval and $2M investment through data-driven ROI presentations and consistently deliver measurable outcomes: 94% accuracy improvements, 99.6% timeline reductions, and 75% efficiency gains. My track record building process foundations in high-growth SaaS environments makes me confident I can establish the operating model that will connect Dealfront's strategy to execution.
+
+I am particularly excited about leveraging AI for process automation at Dealfront, an area where my hands-on experience with intelligent systems and automation can drive immediate value. My proven ability to identify and close operational gaps while establishing scalable frameworks will ensure your teams move faster, smarter, and with measurable impact.
+
+Thank you for considering my application. I would welcome the opportunity to discuss how my experience building product operations foundations can accelerate Dealfront's scaling ambitions.
+
+Best regards,
+Vinesh Kumar

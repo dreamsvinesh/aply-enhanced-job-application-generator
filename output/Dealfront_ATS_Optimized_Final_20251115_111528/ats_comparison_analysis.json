@@ -1,0 +1,348 @@
+{
+  "original_score": {
+    "overall_ats_score": 66.1,
+    "grade": "D",
+    "category_scores": {
+      "hard_skills": {
+        "score": 100.0,
+        "matches": [
+          "ai"
+        ],
+        "missing": [],
+        "jd_keywords": [
+          "ai"
+        ],
+        "resume_keywords": [
+          "angular",
+          "ai"
+        ],
+        "match_count": 1,
+        "total_jd_keywords": 1
+      },
+      "soft_skills": {
+        "score": 33.33333333333333,
+        "matches": [
+          "strategic"
+        ],
+        "missing": [
+          "decision-making",
+          "decision making"
+        ],
+        "jd_keywords": [
+          "decision-making",
+          "strategic",
+          "decision making"
+        ],
+        "resume_keywords": [
+          "collaboration",
+          "stakeholder",
+          "management",
+          "cross-functional",
+          "strategic",
+          "leadership"
+        ],
+        "match_count": 1,
+        "total_jd_keywords": 3
+      },
+      "job_titles": {
+        "score": 50.0,
+        "matches": [
+          "product operations"
+        ],
+        "missing": [
+          "product ops"
+        ],
+        "jd_keywords": [
+          "product operations",
+          "product ops"
+        ],
+        "resume_keywords": [
+          "product operations",
+          "senior product manager",
+          "product manager"
+        ],
+        "match_count": 1,
+        "total_jd_keywords": 2
+      },
+      "industry_terms": {
+        "score": 60.0,
+        "matches": [
+          "automation",
+          "process",
+          "saas"
+        ],
+        "missing": [
+          "go-to-market",
+          "platform"
+        ],
+        "jd_keywords": [
+          "automation",
+          "platform",
+          "saas",
+          "go-to-market",
+          "process"
+        ],
+        "resume_keywords": [
+          "automation",
+          "saas",
+          "process",
+          "b2b",
+          "optimization",
+          "workflow",
+          "integration"
+        ],
+        "match_count": 3,
+        "total_jd_keywords": 5
+      },
+      "certifications": {
+        "score": 100,
+        "matches": [],
+        "missing": [],
+        "jd_keywords": [],
+        "resume_keywords": [
+          "master"
+        ],
+        "match_count": 0,
+        "total_jd_keywords": 0
+      },
+      "metrics": {
+        "score": 100,
+        "matches": [],
+        "missing": [],
+        "jd_keywords": [],
+        "resume_keywords": [],
+        "match_count": 0,
+        "total_jd_keywords": 0
+      },
+      "action_verbs": {
+        "score": 100,
+        "matches": [],
+        "missing": [],
+        "jd_keywords": [],
+        "resume_keywords": [
+          "improved",
+          "reduced",
+          "built",
+          "led",
+          "delivered",
+          "generated",
+          "developed"
+        ],
+        "match_count": 0,
+        "total_jd_keywords": 0
+      }
+    },
+    "ats_factors": {
+      "readability_score": 40,
+      "formatting_score": 100,
+      "length_score": 100,
+      "keyword_stuffing": {
+        "is_stuffed": false,
+        "stuffed_words": [],
+        "risk_level": "low"
+      },
+      "section_structure": {
+        "found_sections": [
+          "experience",
+          "education"
+        ],
+        "missing_sections": [
+          "skills"
+        ],
+        "structure_score": 66.66666666666666
+      }
+    },
+    "recommendations": [
+      "Add soft skills keywords: decision-making, decision making",
+      "Add job titles keywords: product ops",
+      "Add industry terms keywords: go-to-market, platform",
+      "Add missing sections: skills"
+    ],
+    "summary": {
+      "total_matches": 6,
+      "total_jd_keywords": 11,
+      "keyword_density": 45.45454545454545,
+      "readability_score": 40
+    }
+  },
+  "optimized_score": {
+    "overall_ats_score": 94.4,
+    "grade": "A",
+    "category_scores": {
+      "hard_skills": {
+        "score": 100.0,
+        "matches": [
+          "ai"
+        ],
+        "missing": [],
+        "jd_keywords": [
+          "ai"
+        ],
+        "resume_keywords": [
+          "angular",
+          "ai"
+        ],
+        "match_count": 1,
+        "total_jd_keywords": 1
+      },
+      "soft_skills": {
+        "score": 66.66666666666666,
+        "matches": [
+          "decision-making",
+          "strategic"
+        ],
+        "missing": [
+          "decision making"
+        ],
+        "jd_keywords": [
+          "decision-making",
+          "strategic",
+          "decision making"
+        ],
+        "resume_keywords": [
+          "decision-making",
+          "collaboration",
+          "stakeholder",
+          "management",
+          "cross-functional",
+          "strategic",
+          "leadership"
+        ],
+        "match_count": 2,
+        "total_jd_keywords": 3
+      },
+      "job_titles": {
+        "score": 100.0,
+        "matches": [
+          "product operations",
+          "product ops"
+        ],
+        "missing": [],
+        "jd_keywords": [
+          "product operations",
+          "product ops"
+        ],
+        "resume_keywords": [
+          "product operations",
+          "senior product manager",
+          "product ops",
+          "product manager"
+        ],
+        "match_count": 2,
+        "total_jd_keywords": 2
+      },
+      "industry_terms": {
+        "score": 100.0,
+        "matches": [
+          "automation",
+          "platform",
+          "saas",
+          "go-to-market",
+          "process"
+        ],
+        "missing": [],
+        "jd_keywords": [
+          "automation",
+          "platform",
+          "saas",
+          "go-to-market",
+          "process"
+        ],
+        "resume_keywords": [
+          "automation",
+          "platform",
+          "saas",
+          "go-to-market",
+          "b2b",
+          "process",
+          "optimization",
+          "workflow",
+          "integration"
+        ],
+        "match_count": 5,
+        "total_jd_keywords": 5
+      },
+      "certifications": {
+        "score": 100,
+        "matches": [],
+        "missing": [],
+        "jd_keywords": [],
+        "resume_keywords": [
+          "master"
+        ],
+        "match_count": 0,
+        "total_jd_keywords": 0
+      },
+      "metrics": {
+        "score": 100,
+        "matches": [],
+        "missing": [],
+        "jd_keywords": [],
+        "resume_keywords": [],
+        "match_count": 0,
+        "total_jd_keywords": 0
+      },
+      "action_verbs": {
+        "score": 100,
+        "matches": [],
+        "missing": [],
+        "jd_keywords": [],
+        "resume_keywords": [
+          "improved",
+          "reduced",
+          "built",
+          "led",
+          "delivered",
+          "generated",
+          "developed"
+        ],
+        "match_count": 0,
+        "total_jd_keywords": 0
+      }
+    },
+    "ats_factors": {
+      "readability_score": 40,
+      "formatting_score": 100,
+      "length_score": 100,
+      "keyword_stuffing": {
+        "is_stuffed": false,
+        "stuffed_words": [],
+        "risk_level": "low"
+      },
+      "section_structure": {
+        "found_sections": [
+          "experience",
+          "education"
+        ],
+        "missing_sections": [
+          "skills"
+        ],
+        "structure_score": 66.66666666666666
+      }
+    },
+    "recommendations": [
+      "Add soft skills keywords: decision making",
+      "Add missing sections: skills"
+    ],
+    "summary": {
+      "total_matches": 10,
+      "total_jd_keywords": 11,
+      "keyword_density": 72.72727272727273,
+      "readability_score": 40
+    }
+  },
+  "improvement": 28.30000000000001,
+  "optimization_applied": [
+    "Added \"Product Ops\" abbreviation to summary",
+    "Included \"decision-making\" in achievements",
+    "Emphasized \"platform\" experience in engineering role",
+    "Added \"go-to-market\" context to revenue achievements",
+    "Enhanced Core Competencies section with keyword alignment",
+    "Improved sentence structure for readability"
+  ],
+  "fact_preservation": {
+    "is_valid": true,
+    "violations": [],
+    "suggestions": []
+  }
+}

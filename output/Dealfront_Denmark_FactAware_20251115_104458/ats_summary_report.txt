@@ -1,0 +1,30 @@
+ATS SCORING ANALYSIS - DEALFRONT DENMARK APPLICATION
+================================================================================
+
+OVERALL SCORE: 73.3% (C)
+
+CATEGORY BREAKDOWN:
+• Hard Skills: 100.0% (1/1 matches)
+• Soft Skills: 50.0% (1/2 matches)
+• Job Titles: 50.0% (1/2 matches)
+• Industry Terms: 66.7% (4/6 matches)
+• Certifications: 100.0% (0/0 matches)
+• Metrics: 100.0% (0/0 matches)
+• Action Verbs: 100.0% (2/2 matches)
+
+ATS FACTORS:
+• Readability: 40.0%
+• Formatting: 100.0%
+• Length: 100.0%
+• Keyword Density: 57.1%
+
+TOP RECOMMENDATIONS:
+1. Add soft skills keywords: decision-making
+2. Add job titles keywords: product ops
+3. Add industry terms keywords: platform, go-to-market
+4. Add missing sections: skills
+
+ANALYSIS SUMMARY:
+This resume scores 73.3% against the Dealfront Product Operations JD.
+The resume demonstrates strong alignment with 9 out of 13 key requirements.
+Grade: C - Needs Improvement ATS compatibility.

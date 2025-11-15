@@ -102,6 +102,73 @@ class AdlinaStyleGuide:
         }
     }
     
+    AUTHENTIC_WRITING_PATTERNS = {
+        'cover_letter': {
+            'opening_style': [
+                "I'm interested in the [role] role at [company]",
+                "Saw your [role] posting at [company]",
+                "The [role] role at [company] caught my attention"
+            ],
+            'experience_intro': [
+                "I spent the last [time] scaling [specific achievement]",
+                "Over the past [time], I've been [specific work]",
+                "I've been building [specific thing] at [company]"
+            ],
+            'connection_phrases': [
+                "sounds a lot like what you're managing",
+                "is exactly the kind of problem I dig into", 
+                "reminds me of the challenges we faced",
+                "looks similar to what I've been solving"
+            ],
+            'bullet_intros': [
+                "A few things I've done that might be relevant:",
+                "Some relevant experience:",
+                "Things that might translate:"
+            ],
+            'closing_authentic': [
+                "What draws me to [company]: [specific reason]",
+                "Why [company] interests me: [specific connection]",
+                "[Location] seems like the right place to keep working on this problem"
+            ],
+            'call_to_action': [
+                "Happy to discuss how my experience maps to what you're building",
+                "Would be great to chat about how this experience translates",
+                "Interested to discuss how my background fits what you're tackling"
+            ],
+            'forbidden_phrases': [
+                "I am writing to express my interest",
+                "I am confident that my experience",
+                "I would welcome the opportunity",
+                "Thank you for considering my application",
+                "I look forward to hearing from you"
+            ]
+        },
+        'linkedin_message': {
+            'opening_patterns': [
+                "Hey [name], Saw the [role] role at [company]",
+                "Hi [name], The [role] position at [company] caught my eye",
+                "[name], noticed you're hiring for [role] at [company]"
+            ],
+            'credibility_quick': [
+                "I've [specific achievement] before",
+                "I've been [specific relevant work]",
+                "I've scaled [specific thing] to [specific result]"
+            ],
+            'connection_phrases': [
+                "and the [specific challenge] you're tackling is exactly the kind of problem I dig into",
+                "—the [specific complexity] you're managing is exactly what I've been solving",
+                "and the [specific area] complexity is right up my alley"
+            ],
+            'closing_simple': [
+                "Would be great to connect",
+                "Happy to connect",
+                "Would love to connect"
+            ],
+            'max_length': 300,  # LinkedIn character limit
+            'tone': 'casual_professional'
+        }
+    }
+    
     @classmethod
     def validate_summary(cls, summary: str) -> Dict[str, Any]:
         """Validate professional summary against Adlina style"""
@@ -255,6 +322,110 @@ class AdlinaStyleGuide:
                 pass
         
         return suggestions
+    
+    @classmethod
+    def validate_cover_letter_authenticity(cls, cover_letter: str) -> Dict[str, Any]:
+        """Validate cover letter for authentic, human-like writing"""
+        issues = []
+        suggestions = []
+        
+        # Check for forbidden corporate phrases
+        content_lower = cover_letter.lower()
+        forbidden_found = [phrase for phrase in cls.AUTHENTIC_WRITING_PATTERNS['cover_letter']['forbidden_phrases'] 
+                          if phrase.lower() in content_lower]
+        
+        if forbidden_found:
+            issues.append(f"Contains corporate clichés: {', '.join(forbidden_found)}")
+        
+        # Check for authentic opening
+        has_authentic_opening = any(
+            pattern.split('[')[0].lower().strip() in content_lower 
+            for pattern in cls.AUTHENTIC_WRITING_PATTERNS['cover_letter']['opening_style']
+        )
+        
+        if not has_authentic_opening:
+            suggestions.append("Consider starting with casual, direct opening like 'I'm interested in the [role] role at [company]'")
+        
+        # Check for bullet point structure
+        has_bullet_intro = any(
+            intro.lower() in content_lower 
+            for intro in cls.AUTHENTIC_WRITING_PATTERNS['cover_letter']['bullet_intros']
+        )
+        
+        if "•" in cover_letter and not has_bullet_intro:
+            suggestions.append("Add casual bullet intro like 'A few things I've done that might be relevant:'")
+        
+        # Check length (should be concise)
+        word_count = len(cover_letter.split())
+        if word_count > 300:
+            suggestions.append(f"Too long ({word_count} words). Keep under 300 words for authentic feel")
+        
+        # Check for specific metrics
+        has_metrics = bool(re.search(r'\d+[kKmMxX%]|\d+\+|\d+→\d+|\d+%→\d+%', cover_letter))
+        if not has_metrics:
+            suggestions.append("Add specific metrics (30K+ orders, 22.5X growth, 73%→91%) for credibility")
+        
+        return {
+            'is_authentic': len(issues) == 0,
+            'issues': issues,
+            'suggestions': suggestions,
+            'word_count': word_count,
+            'has_metrics': has_metrics
+        }
+    
+    @classmethod
+    def validate_linkedin_message_authenticity(cls, message: str) -> Dict[str, Any]:
+        """Validate LinkedIn message for authentic, casual-professional tone"""
+        issues = []
+        suggestions = []
+        
+        # Check length
+        char_count = len(message)
+        if char_count > cls.AUTHENTIC_WRITING_PATTERNS['linkedin_message']['max_length']:
+            issues.append(f"Too long ({char_count} chars). LinkedIn limit is {cls.AUTHENTIC_WRITING_PATTERNS['linkedin_message']['max_length']}")
+        
+        # Check for authentic opening
+        content_lower = message.lower()
+        has_authentic_opening = any(
+            pattern.split('[')[0].lower().strip() in content_lower
+            for pattern in cls.AUTHENTIC_WRITING_PATTERNS['linkedin_message']['opening_patterns']
+        )
+        
+        if not has_authentic_opening:
+            suggestions.append("Start with casual greeting: 'Hey [name], Saw the [role] role at [company]'")
+        
+        # Check for credibility statement
+        has_credibility = any(
+            "i've" in content_lower and metric in content_lower
+            for metric in ['30k', '22.5x', '20m', '94%', 'scaled']
+        )
+        
+        if not has_credibility:
+            suggestions.append("Add quick credibility: 'I've scaled [specific thing] to [result]'")
+        
+        # Check for simple closing
+        has_simple_closing = any(
+            closing.lower() in content_lower
+            for closing in cls.AUTHENTIC_WRITING_PATTERNS['linkedin_message']['closing_simple']
+        )
+        
+        if not has_simple_closing:
+            suggestions.append("End simply: 'Would be great to connect'")
+        
+        # Check for overly formal language
+        formal_words = ['pursuant', 'leverage', 'utilize', 'facilitate', 'endeavor']
+        formal_found = [word for word in formal_words if word in content_lower]
+        
+        if formal_found:
+            issues.append(f"Too formal for LinkedIn: {', '.join(formal_found)}")
+        
+        return {
+            'is_authentic': len(issues) == 0,
+            'issues': issues,
+            'suggestions': suggestions,
+            'char_count': char_count,
+            'has_credibility': has_credibility
+        }
     
     @classmethod
     def check_project_mixing(cls, content: str) -> Dict[str, Any]:

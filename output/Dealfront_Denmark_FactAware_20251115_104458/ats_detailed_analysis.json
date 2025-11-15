@@ -1,0 +1,172 @@
+{
+  "overall_ats_score": 73.3,
+  "grade": "C",
+  "category_scores": {
+    "hard_skills": {
+      "score": 100.0,
+      "matches": [
+        "ai"
+      ],
+      "missing": [],
+      "jd_keywords": [
+        "ai"
+      ],
+      "resume_keywords": [
+        "angular",
+        "ai"
+      ],
+      "match_count": 1,
+      "total_jd_keywords": 1
+    },
+    "soft_skills": {
+      "score": 50.0,
+      "matches": [
+        "management"
+      ],
+      "missing": [
+        "decision-making"
+      ],
+      "jd_keywords": [
+        "decision-making",
+        "management"
+      ],
+      "resume_keywords": [
+        "stakeholder",
+        "management",
+        "collaboration",
+        "strategic",
+        "cross-functional",
+        "leadership"
+      ],
+      "match_count": 1,
+      "total_jd_keywords": 2
+    },
+    "job_titles": {
+      "score": 50.0,
+      "matches": [
+        "product operations"
+      ],
+      "missing": [
+        "product ops"
+      ],
+      "jd_keywords": [
+        "product ops",
+        "product operations"
+      ],
+      "resume_keywords": [
+        "senior product manager",
+        "product operations",
+        "product manager"
+      ],
+      "match_count": 1,
+      "total_jd_keywords": 2
+    },
+    "industry_terms": {
+      "score": 66.66666666666666,
+      "matches": [
+        "saas",
+        "b2b",
+        "process",
+        "automation"
+      ],
+      "missing": [
+        "platform",
+        "go-to-market"
+      ],
+      "jd_keywords": [
+        "process",
+        "go-to-market",
+        "automation",
+        "platform",
+        "b2b",
+        "saas"
+      ],
+      "resume_keywords": [
+        "process",
+        "automation",
+        "optimization",
+        "b2b",
+        "saas",
+        "integration",
+        "workflow"
+      ],
+      "match_count": 4,
+      "total_jd_keywords": 6
+    },
+    "certifications": {
+      "score": 100,
+      "matches": [],
+      "missing": [],
+      "jd_keywords": [],
+      "resume_keywords": [
+        "master"
+      ],
+      "match_count": 0,
+      "total_jd_keywords": 0
+    },
+    "metrics": {
+      "score": 100,
+      "matches": [],
+      "missing": [],
+      "jd_keywords": [],
+      "resume_keywords": [],
+      "match_count": 0,
+      "total_jd_keywords": 0
+    },
+    "action_verbs": {
+      "score": 100.0,
+      "matches": [
+        "generated",
+        "built"
+      ],
+      "missing": [],
+      "jd_keywords": [
+        "generated",
+        "built"
+      ],
+      "resume_keywords": [
+        "generated",
+        "developed",
+        "built",
+        "improved",
+        "reduced",
+        "delivered",
+        "led"
+      ],
+      "match_count": 2,
+      "total_jd_keywords": 2
+    }
+  },
+  "ats_factors": {
+    "readability_score": 40,
+    "formatting_score": 100,
+    "length_score": 100,
+    "keyword_stuffing": {
+      "is_stuffed": false,
+      "stuffed_words": [],
+      "risk_level": "low"
+    },
+    "section_structure": {
+      "found_sections": [
+        "experience",
+        "education"
+      ],
+      "missing_sections": [
+        "skills"
+      ],
+      "structure_score": 66.66666666666666
+    }
+  },
+  "recommendations": [
+    "Add soft skills keywords: decision-making",
+    "Add job titles keywords: product ops",
+    "Add industry terms keywords: platform, go-to-market",
+    "Add missing sections: skills"
+  ],
+  "summary": {
+    "total_matches": 9,
+    "total_jd_keywords": 13,
+    "keyword_density": 57.14285714285714,
+    "readability_score": 40
+  }
+}

@@ -1,0 +1,37 @@
+VINESH KUMAR
+Senior Product Manager | B2B SaaS Product Operations | AI & Process Automation
++91-81230-79049 • vineshmuthukumar@gmail.com • Bangalore, India
+
+PROFESSIONAL SUMMARY
+
+Senior Product Manager with 11 years in technology (7 in PM) specializing in AI-powered product operations and enterprise automation for B2B SaaS platforms. Proven expertise building process frameworks from 0→1 in high-growth environments, with particular strength in AI-enabled automation, team enablement, and strategic operations. Track record includes AI RAG system achieving 94% accuracy, workflow automation reducing timelines from 42 days to 10 minutes, and $2M revenue acceleration through intelligent process optimization.
+
+EXPERIENCE
+
+Senior Product Manager • COWRKS • 01/2023 - Present • Bangalore, India
+• Spearheaded AI RAG system implementation achieving 94% accuracy and serving 200+ employees in 1,500+ weekly queries through intelligent automation and hybrid search capabilities
+• Automated contract activation workflow reducing timeline 99.6% from 42 days to 10 minutes, accelerating $2M revenue recognition and establishing new industry benchmark 
+• Led enterprise automation rollout achieving 100% adoption across 5 departments in 2 weeks, boosting team efficiency for revenue-generating activities through structured change management
+• Secured CEO approval and $2M investment through comprehensive ROI presentations and competitive landscape analysis demonstrating operational efficiency advantages
+• Cut support tickets 75% (500→125 monthly) through intelligent process automation, saving 50+ resource hours daily while maintaining high service quality standards
+
+Product Manager • COWRKS • 08/2016 - 01/2020 • Bangalore, India  
+• Developed mobile app features (auto WiFi, room booking, food ordering) increasing user engagement 45% and customer satisfaction 65% across 80+ locations through user-centered design
+• Generated €220K monthly revenue by monetizing underutilized non-desk inventory (parking, lounges), creating 15% new revenue stream per location through strategic pricing and positioning
+• Reduced lead conversion time 32% and accelerated customer onboarding from 110 days to 14 days through process redesign and cross-functional stakeholder alignment
+• Improved occupancy rates 25% enabling faster time-to-value for clients through streamlined operational workflows and feedback loop implementation
+
+Frontend Engineer • Automne Technologies | Rukshaya Emerging Technologies • 09/2012 - 07/2016 • Bangalore, India
+• Built and maintained scalable front-end web applications using HTML5, CSS3, and Angular.JS for 50+ enterprise clients across banking and e-commerce sectors
+• Delivered end-to-end UX to UI development for high-volume transaction systems handling complex business requirements
+
+EDUCATION
+
+Master of Science in Software Engineering • Anna University • 01/2007 - 01/2011
+
+CORE COMPETENCIES
+
+Product Operations: Process design, planning cadences, delivery governance, team enablement, strategic operations
+AI & Automation: Process automation, intelligent workflows, AI-powered analytics, system integration, data-driven optimization  
+Team Leadership: Cross-functional collaboration, change management, stakeholder alignment, process adoption, performance improvement
+Business Impact: Revenue acceleration, efficiency optimization, cost reduction, operational excellence, measurable outcome delivery

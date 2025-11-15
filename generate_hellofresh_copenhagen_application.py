@@ -181,55 +181,46 @@ def generate_hellofresh_cover_letter(jd_analysis):
         fnb_project = user_data['project_documentation']['fnb_platform']
         fnb_achievements = fnb_project['key_metrics'][:4]
     
+    # Get currency for target country
+    currency_info = user_extractor.currency_conversions.get('denmark', user_extractor.currency_conversions['default'])
+    
     cover_letter_prompt = f"""
-Write a compelling cover letter for Vinesh Kumar applying to HelloFresh as Product Operations Manager in Copenhagen, Denmark.
+Write an authentic, human cover letter for Vinesh Kumar applying to HelloFresh as Product Operations Manager in Copenhagen.
 
-CRITICAL GUIDELINES:
-- Use ONLY real achievements from the user data below
-- Focus on F&B platform experience as perfect match for HelloFresh Market Products
-- Emphasize multi-market scaling, menu management, and operational optimization
-- Show passion for HelloFresh's mission to "change the way people eat"
-- Use EUR currency for all financial figures
-- Keep professional tone but show personality
+AUTHENTIC WRITING REQUIREMENTS - AVOID LLM-LIKE CONTENT:
+✅ USE EXAMPLES LIKE: "I'm interested in the Product Operations Manager role at HelloFresh in Copenhagen"
+✅ CASUAL METRICS: "I spent the last two years scaling COWRKS' food platform from 1,330 to 30,000+ daily orders (22.5X growth, {currency_info['symbol']}20M+ GMV)"
+✅ NATURAL CONNECTION: "The operational complexity—menu planning, kitchen logistics, multi-location coordination—sounds a lot like what you're managing across HelloFresh's markets"
+✅ CONVERSATIONAL BULLETS: "A few things I've done that might be relevant:"
+✅ AUTHENTIC CLOSING: "What draws me to HelloFresh: you're solving food logistics at scale, which is genuinely hard. Copenhagen seems like the right place to keep working on this problem."
 
-HELLOFRESH ROLE DETAILS:
-Company: {jd_analysis['extracted_info']['company']}
-Role: {jd_analysis['extracted_info']['role_title']}
-Location: {jd_analysis['extracted_info']['location']}
-Focus: {jd_analysis['extracted_info']['product_focus']}
-Mission: {jd_analysis['extracted_info']['mission']}
+❌ FORBIDDEN CORPORATE PHRASES:
+- "I am writing to express my interest"
+- "I am confident that my experience" 
+- "I would welcome the opportunity"
+- "Thank you for considering my application"
+- "I look forward to hearing from you"
 
-KEY REQUIREMENTS TO ADDRESS:
-1. Portfolio strategy across 3 markets → Your 24 business parks experience
-2. Menu planning with operational constraints → Your F&B platform menu management
-3. Performance optimization → Your data-driven optimization achievements
-4. Product innovation → Your platform scaling and feature development
-5. Stakeholder management → Your cross-functional team leadership
+STRUCTURE (LIKE PROVIDED EXAMPLE):
+1. Direct opening: "Dear Hiring Manager, I'm interested in the [role] role at HelloFresh in Copenhagen."
+2. Credibility with specific metrics: "I spent the last two years scaling..."
+3. Connection: "The operational complexity... sounds a lot like what you're managing"
+4. Casual bullets: "A few things I've done that might be relevant:"
+   • Real achievement with specific numbers
+   • Another achievement with metrics
+   • Third achievement showing impact
+5. Authentic interest: "What draws me to HelloFresh: [specific reason]"
+6. Simple closing: "Happy to discuss how my experience maps to what you're building."
 
-REAL ACHIEVEMENTS TO HIGHLIGHT:
-F&B Platform Experience:
-{chr(10).join([f'• {achievement}' for achievement in fnb_achievements])}
+REAL ACHIEVEMENTS TO USE:
+• Scaled F&B platform from 1,330 to 30,000+ daily orders (22.5X growth, {currency_info['symbol']}20M+ GMV)
+• Increased NPS from 73% to 91% across 24 business parks
+• Automated contract workflows (42 days → 10 minutes) using AI
+• Built operations layer for 30K+ daily orders across multiple locations
 
-Other Key Achievements:
-• Built AI-powered knowledge management system using RAG architecture, achieving 94% accuracy
-• Reduced contract activation time from 42 days to 10 minutes using automation
-• Led cross-functional teams to optimize operational efficiency across 15+ processes
-
-PERSONAL INFO:
-Name: {user_data['personal_info']['name']}
-Current Role: Senior Product Manager at COWRKS
-Email: {user_data['personal_info']['email']}
-Phone: {user_data['personal_info']['phone']}
-
-STRUCTURE:
-1. Opening: Passion for HelloFresh mission + relevant F&B platform experience
-2. Body Paragraph 1: Multi-market scaling experience (24 parks → 3 Nordic markets)
-3. Body Paragraph 2: Menu management and operational optimization 
-4. Body Paragraph 3: Performance tracking and stakeholder management
-5. Closing: Excitement for Copenhagen opportunity + next steps
-
-Tone: Professional but enthusiastic, showing genuine interest in food innovation and HelloFresh's impact.
-Length: 3-4 paragraphs, concise but impactful.
+TONE: Conversational, specific, confident but not arrogant. Like a real person wrote it.
+LENGTH: Under 250 words total
+CURRENCY: Use {currency_info['symbol']} for all amounts
 """
 
     try:
@@ -312,39 +303,59 @@ def generate_hellofresh_linkedin_messages(jd_analysis):
     user_extractor = RealUserDataExtractor()
     user_data = user_extractor.extract_vinesh_data()
     
+    # Get currency for target country
+    currency_info = user_extractor.currency_conversions.get('denmark', user_extractor.currency_conversions['default'])
+    
     linkedin_prompt = f"""
-Create 3 different LinkedIn message templates for Vinesh Kumar to reach out to HelloFresh team members about the Product Operations Manager role in Copenhagen.
+Create 3 authentic LinkedIn messages for Vinesh Kumar to reach out to HelloFresh team members. Follow the EXACT style from these examples:
 
-TARGET PERSONAS:
-1. Current Product Operations Manager at HelloFresh
-2. Product Team Lead/Director at HelloFresh
-3. HelloFresh Copenhagen team member
+EXAMPLE STYLE TO FOLLOW:
+"Hey [Name], Saw the Product Ops role at HelloFresh. I've scaled F&B platforms to 30K+ daily orders—the multi-market operational complexity you're managing is exactly what I've been solving. Would be great to connect. Vinesh"
 
-GUIDELINES FOR ALL MESSAGES:
-- Keep under 300 characters (LinkedIn limit)
-- Personalize based on target's role
-- Mention specific F&B platform experience
-- Show genuine interest in HelloFresh's mission
-- Professional but friendly tone
-- Clear call-to-action
+AUTHENTIC LINKEDIN REQUIREMENTS:
+✅ START CASUAL: "Hey [Name]," or "Hi [Name],"
+✅ DIRECT MENTION: "Saw the Product Ops role at HelloFresh"
+✅ QUICK CREDIBILITY: "I've scaled [specific thing] to [result]"
+✅ CONNECTION PHRASE: "the [specific complexity] you're managing is exactly what I've been solving" or "is exactly the kind of problem I dig into"
+✅ SIMPLE CLOSING: "Would be great to connect"
+✅ SIGN: "Vinesh" (first name only)
 
-KEY CREDENTIALS TO MENTION:
-• Senior Product Manager with F&B platform expertise
-• Scaled platform across 24 locations serving 600,000+ users  
-• Achieved €20-22M annual GMV through product operations
-• Menu management and operational optimization experience
+❌ AVOID:
+- Formal language ("I would be interested in")
+- Long explanations
+- Corporate speak
+- Thank you phrases
 
-PERSONAL INFO:
-Name: {user_data['personal_info']['name']}
-Current Role: Senior Product Manager at COWRKS
-Location: Currently in India, interested in Copenhagen
+REAL CREDENTIALS TO USE:
+• Scaled F&B platforms to 30K+ daily orders
+• {currency_info['symbol']}20M+ annual GMV
+• 24 business parks, 600K+ users
+• Built product ops from 0→1
+• Multi-market operational complexity
+• European GTM complexity (for leadership)
 
-Create 3 distinct messages:
-1. Message to Product Operations peer (collaborative tone)
-2. Message to Product leadership (results-focused tone) 
-3. Message to Copenhagen team member (location-focused tone)
+CREATE 3 MESSAGES (each under 280 characters):
 
-Each message should be different in approach but equally professional.
+1. **To Product Operations Manager:**
+Start: "Hey [Name], Saw the Product Ops role at HelloFresh."
+Credibility: F&B platform scaling experience
+Connection: Multi-market complexity
+Close: Simple connect request
+
+2. **To Product Team Director:** 
+Start: "Hi [Name], The Product Ops position at HelloFresh caught my eye."
+Credibility: Business results ({currency_info['symbol']}20M+ GMV)
+Connection: European GTM complexity
+Close: Would be great to connect
+
+3. **To Copenhagen Team Member:**
+Start: "Hey [Name], Noticed you're hiring for Product Ops at HelloFresh."
+Credibility: F&B operations scaling
+Connection: Multi-location coordination
+Close: Happy to connect
+
+TONE: Casual, confident, specific. Like a real person texting.
+MAX LENGTH: 280 characters each (LinkedIn limit)
 """
 
     try:

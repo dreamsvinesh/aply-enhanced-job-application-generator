@@ -117,48 +117,50 @@ def generate_universal_cover_letter(jd_analysis: Dict[str, Any], country: str = 
     currency_info = user_extractor.currency_conversions.get(country.lower(), user_extractor.currency_conversions['default'])
     
     cover_letter_prompt = f"""
-Write a compelling cover letter for Vinesh Kumar applying to {jd_analysis['extracted_info']['company']} as {jd_analysis['extracted_info']['role_title']} in {jd_analysis['extracted_info']['location']}.
+Write an authentic, conversational cover letter for Vinesh Kumar applying to {jd_analysis['extracted_info']['company']}.
 
-{AdlinaStyleGuide.generate_style_prompt(f"{jd_analysis['extracted_info']['role_title']} at {jd_analysis['extracted_info']['company']}")}
+AUTHENTIC WRITING STYLE - FOLLOW THESE PATTERNS:
+✅ DIRECT OPENING: "Dear Hiring Manager, I'm interested in the {jd_analysis['extracted_info']['role_title']} role at {jd_analysis['extracted_info']['company']} in {jd_analysis['extracted_info']['location']}."
+✅ CREDIBILITY STATEMENT: "I spent the last two years scaling COWRKS' food platform from 1,330 to 30,000+ daily orders (22.5X growth, {currency_info['symbol']}20M+ GMV)."
+✅ NATURAL CONNECTION: "The [specific challenge/complexity] sounds a lot like what you're managing" or "is exactly the kind of problem I dig into"
+✅ CASUAL BULLETS: "A few things I've done that might be relevant:"
+✅ AUTHENTIC INTEREST: "What draws me to {jd_analysis['extracted_info']['company']}: [specific reason about the company/challenge]"
+✅ SIMPLE CLOSING: "Happy to discuss how my experience maps to what you're building."
 
-COMPANY CONTEXT:
+❌ FORBIDDEN CORPORATE CLICHÉS:
+- "I am writing to express my interest"
+- "I am confident that my experience"
+- "I would welcome the opportunity" 
+- "Thank you for considering my application"
+- "I look forward to hearing from you"
+
+COMPANY-SPECIFIC CONNECTION:
 Company: {jd_analysis['extracted_info']['company']}
 Role: {jd_analysis['extracted_info']['role_title']}
 Location: {jd_analysis['extracted_info']['location']}
 
-KEY REQUIREMENTS TO ADDRESS:
-{chr(10).join([f'• {req}' for req in jd_analysis['requirements']['must_have_business']])}
-{chr(10).join([f'• {req}' for req in jd_analysis['requirements']['must_have_technical']])}
-
-ALIGNMENT OPPORTUNITIES:
-{chr(10).join([f'• {opportunity}' for opportunity in jd_analysis['alignment_opportunities']])}
-
-REAL ACHIEVEMENTS TO HIGHLIGHT (Use specific numbers):
-• F&B platform: Scaled from 1,330 to 30,000+ daily orders generating {currency_info['symbol']}20-22M annual GMV
-• Multi-market operations: 24 business parks, 600,000+ users, 320 outlets
-• AI/automation: 94% accuracy RAG system, 42 days→10 minutes contract activation
-• Business impact: NPS improvement 73% to 91%, 98.8% payment success rate
-• Leadership: Led cross-functional teams across Product, Operations, Technology
-
-PERSONAL INFO:
-Name: {user_data['personal_info']['name']}
-Current Role: Senior Product Manager at COWRKS
-Email: {user_data['personal_info']['email']}
-Phone: {user_data['personal_info']['phone']}
+REAL ACHIEVEMENTS (with specific numbers):
+• Scaled F&B platform from 1,330 to 30,000+ daily orders (22.5X growth, {currency_info['symbol']}20M+ GMV)
+• Increased NPS from 73% to 91% by fixing the friction points customers actually cared about
+• Automated contract workflows (42 days → 10 minutes) using AI, which freed up teams to focus on harder problems
+• Built operations layer for 30K+ daily orders across 24 locations
 
 STRUCTURE:
-1. Opening: Specific interest in company/role + relevant quantified experience
-2. Body 1: Direct experience alignment (F&B platform → company needs)
-3. Body 2: Leadership and impact metrics relevant to role
-4. Closing: Enthusiasm for location/opportunity + clear next step request
+1. Direct opening with role interest
+2. Quick credibility with F&B platform metrics
+3. Connection to company's specific challenges
+4. "A few things I've done that might be relevant:" + 3 bullet points with real numbers
+5. "What draws me to [Company]:" + specific reason
+6. "[Location] seems like the right place to keep working on this problem."
+7. "Happy to discuss how my experience maps to what you're building."
 
-REQUIREMENTS:
-- Use {currency_info['symbol']} for all currency figures
-- NO generic language (avoid "innovative", "transformative", etc.)
-- Include specific metrics naturally woven into context
-- Show genuine company knowledge and interest
-- Professional but personable tone
-- 300-400 words maximum
+TONE: Conversational, confident but not arrogant. Sounds like a real person wrote it.
+LENGTH: Under 250 words
+CURRENCY: Use {currency_info['symbol']} for all amounts
+
+PERSONAL SIGNATURE:
+Best,
+{user_data['personal_info']['name']}
 """
 
     try:

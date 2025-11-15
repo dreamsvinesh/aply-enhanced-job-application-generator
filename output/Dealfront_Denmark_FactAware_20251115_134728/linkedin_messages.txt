@@ -1,0 +1,11 @@
+LINKEDIN CONNECTION REQUEST:
+(26 characters)
+
+LinkedIn connection failed
+
+==================================================
+
+LINKEDIN DIRECT MESSAGE:
+(23 characters)
+
+LinkedIn message failed
