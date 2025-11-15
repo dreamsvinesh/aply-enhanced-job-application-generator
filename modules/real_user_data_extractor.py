@@ -7,11 +7,13 @@ This is the proper implementation that should replace the hardcoded user_data_ex
 
 from typing import Dict, List, Any
 import re
+from .logging_config import get_logger
 
 class RealUserDataExtractor:
     """Extract user data from real documents (resume PDF + project documentation)"""
     
     def __init__(self):
+        self.logger = get_logger(__name__, "real_user_data_extractor")
         # Currency conversion rates (approximate)
         self.currency_conversions = {
             'denmark': {'symbol': '€', 'rate': 0.12, 'name': 'EUR'},  # 1 INR = 0.12 EUR
@@ -94,6 +96,9 @@ Frontend Engineer Automne Technologies | Rukshaya Emerging Technologies 09/2012 
     
     def extract_vinesh_data(self) -> Dict[str, Any]:
         """Extract Vinesh's data from REAL documents - no fabrication"""
+        
+        self.logger.start_operation("extract_vinesh_data")
+        self.logger.log_data_extraction("real_resume", "user_profile", 1, approach="RAG_based")
         
         print("📄 EXTRACTING FROM REAL USER DOCUMENTS (RAG APPROACH)")
         print("✅ Using actual resume content")
@@ -266,11 +271,25 @@ Frontend Engineer Automne Technologies | Rukshaya Emerging Technologies 09/2012 
                 }
             ]
         }
+        
+        # Complete extraction logging
+        data_keys = ["personal_info", "professional_summary", "work_experience", "projects", "skills", "education", "languages"]
+        self.logger.log_metric("extracted_data_sections", len(data_keys), sections=data_keys)
+        self.logger.end_operation("extract_vinesh_data", success=True, sections_extracted=len(data_keys))
     
     def convert_currency_for_country(self, text: str, country: str) -> str:
         """Convert INR amounts in text to target country currency"""
+        self.logger.start_operation("convert_currency_for_country", 
+                                   country=country, 
+                                   text_length=len(text))
+        
         country_lower = country.lower()
         currency_info = self.currency_conversions.get(country_lower, self.currency_conversions['default'])
+        
+        self.logger.log_metric("currency_conversion_target", currency_info['symbol'],
+                              country=country,
+                              rate=currency_info['rate'],
+                              name=currency_info['name'])
         
         # Convert ₹X crores to target currency
         def convert_crores(match):
@@ -297,9 +316,20 @@ Frontend Engineer Automne Technologies | Rukshaya Emerging Technologies 09/2012 
             return f"{symbol}{converted:.0f}K/month"
         
         # Apply conversions
+        original_length = len(text)
         text = re.sub(r'₹(\d+(?:\.\d+)?)-?\d*\s*crores?', convert_crores, text)
         text = re.sub(r'₹(\d+(?:\.\d+)?)/sq ft', convert_per_sqft, text)  
         text = re.sub(r'₹(\d+(?:\.\d+)?)\s*crores?/month', convert_monthly, text)
+        
+        # Log conversion completion
+        conversions_made = original_length != len(text)
+        self.logger.log_metric("currency_conversions_applied", conversions_made,
+                              original_length=original_length,
+                              final_length=len(text),
+                              target_currency=currency_info['symbol'])
+        
+        self.logger.end_operation("convert_currency_for_country", success=True,
+                                conversions_applied=conversions_made)
         
         return text
     

@@ -6,9 +6,13 @@ Central repository for consistent, non-generic resume writing style
 
 from typing import Dict, List, Any
 import re
+from .logging_config import get_logger
 
 class AdlinaStyleGuide:
     """Maintains Adlina's writing style standards for all resume generation"""
+    
+    # Initialize logger
+    logger = get_logger(__name__, "adlina_style_guide")
     
     FORBIDDEN_GENERIC_WORDS = [
         "innovative", "transformative", "cutting-edge", "leveraged", "strategic",
@@ -172,29 +176,49 @@ class AdlinaStyleGuide:
     @classmethod
     def validate_summary(cls, summary: str) -> Dict[str, Any]:
         """Validate professional summary against Adlina style"""
+        cls.logger.start_operation("validate_summary", summary_length=len(summary))
+        
         issues = []
         suggestions = []
         
         # Check for forbidden words
+        cls.logger.start_operation("check_forbidden_words")
         summary_lower = summary.lower()
         forbidden_found = [word for word in cls.FORBIDDEN_GENERIC_WORDS 
                           if word.lower() in summary_lower]
         if forbidden_found:
             issues.append(f"Contains generic words: {', '.join(forbidden_found)}")
+            cls.logger.log_metric("forbidden_words_found", len(forbidden_found), words=forbidden_found)
+        else:
+            cls.logger.log_metric("forbidden_words_found", 0)
+        cls.logger.end_operation("check_forbidden_words", success=True)
         
         # Check word count
+        cls.logger.start_operation("check_word_count")
         word_count = len(summary.split())
         min_words, max_words = cls.ADLINA_STYLE_REQUIREMENTS['summary']['word_count']
+        cls.logger.log_metric("summary_word_count", word_count, min_required=min_words, max_recommended=max_words)
+        
         if word_count < min_words:
             issues.append(f"Too short: {word_count} words (minimum {min_words})")
         elif word_count > max_words:
             suggestions.append(f"Consider shortening: {word_count} words (recommended max {max_words})")
+        cls.logger.end_operation("check_word_count", success=True)
         
         # Check for specific metrics
+        cls.logger.start_operation("check_metrics_presence")
         has_years = bool(re.search(r'\d+\+?\s*years?', summary))
         has_users = bool(re.search(r'\d+[,\d]*\+?\s*(users?|employees?|people)', summary))
         has_currency = bool(re.search(r'[€$£¥]\d+', summary))
         has_percentage = bool(re.search(r'\d+%|\d+\s*percentage\s*points?', summary))
+        
+        metrics_found = {
+            'years_experience': has_years,
+            'user_scale': has_users,
+            'revenue_impact': has_currency,
+            'percentage_improvements': has_percentage
+        }
+        cls.logger.log_metric("metrics_presence", metrics_found)
         
         if not has_years:
             issues.append("Missing years of experience")
@@ -204,8 +228,9 @@ class AdlinaStyleGuide:
             suggestions.append("Consider adding revenue/business impact")
         if not has_percentage:
             suggestions.append("Consider adding percentage improvements")
+        cls.logger.end_operation("check_metrics_presence", success=True)
         
-        return {
+        result = {
             'is_valid': len(issues) == 0,
             'issues': issues,
             'suggestions': suggestions,
@@ -216,6 +241,12 @@ class AdlinaStyleGuide:
                 'percentage_improvements': has_percentage
             }
         }
+        
+        cls.logger.log_validation("summary", result, word_count=word_count)
+        cls.logger.end_operation("validate_summary", success=result['is_valid'], 
+                                issues_count=len(issues), suggestions_count=len(suggestions))
+        
+        return result
     
     @classmethod
     def validate_bullet(cls, bullet: str) -> Dict[str, Any]:
@@ -326,106 +357,162 @@ class AdlinaStyleGuide:
     @classmethod
     def validate_cover_letter_authenticity(cls, cover_letter: str) -> Dict[str, Any]:
         """Validate cover letter for authentic, human-like writing"""
+        cls.logger.start_operation("validate_cover_letter_authenticity", 
+                                 letter_length=len(cover_letter), 
+                                 word_count=len(cover_letter.split()))
+        
         issues = []
         suggestions = []
         
         # Check for forbidden corporate phrases
+        cls.logger.start_operation("check_corporate_cliches")
         content_lower = cover_letter.lower()
         forbidden_found = [phrase for phrase in cls.AUTHENTIC_WRITING_PATTERNS['cover_letter']['forbidden_phrases'] 
                           if phrase.lower() in content_lower]
         
         if forbidden_found:
             issues.append(f"Contains corporate clichés: {', '.join(forbidden_found)}")
+            cls.logger.log_metric("corporate_cliches_found", len(forbidden_found), phrases=forbidden_found)
+        else:
+            cls.logger.log_metric("corporate_cliches_found", 0)
+        cls.logger.end_operation("check_corporate_cliches", success=len(forbidden_found)==0)
         
         # Check for authentic opening
+        cls.logger.start_operation("check_authentic_opening")
         has_authentic_opening = any(
             pattern.split('[')[0].lower().strip() in content_lower 
             for pattern in cls.AUTHENTIC_WRITING_PATTERNS['cover_letter']['opening_style']
         )
+        cls.logger.log_metric("has_authentic_opening", has_authentic_opening)
         
         if not has_authentic_opening:
             suggestions.append("Consider starting with casual, direct opening like 'I'm interested in the [role] role at [company]'")
+        cls.logger.end_operation("check_authentic_opening", success=has_authentic_opening)
         
         # Check for bullet point structure
+        cls.logger.start_operation("check_bullet_structure")
         has_bullet_intro = any(
             intro.lower() in content_lower 
             for intro in cls.AUTHENTIC_WRITING_PATTERNS['cover_letter']['bullet_intros']
         )
+        has_bullets = "•" in cover_letter
+        cls.logger.log_metric("bullet_structure", {"has_bullets": has_bullets, "has_intro": has_bullet_intro})
         
-        if "•" in cover_letter and not has_bullet_intro:
+        if has_bullets and not has_bullet_intro:
             suggestions.append("Add casual bullet intro like 'A few things I've done that might be relevant:'")
+        cls.logger.end_operation("check_bullet_structure", success=not has_bullets or has_bullet_intro)
         
         # Check length (should be concise)
+        cls.logger.start_operation("check_length")
         word_count = len(cover_letter.split())
+        cls.logger.log_metric("cover_letter_word_count", word_count, max_recommended=300)
         if word_count > 300:
             suggestions.append(f"Too long ({word_count} words). Keep under 300 words for authentic feel")
+        cls.logger.end_operation("check_length", success=word_count <= 300)
         
         # Check for specific metrics
+        cls.logger.start_operation("check_metrics")
         has_metrics = bool(re.search(r'\d+[kKmMxX%]|\d+\+|\d+→\d+|\d+%→\d+%', cover_letter))
+        cls.logger.log_metric("has_specific_metrics", has_metrics)
+        
         if not has_metrics:
             suggestions.append("Add specific metrics (30K+ orders, 22.5X growth, 73%→91%) for credibility")
+        cls.logger.end_operation("check_metrics", success=has_metrics)
         
-        return {
+        result = {
             'is_authentic': len(issues) == 0,
             'issues': issues,
             'suggestions': suggestions,
             'word_count': word_count,
             'has_metrics': has_metrics
         }
+        
+        cls.logger.log_validation("cover_letter_authenticity", result, word_count=word_count)
+        cls.logger.end_operation("validate_cover_letter_authenticity", success=result['is_authentic'],
+                                issues_count=len(issues), suggestions_count=len(suggestions))
+        
+        return result
     
     @classmethod
     def validate_linkedin_message_authenticity(cls, message: str) -> Dict[str, Any]:
         """Validate LinkedIn message for authentic, casual-professional tone"""
+        cls.logger.start_operation("validate_linkedin_message_authenticity",
+                                 message_length=len(message),
+                                 char_count=len(message))
+        
         issues = []
         suggestions = []
         
         # Check length
+        cls.logger.start_operation("check_linkedin_length")
         char_count = len(message)
-        if char_count > cls.AUTHENTIC_WRITING_PATTERNS['linkedin_message']['max_length']:
-            issues.append(f"Too long ({char_count} chars). LinkedIn limit is {cls.AUTHENTIC_WRITING_PATTERNS['linkedin_message']['max_length']}")
+        max_length = cls.AUTHENTIC_WRITING_PATTERNS['linkedin_message']['max_length']
+        cls.logger.log_metric("linkedin_char_count", char_count, max_allowed=max_length)
+        
+        if char_count > max_length:
+            issues.append(f"Too long ({char_count} chars). LinkedIn limit is {max_length}")
+        cls.logger.end_operation("check_linkedin_length", success=char_count <= max_length)
         
         # Check for authentic opening
+        cls.logger.start_operation("check_linkedin_opening")
         content_lower = message.lower()
         has_authentic_opening = any(
             pattern.split('[')[0].lower().strip() in content_lower
             for pattern in cls.AUTHENTIC_WRITING_PATTERNS['linkedin_message']['opening_patterns']
         )
+        cls.logger.log_metric("has_linkedin_authentic_opening", has_authentic_opening)
         
         if not has_authentic_opening:
             suggestions.append("Start with casual greeting: 'Hey [name], Saw the [role] role at [company]'")
+        cls.logger.end_operation("check_linkedin_opening", success=has_authentic_opening)
         
         # Check for credibility statement
+        cls.logger.start_operation("check_linkedin_credibility")
         has_credibility = any(
             "i've" in content_lower and metric in content_lower
             for metric in ['30k', '22.5x', '20m', '94%', 'scaled']
         )
+        cls.logger.log_metric("has_linkedin_credibility", has_credibility)
         
         if not has_credibility:
             suggestions.append("Add quick credibility: 'I've scaled [specific thing] to [result]'")
+        cls.logger.end_operation("check_linkedin_credibility", success=has_credibility)
         
         # Check for simple closing
+        cls.logger.start_operation("check_linkedin_closing")
         has_simple_closing = any(
             closing.lower() in content_lower
             for closing in cls.AUTHENTIC_WRITING_PATTERNS['linkedin_message']['closing_simple']
         )
+        cls.logger.log_metric("has_linkedin_simple_closing", has_simple_closing)
         
         if not has_simple_closing:
             suggestions.append("End simply: 'Would be great to connect'")
+        cls.logger.end_operation("check_linkedin_closing", success=has_simple_closing)
         
         # Check for overly formal language
+        cls.logger.start_operation("check_formal_language")
         formal_words = ['pursuant', 'leverage', 'utilize', 'facilitate', 'endeavor']
         formal_found = [word for word in formal_words if word in content_lower]
+        cls.logger.log_metric("formal_words_found", len(formal_found), words=formal_found)
         
         if formal_found:
             issues.append(f"Too formal for LinkedIn: {', '.join(formal_found)}")
+        cls.logger.end_operation("check_formal_language", success=len(formal_found)==0)
         
-        return {
+        result = {
             'is_authentic': len(issues) == 0,
             'issues': issues,
             'suggestions': suggestions,
             'char_count': char_count,
             'has_credibility': has_credibility
         }
+        
+        cls.logger.log_validation("linkedin_message_authenticity", result, char_count=char_count)
+        cls.logger.end_operation("validate_linkedin_message_authenticity", success=result['is_authentic'],
+                                issues_count=len(issues), suggestions_count=len(suggestions))
+        
+        return result
     
     @classmethod
     def check_project_mixing(cls, content: str) -> Dict[str, Any]:

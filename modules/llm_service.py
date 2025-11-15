@@ -12,6 +12,7 @@ from typing import Dict, List, Any, Optional, Union, Tuple
 from dataclasses import dataclass
 from pathlib import Path
 import hashlib
+from .logging_config import get_logger
 
 try:
     import anthropic
@@ -55,7 +56,7 @@ class LLMService:
     """Unified LLM service supporting Claude and OpenAI with intelligent routing"""
     
     def __init__(self):
-        self.logger = logging.getLogger(__name__)
+        self.logger = get_logger(__name__, "llm_service")
         self.setup_logging()
         
         # Initialize clients
@@ -219,7 +220,14 @@ class LLMService:
     
     def call_claude(self, prompt: str, model: str = "claude-3-sonnet-20241022", max_tokens: int = 1500, temperature: float = 0.3) -> LLMResponse:
         """Call Claude API"""
+        self.logger.start_operation("call_claude", 
+                                   model=model, 
+                                   max_tokens=max_tokens, 
+                                   temperature=temperature,
+                                   prompt_length=len(prompt))
+        
         if not self.claude_client:
+            self.logger.end_operation("call_claude", success=False, error="Claude client not initialized")
             return LLMResponse(
                 success=False,
                 content="",
@@ -231,6 +239,7 @@ class LLMService:
             )
         
         start_time = time.time()
+        self.logger.log_metric("api_call_started", model, prompt_chars=len(prompt))
         
         try:
             response = self.claude_client.messages.create(
@@ -249,10 +258,20 @@ class LLMService:
             total_tokens = input_tokens + output_tokens
             cost = self.calculate_cost(model, input_tokens, output_tokens)
             
+            # Log detailed generation metrics
+            self.logger.log_generation("claude_response", model, total_tokens, cost,
+                                     input_tokens=input_tokens,
+                                     output_tokens=output_tokens,
+                                     execution_time=execution_time,
+                                     content_length=len(content))
+            
             # Update stats
             self.update_usage_stats(model, total_tokens, cost)
             
-            self.logger.info(f"Claude API call successful: {total_tokens} tokens, ${cost:.4f}")
+            self.logger.end_operation("call_claude", success=True, 
+                                    tokens=total_tokens, 
+                                    cost=cost,
+                                    execution_time=execution_time)
             
             return LLMResponse(
                 success=True,
@@ -266,7 +285,10 @@ class LLMService:
             
         except Exception as e:
             execution_time = time.time() - start_time
-            self.logger.error(f"Claude API call failed: {e}")
+            
+            self.logger.end_operation("call_claude", success=False, 
+                                    error=str(e), 
+                                    execution_time=execution_time)
             
             return LLMResponse(
                 success=False,
