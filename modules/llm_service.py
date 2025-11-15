@@ -212,7 +212,7 @@ class LLMService:
         if self.usage_stats.total_requests % 10 == 0:
             self.save_usage_stats()
     
-    def call_claude(self, prompt: str, model: str = "claude-3-sonnet-20241022", max_tokens: int = 1500) -> LLMResponse:
+    def call_claude(self, prompt: str, model: str = "claude-3-sonnet-20241022", max_tokens: int = 1500, temperature: float = 0.3) -> LLMResponse:
         """Call Claude API"""
         if not self.claude_client:
             return LLMResponse(
@@ -273,7 +273,7 @@ class LLMService:
                 error_message=str(e)
             )
     
-    def call_openai(self, prompt: str, model: str = "gpt-4-turbo", max_tokens: int = 1500) -> LLMResponse:
+    def call_openai(self, prompt: str, model: str = "gpt-4-turbo", max_tokens: int = 1500, temperature: float = 0.3) -> LLMResponse:
         """Call OpenAI API"""
         if not self.openai_client:
             return LLMResponse(

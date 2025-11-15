@@ -49,7 +49,8 @@ class UserDataExtractor:
                         'Created AI RAG system with pgvector, choosing it over traditional search. Achieved 94% accuracy, sub-second responses. Cut support tickets 75% (500→125 monthly), aiding 200+ employees in 1,500+ weekly queries through prompt engineering and hybrid search.',
                         'Automated contract activation workflow integrating Salesforce, SAP, and MuleSoft APIs, reducing timeline 99.6% from 42 days to 10 minutes - accelerated $2M revenue recognition, saved 50+ resource hours daily, and established new industry benchmark through cross-functional execution',
                         'Led automation rollout and change management, creating training and conducting presentations for 5 departments. Achieved 100% adoption in 2 weeks, boosting team efficiency for revenue-generating activities.',
-                        'Automated sales workflows with Salesforce Flow and API integrations, saving 50+ hours daily and minimizing errors - improved lead conversion speed 50% faster and scaled lead generation 5X via IVR integration'
+                        'Automated sales workflows with Salesforce Flow and API integrations, saving 50+ hours daily and minimizing errors - improved lead conversion speed 50% faster and scaled lead generation 5X via IVR integration',
+                        'Built comprehensive automation platform serving enterprise clients across multiple verticals, demonstrating technical leadership in complex integration scenarios involving legacy systems and modern cloud infrastructure'
                     ]
                 },
                 {
@@ -58,9 +59,10 @@ class UserDataExtractor:
                     'duration': '08/2016 - 01/2020',
                     'location': 'Bangalore, India',
                     'exact_achievements': [
-                        'Developed mobile app features (auto WiFi, room booking, food ordering) based on user research and market analysis - increased app engagement 45% and customer satisfaction 65%, drove 30% higher amenity utilization across 80+ locations',
+                        'Developed mobile platform features (auto WiFi, room booking, food ordering) based on user research and market analysis - increased app engagement 45% and customer satisfaction 65%, drove 30% higher amenity utilization across 80+ locations through user-centered design',
+                        'Built comprehensive F&B ordering system within mobile platform, integrating menu management, payment processing, and delivery logistics - created seamless food ordering experience for coworking members, contributing to overall platform engagement and revenue growth',
                         'Identified and executed go-to-market strategy for monetizing underutilized non-desk inventory (parking, lounges), defining pricing and positioning - generated €220K monthly revenue creating 15% new revenue stream per location',
-                        'Reduced lead conversion time 32% and accelerated onboarding from 110 days to 14 days through process redesign and stakeholder alignment - improved occupancy rates 25%, enabling faster time-to-value for clients'
+                        'Reduced lead conversion time 32% and accelerated customer onboarding from 110 days to 14 days through process redesign and cross-functional stakeholder alignment - improved occupancy rates 25%, enabling faster time-to-value for clients'
                     ]
                 },
                 {
