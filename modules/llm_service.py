@@ -231,6 +231,7 @@ class LLMService:
             response = self.claude_client.messages.create(
                 model=model,
                 max_tokens=max_tokens,
+                temperature=temperature,
                 messages=[{"role": "user", "content": prompt}]
             )
             
@@ -291,7 +292,8 @@ class LLMService:
             response = self.openai_client.chat.completions.create(
                 model=model,
                 messages=[{"role": "user", "content": prompt}],
-                max_tokens=max_tokens
+                max_tokens=max_tokens,
+                temperature=temperature
             )
             
             execution_time = time.time() - start_time
@@ -336,7 +338,8 @@ class LLMService:
                  prompt: str,
                  task_type: str = "general",
                  use_cache: bool = True,
-                 max_tokens: int = 1500) -> LLMResponse:
+                 max_tokens: int = 1500,
+                 temperature: float = 0.3) -> LLMResponse:
         """
         Intelligent LLM calling with automatic model selection
         
@@ -345,6 +348,7 @@ class LLMService:
             task_type: Type of task for model selection (analysis, generation, simple)
             use_cache: Whether to use cached responses
             max_tokens: Maximum tokens for response
+            temperature: Controls randomness (0.0-1.0, default 0.3)
         """
         
         # Model selection optimized for cost - prioritize GPT if available
@@ -419,9 +423,9 @@ class LLMService:
 llm_service = LLMService()
 
 # Convenience functions
-def call_llm(prompt: str, task_type: str = "general", use_cache: bool = True, max_tokens: int = 1500) -> LLMResponse:
+def call_llm(prompt: str, task_type: str = "general", use_cache: bool = True, max_tokens: int = 1500, temperature: float = 0.3) -> LLMResponse:
     """Convenience function for calling LLM"""
-    return llm_service.call_llm(prompt, task_type, use_cache, max_tokens)
+    return llm_service.call_llm(prompt, task_type, use_cache, max_tokens, temperature)
 
 def get_usage_report() -> Dict:
     """Get current usage statistics"""

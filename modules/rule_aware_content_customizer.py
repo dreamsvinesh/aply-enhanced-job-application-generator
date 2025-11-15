@@ -14,6 +14,7 @@ import logging
 from llm_service import LLMService
 from country_config import CountryConfig
 from database_manager import DatabaseManager
+from user_data_extractor import UserDataExtractor
 
 class RuleAwareContentCustomizer:
     """
@@ -28,9 +29,11 @@ class RuleAwareContentCustomizer:
         self.llm_service = LLMService()
         self.country_config = CountryConfig()
         self.db_manager = DatabaseManager()
+        self.user_extractor = UserDataExtractor()
         self.logger = logging.getLogger(__name__)
         
-        # Load user profile for personalization
+        # Load real user factual data
+        self.factual_data = self.user_extractor.extract_vinesh_data()
         self.user_profile = self._load_user_profile()
         
         # Initialize rule enforcement components
@@ -140,6 +143,12 @@ class RuleAwareContentCustomizer:
                 customization, country, content_type, jd_analysis
             )
             
+            # Apply fact validation
+            fact_validation = self.user_extractor.validate_content_against_facts(
+                self._extract_all_text_content(validated_customization)
+            )
+            validated_customization['fact_validation'] = fact_validation
+            
             # Track customization in database
             self._track_customization_usage(
                 jd_analysis, country, content_type, validated_customization, template_structure
@@ -193,8 +202,13 @@ Business Emphasis: {role_specific.get('business_emphasis', 'business impact')}
         else:
             template_guidance = "STANDARD TEMPLATE STRUCTURE: Focus on relevant experience and achievements"
         
+        # Add fact preservation constraints
+        fact_constraints = self.user_extractor.create_llm_constraints_prompt()
+        
         return f"""
 You are an expert {content_type} writer specializing in the {country} job market. Create customized {content_type} content that follows ALL rules below.
+
+{fact_constraints}
 
 STRICT COMPLIANCE RULES:
 

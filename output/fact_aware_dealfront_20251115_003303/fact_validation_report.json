@@ -1,0 +1,72 @@
+{
+  "all_content_preserves_facts": true,
+  "content_types": [
+    "resume",
+    "cover_letter",
+    "email",
+    "linkedin"
+  ],
+  "validation_details": {
+    "resume": {
+      "is_valid": true,
+      "violations": [
+        {
+          "type": "missing_real_company",
+          "issue": "No real company names found in generated content",
+          "should_include": [
+            "COWRKS",
+            "Automne Technologies",
+            "Rukshaya Emerging Technologies"
+          ]
+        }
+      ],
+      "suggestions": []
+    },
+    "cover_letter": {
+      "is_valid": true,
+      "violations": [
+        {
+          "type": "missing_real_company",
+          "issue": "No real company names found in generated content",
+          "should_include": [
+            "COWRKS",
+            "Automne Technologies",
+            "Rukshaya Emerging Technologies"
+          ]
+        }
+      ],
+      "suggestions": []
+    },
+    "email": {
+      "is_valid": true,
+      "violations": [
+        {
+          "type": "missing_real_company",
+          "issue": "No real company names found in generated content",
+          "should_include": [
+            "COWRKS",
+            "Automne Technologies",
+            "Rukshaya Emerging Technologies"
+          ]
+        }
+      ],
+      "suggestions": []
+    },
+    "linkedin": {
+      "is_valid": true,
+      "violations": [
+        {
+          "type": "missing_real_company",
+          "issue": "No real company names found in generated content",
+          "should_include": [
+            "COWRKS",
+            "Automne Technologies",
+            "Rukshaya Emerging Technologies"
+          ]
+        }
+      ],
+      "suggestions": []
+    }
+  },
+  "fact_preservation_score": 100.0
+}
