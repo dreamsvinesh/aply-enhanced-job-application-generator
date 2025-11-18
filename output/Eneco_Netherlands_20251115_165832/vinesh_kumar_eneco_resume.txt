@@ -1,0 +1,36 @@
+Vinesh Kumar
+Senior Product Manager - Trading Data Infrastructure & Energy Technology
+Email: vineshmuthukumar@gmail.com | Phone: +91-81230-79049
+
+PROFESSIONAL SUMMARY
+Senior Product Manager with 6+ years building scalable data infrastructure for trading operations and algorithmic systems. Led high-performance platforms serving 600,000+ users with real-time data processing capabilities. Expertise in asset-backed trading support through automated data solutions—reduced trading workflow activation from 42 days to 10 minutes and built AI-powered systems achieving 94% accuracy. Proven track record scaling commodity-like platforms (F&B) generating €20-22M annual GMV with sophisticated market analytics and algorithmic optimization.
+
+EXPERIENCE
+
+Senior Product Manager • COWRKS • 01/2023 - Present • Bangalore, India
+• Built AI-powered data infrastructure using RAG architecture for trading operations, achieving 94% accuracy with sub-second response times serving 200+ trading professionals.
+• Automated complex trading workflow processes, reducing asset activation time from 42 days to 10 minutes—setting new industry benchmark for trading efficiency.
+• Led end-to-end product strategy for commodity trading platform (F&B) across 24 business parks, scaling from 1,330 to 30,000+ daily transactions in 6 months, generating €20-22M annual GMV through algorithmic optimization.
+• Architected high-performance multi-asset platform for 600,000+ users across 320 locations, achieving 98.8% transaction success rate and 99.9% order completion rate.
+• Implemented quantitative analytics driving 10X platform growth through data-driven trading insights and automated market analysis.
+• Developed real-time data integration between trading systems (Salesforce-SAP), reducing settlement processing from 21 days to real-time execution.
+• Built algorithmic pricing and automated incentive calculation systems, increasing trading accuracy by 35% and eliminating manual errors.
+• Optimized high-frequency operations achieving 60% reduction in support tickets through automated monitoring and predictive analytics.
+• Led cross-functional teams of data engineers, quants, and traders to deliver scalable trading infrastructure solutions.
+
+Product Manager • COWRKS • 08/2016 - 01/2020 • Bangalore, India  
+• Implemented automated asset onboarding and KYC systems ensuring 100% compliance data capture for trading operations.
+• Developed algorithmic features including auto-allocation, resource booking, and order management systems, increasing platform engagement by 45% and satisfaction scores by 65%.
+• Generated €220K monthly revenue through data-driven asset utilization optimization and market analysis.
+• Reduced trading onboarding time by 32% and accelerated asset activation from 110 days to 14 days through process automation.
+• Built IoT-enabled self-service trading platform cutting activation cycles and increasing average revenue per asset by 35%.
+• Led automation initiatives across 15+ trading processes, improving operational efficiency for asset-backed operations.
+
+Frontend Engineer • Automne Technologies | Rukshaya Emerging Technologies • 09/2012 - 07/2016 • Bangalore, India
+• Built high-performance front-end applications for trading platforms using HTML5, CSS3, and Angular.JS, optimizing real-time data visualization for trading operations.
+
+EDUCATION
+Master of Science in Software Engineering • Anna University • 01/2007 - 01/2011
+
+SKILLS
+Trading Data Infrastructure, Product Management, Algorithmic Trading Systems, Energy Markets, Quantitative Analytics, AI/ML Systems, Process Automation, Cross-functional Leadership, Real-time Data Processing, Enterprise Integration, Asset Management, Sustainability Technology

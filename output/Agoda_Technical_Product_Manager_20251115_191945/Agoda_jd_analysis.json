@@ -1,0 +1,42 @@
+{
+  "extracted_info": {
+    "company": "Agoda",
+    "role_title": "Technical Product Manager",
+    "location": "Bangkok, Thailand"
+  },
+  "requirements": {
+    "must_have_technical": [
+      "3+ years technical product management",
+      "5+ years technical experience",
+      "Internal tools/platforms experience",
+      "Engineering background",
+      "Developer tools experience",
+      "Data/SQL experience"
+    ],
+    "must_have_business": [
+      "Strategic mindset",
+      "Problem-solving skills",
+      "Cross-functional leadership",
+      "Stakeholder management",
+      "Large organization experience",
+      "Process simplification"
+    ]
+  },
+  "key_focus_areas": [
+    "Operational Excellence initiatives",
+    "Internal tools and platforms development",
+    "Workflow optimization and automation",
+    "Cross-functional team collaboration",
+    "AI/LLM process automation",
+    "OKR and performance tracking systems",
+    "Large-scale organizational transformation"
+  ],
+  "alignment_opportunities": [
+    "F&B platform → Internal tools/platforms",
+    "Process automation → LLM/AI automation",
+    "Cross-functional leadership → Tech leadership alignment",
+    "Workflow optimization → Operational excellence",
+    "600K+ users → Large organization scale",
+    "Performance tracking → OKR/velocity systems"
+  ]
+}

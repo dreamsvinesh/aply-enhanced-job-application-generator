@@ -1,0 +1,56 @@
+P2P.org is the largest institutional staking provider with a TVL of over $10B and a market share exceeding 20% in restaking.
+
+We are continually focused on researching and improving our infrastructure to extract maximum APR while enhancing security. For instance, in ETH and SOL, our NRR is on average 10% higher than the market, and in DOT, it's 20% higher.
+
+We also place significant focus and resources on launching new networks such as TON, Avail, Monad, Babylon, Story, Berachain, and others, along with yield products. From restaking, where we are the largest operator with a 20+% market share, to yield aggregators on stablecoins.
+
+Our clients include BitGo, Copper, Crypto.com, Ledger, ByBit, Bitget, OKX, HTX, Bitvavo, SBI, and others, who choose us for our client-centric approach and extensive product line from unified API to widgets and custom dApps.
+
+We are also actively expanding our product line, exploring RWA, data, yield, and service products for banks, exchanges, custodians, and wallets.
+
+P2P.org unites talented individuals globally.
+
+Despite our distributed team, we share a passion for decentralized finance - a fairer system for all. We code, learn, create, and connect to shape finance's future.
+
+P2P.org boasts a strong reputation and network. We prioritize customer satisfaction and, as tech enthusiasts, develop innovative solutions that bolster our brand.
+
+Who we are looking for 🔍
+
+We are seeking a Product Manager – Hub Interfaces to lead the development and enhancement of our key client-facing products including our staking dashboard, and our staking dApp. These products enable our clients to stake their assets seamlessly with just a few clicks. The ideal candidate will focus on improving user experience, integrating innovative staking technologies, and delivering more features and data points to enhance client satisfaction and product competitiveness.
+
+You will 🚀
+
+Own the P2P Hub interface — the central dashboard for staking, rewards, performance insights, and DeFi products. 
+Define and execute the product vision for institutional-grade UI/UX, ensuring seamless navigation, transparency, and engagement. 
+Collaborate with design and engineering teams to deliver data-rich, performant, and visually cohesive interfaces. 
+Translate client feedback (from institutions, custodians, and asset managers) into clear requirements and roadmap priorities. 
+Drive feature development for dashboards, analytics, and user management modules that power institutional and retail use cases. 
+Partner with other product teams to ensure consistent integration and a unified product experience. 
+Conduct competitor and user research to inform UX improvements and product innovation. 
+Track key product metrics such as engagement, retention, satisfaction, and feature adoption. 
+
+You have 🤓
+
+Minimum 2 years of experience in product management, ideally with B2B or fintech products. 
+Experience in large-scale B2B interface development from the ground up. 
+Strong background in UI/UX collaboration, usability testing, and feature iteration. 
+Proven track record in creating and improving complex web application interfaces. 
+Experience building or managing dApps, dashboards, or crypto asset management interfaces is a huge plus. 
+Data-driven mindset — ability to define and analyze user metrics and engagement patterns. 
+Excellent communication skills and a deep sense of ownership over end-user experience. 
+Crypto experience is a bonus: familiarity with blockchain technologies, particularly Ethereum and Solana. 
+Fluent in English. 
+
+At P2P.org we have a team of experts with their own unique approach and ownership culture. Together we gain experience and make dreams come true!
+
+Fully remote
+Full-time contractor (Indefinite-term Consultancy Agreement)
+Competitive salary level in $ (we can also pay in crypto)
+Paid vacation and sick leave
+Well-being program
+Mental Health care program
+Compensation for education, including foreign language & professional growth courses
+Equipment & co-working reimbursement program
+Overseas conferences, community immersion
+
+P2P.org is committed to providing equal opportunities. All applicants will be considered without regard to race, color, national origin, religion, sex, sexual orientation, gender identity, veteran status, or disability.

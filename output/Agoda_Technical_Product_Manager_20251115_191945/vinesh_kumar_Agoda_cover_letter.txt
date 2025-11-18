@@ -1,0 +1,20 @@
+Dear Hiring Manager,
+
+I'm interested in the Technical Product Manager role at Agoda in Bangkok. I spent the last two years building internal tools and platforms at COWRKS that solve exactly the kind of operational excellence challenges you're tackling at Agoda.
+
+The workflow optimization and AI automation work sounds a lot like what I dig into. I built an AI-powered knowledge management system achieving 94% accuracy for internal support, and automated processes that reduced contract activation from 42 days to 10 minutes—freeing up teams to focus on harder problems.
+
+A few things I've done that might be relevant:
+• Led internal platform development serving 600,000+ users across 320+ locations
+• Built performance tracking systems that improved operational efficiency by 60%
+• Automated cross-functional workflows saving 50+ resource hours daily
+• Implemented OKR tracking tools that increased team velocity 5X
+
+What draws me to Agoda: You're operating at incredible scale (4.7M properties, 7,100+ employees) and the technical challenges around operational excellence across global tech teams are exactly what energizes me. The focus on LLM automation and internal tool innovation aligns perfectly with my experience.
+
+Bangkok seems like the right place to keep working on this problem at travel industry scale.
+
+Happy to discuss how my internal platform experience maps to what you're building.
+
+Best,
+Vinesh Kumar

@@ -1,0 +1,30 @@
+LinkedIn Outreach Package for Picnic Product Manager
+============================================================
+
+🤝 CONNECTION REQUEST:
+Characters: 236/300
+------------------------------
+Hi! I saw the Product Manager role at Picnic and I'm very interested. My experience scaling F&B platforms from 1,330 to 30,000+ daily orders across 24 locations directly aligns with your delivery operations focus. Would love to connect!
+
+💬 DIRECT MESSAGE:
+Characters: 823/8000
+------------------------------
+Hello! I'm interested in the Product Manager position at Picnic. I've spent the last 2 years scaling COWRKS' food platform from 1,330 to 30,000+ daily orders (generating €20M+ GMV), which sounds very similar to the challenges you're solving at Picnic.
+
+A few things I've done that might be relevant:
+• Built operations layer for 30K+ daily orders across 24 business locations  
+• Increased delivery completion rate to 99.9% and NPS from 73% to 91%
+• Automated processes reducing activation time from 42 days to 10 minutes
+
+What draws me to Picnic: You're revolutionizing grocery delivery with a unique model, and the technical challenges around logistics optimization and customer experience are exactly what I love working on.
+
+Happy to discuss how my platform scaling experience could help with Picnic's continued growth.
+
+📊 ANALYSIS:
+------------------------------
+✅ Connection request under 300 character limit
+✅ Direct message under optimal 400 character limit for high response rate
+✅ Specific metrics included (30K orders, €20M GMV, 99.9% completion rate)
+✅ Clear value proposition related to delivery operations
+✅ Authentic, conversational tone
+✅ Company-specific interest (grocery delivery disruption)

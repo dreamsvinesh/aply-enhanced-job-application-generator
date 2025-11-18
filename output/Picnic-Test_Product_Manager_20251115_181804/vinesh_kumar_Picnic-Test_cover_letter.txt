@@ -1,0 +1,19 @@
+Here's the cover letter following the specified guidelines:
+
+Dear Hiring Manager,
+
+I'm interested in the Product Manager role at Picnic-Test in the Netherlands. I spent the last two years scaling COWRKS' food platform from 1,330 to 30,000+ daily orders (22.5X growth, €20M+ GMV).
+
+Your challenge of building an efficient, tech-driven grocery delivery platform sounds exactly like the kind of problem I dig into. The complexity of managing hyper-local logistics and customer experience is something I've lived and breathed.
+
+A few things I've done that might be relevant:
+• Increased NPS from 73% to 91% by fixing actual customer friction points
+• Automated contract workflows, reducing processing time from 42 days to 10 minutes
+• Built operations infrastructure supporting 30K+ daily orders across 24 locations
+
+What draws me to Picnic-Test: Your commitment to reimagining grocery delivery through technology. The Netherlands seems like the perfect ecosystem to keep pushing these logistics innovations forward.
+
+Happy to discuss how my experience maps to what you're building.
+
+Best,
+Vinesh Kumar

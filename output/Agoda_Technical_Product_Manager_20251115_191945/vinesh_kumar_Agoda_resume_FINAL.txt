@@ -1,0 +1,35 @@
+Vinesh Kumar
+Technical Product Manager - Internal Platforms & Operational Excellence | AI & Process Automation
+Email: vineshmuthukumar@gmail.com | Phone: +91-81230-79049
+
+PROFESSIONAL SUMMARY
+Technical Product Manager with 6+ years of expertise in building internal tools and platforms that drive operational excellence across large organizations. Led development of AI-powered knowledge management systems achieving 94% accuracy, and scaled multi-tenant platforms serving 600,000+ users across 320+ locations. Specialized in workflow automation, cross-functional alignment, and transforming complex organizational processes through strategic technology solutions.
+
+EXPERIENCE
+
+Senior Product Manager • COWRKS • 01/2023 - Present • Bangalore, India
+• Built AI-powered knowledge management system using RAG architecture, achieving 94% accuracy with sub-second response times for internal support operations.
+• Reduced contract activation time from 42 days to 10 minutes using process automation, demonstrating expertise in workflow optimization and operational excellence.
+• Led cross-functional teams to develop Converge F&B platform serving 600,000+ users across 320 outlets, scaling from 1,330 to 30,000+ daily orders.
+• Architected internal tools and dashboards for performance tracking, achieving 60% reduction in support tickets through streamlined processes.
+• Enhanced operational efficiency with Salesforce-SAP integration, reducing processing time from 21 days to real-time.
+• Implemented automated brokerage and incentive calculations, increasing contract accuracy by 35% across multiple business units.
+• Developed OKR tracking system that improved lead-to-conversion speed by 50% and increased lead generation 5X through workflow automation.
+• Saved 50+ resource hours daily by automating internal workflows, demonstrating impact across large organizational scale.
+
+Product Manager • COWRKS • 08/2016 - 01/2020 • Bangalore, India
+• Designed and implemented internal tools including self-access card activation, auto WiFi, and room booking platforms, increasing operational efficiency by 45%.
+• Built IoT-enabled self-service platform reducing activation cycles and improving internal process efficiency.
+• Led cross-functional engineering teams to automate user touchpoints and internal operational workflows.
+• Developed performance tracking tools that reduced lead conversion time by 32% and accelerated onboarding from 110 days to 14 days.
+• Generated ₿220K monthly revenue through non-desk service inventory optimization using internal tools.
+
+Frontend Engineer • Automne Technologies | Rukshaya Emerging Technologies • 09/2012 - 07/2016 • Bangalore, India
+• Built and maintained internal development tools and platforms using HTML5, CSS3, and Angular.JS for engineering productivity.
+• Developed end-to-end solutions from UX to UI implementation, focusing on internal tool optimization and developer experience.
+
+EDUCATION
+Master of Science in Software Engineering • Anna University • 01/2007 - 01/2011
+
+SKILLS
+Technical Product Management, Internal Platform Development, Workflow Automation, Cross-functional Leadership, AI/LLM Integration, Process Optimization, OKR Systems, Performance Tracking, Engineering Collaboration, Strategic Problem-Solving

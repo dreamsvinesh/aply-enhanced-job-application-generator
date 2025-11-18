@@ -1,0 +1,71 @@
+ENECO APPLICATION STRATEGY SUMMARY
+==========================================
+
+COMPANY: Eneco
+POSITION: Senior Product Manager - Chronos Trading Product Family
+LOCATION: Netherlands
+FOCUS: Asset Backed Trading Data Infrastructure
+
+KEY JOB REQUIREMENTS IDENTIFIED:
+- Support for Asset Backed Trading operations
+- Data processing and infrastructure for trading
+- Trading data and technology domain experience
+- Energy & commodity trading preferred
+- Algorithmic/automated trading experience
+- Scalable, high-performance data platform development
+- Cross-functional leadership (data engineers, traders, analysts)
+- OKR-driven approach with measurable outcomes
+- Product vision and roadmap for data/infrastructure
+- Climate neutrality and sustainability focus
+
+TAILORING STRATEGY APPLIED:
+==========================================
+
+1. PROFESSIONAL SUMMARY REPOSITIONING:
+   - Reframed as "Trading Data Infrastructure & Energy Technology" specialist
+   - Emphasized asset-backed trading support capabilities
+   - Highlighted algorithmic trading and market analytics experience
+   - Connected F&B commodity platform experience to energy trading
+
+2. EXPERIENCE REFRAMING:
+   - Positioned COWRKS food platform as "commodity trading platform"
+   - Emphasized trading workflow automation (42 days → 10 minutes)
+   - Highlighted real-time data processing for trading operations
+   - Framed AI/RAG system as trading data infrastructure
+   - Connected Salesforce-SAP integration to trading system integration
+   - Positioned analytics work as quantitative trading analysis
+
+3. SKILLS OPTIMIZATION:
+   - Added energy markets and sustainability technology
+   - Emphasized trading data infrastructure and algorithmic systems
+   - Highlighted quantitative analytics and real-time processing
+   - Added asset management and enterprise integration
+
+4. SUSTAINABILITY ALIGNMENT:
+   - Connected efficiency gains to environmental impact
+   - Emphasized automation for sustainability goals
+   - Highlighted data-driven optimization for resource efficiency
+
+5. ATS OPTIMIZATION:
+   - Removed special characters and formatting
+   - Included key industry terms: trading, algorithmic, energy, commodity
+   - Repeated important keywords throughout document
+   - Structured technical skills section for keyword matching
+
+COMPETITIVE POSITIONING:
+- Unique combination of large-scale platform experience with trading automation
+- Proven ability to build from scratch in greenfield environments
+- Strong track record of cross-functional leadership
+- Quantifiable results in efficiency and revenue generation
+- Experience with both technical implementation and business strategy
+
+FILES CREATED:
+1. vinesh_kumar_eneco_resume.txt - Professional formatted resume
+2. vinesh_kumar_eneco_resume_ATS.txt - ATS-optimized version
+3. vinesh_kumar_eneco_cover_letter.txt - Targeted cover letter
+4. application_strategy_summary.txt - This strategy document
+
+NEXT STEPS:
+- Review both resume versions for any final optimizations
+- Consider additional energy/sustainability language if needed
+- Prepare for potential questions about energy market specifics

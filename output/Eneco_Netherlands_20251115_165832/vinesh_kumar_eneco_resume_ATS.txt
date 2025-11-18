@@ -1,0 +1,57 @@
+VINESH KUMAR
+Senior Product Manager - Trading Data Infrastructure Energy Technology
+vineshmuthukumar@gmail.com
++91-81230-79049
+
+PROFESSIONAL SUMMARY
+Senior Product Manager with 6+ years building scalable data infrastructure trading operations algorithmic systems. Led high-performance platforms serving 600000+ users real-time data processing capabilities. Expertise asset-backed trading support through automated data solutions reduced trading workflow activation 42 days 10 minutes built AI-powered systems achieving 94% accuracy. Proven track record scaling commodity platforms F&B generating 20-22M annual GMV sophisticated market analytics algorithmic optimization.
+
+CORE COMPETENCIES
+Product Management | Trading Data Infrastructure | Algorithmic Trading Systems | Energy Markets | Quantitative Analytics | AI Machine Learning | Process Automation | Cross-functional Leadership | Real-time Data Processing | Enterprise Integration | Asset Management | Sustainability Technology | Data Analytics | Platform Development | Workflow Automation | Market Analysis | Team Leadership | Stakeholder Management
+
+PROFESSIONAL EXPERIENCE
+
+Senior Product Manager
+COWRKS
+01/2023 - Present
+Bangalore India
+- Built AI-powered data infrastructure using RAG architecture trading operations achieving 94% accuracy sub-second response times serving 200+ trading professionals
+- Automated complex trading workflow processes reducing asset activation time 42 days 10 minutes setting new industry benchmark trading efficiency  
+- Led end-to-end product strategy commodity trading platform F&B across 24 business parks scaling 1330 30000+ daily transactions 6 months generating 20-22M annual GMV algorithmic optimization
+- Architected high-performance multi-asset platform 600000+ users across 320 locations achieving 98.8% transaction success rate 99.9% order completion rate
+- Implemented quantitative analytics driving 10X platform growth data-driven trading insights automated market analysis
+- Developed real-time data integration trading systems Salesforce-SAP reducing settlement processing 21 days real-time execution
+- Built algorithmic pricing automated incentive calculation systems increasing trading accuracy 35% eliminating manual errors
+- Optimized high-frequency operations achieving 60% reduction support tickets automated monitoring predictive analytics
+- Led cross-functional teams data engineers quants traders deliver scalable trading infrastructure solutions
+
+Product Manager  
+COWRKS
+08/2016 - 01/2020
+Bangalore India
+- Implemented automated asset onboarding KYC systems ensuring 100% compliance data capture trading operations
+- Developed algorithmic features auto-allocation resource booking order management systems increasing platform engagement 45% satisfaction scores 65%
+- Generated 220K monthly revenue data-driven asset utilization optimization market analysis
+- Reduced trading onboarding time 32% accelerated asset activation 110 days 14 days process automation
+- Built IoT-enabled self-service trading platform cutting activation cycles increasing average revenue per asset 35%
+- Led automation initiatives across 15+ trading processes improving operational efficiency asset-backed operations
+
+Frontend Engineer
+Automne Technologies | Rukshaya Emerging Technologies  
+09/2012 - 07/2016
+Bangalore India
+- Built high-performance front-end applications trading platforms using HTML5 CSS3 Angular.JS optimizing real-time data visualization trading operations
+
+EDUCATION
+Master of Science Software Engineering
+Anna University
+01/2007 - 01/2011
+
+TECHNICAL SKILLS
+Programming Languages: JavaScript Python SQL HTML5 CSS3
+Frameworks Technologies: Angular.JS React Node.js REST APIs
+Data Analytics: Machine Learning Artificial Intelligence RAG Architecture Predictive Analytics
+Trading Systems: Algorithmic Trading Market Analysis Real-time Processing Asset Management
+Enterprise Tools: Salesforce SAP CRM Integration Workflow Automation
+Product Management: Roadmap Planning Stakeholder Management Cross-functional Leadership OKR Management
+Methodologies: Agile Scrum Product Lifecycle Management Data-driven Decision Making

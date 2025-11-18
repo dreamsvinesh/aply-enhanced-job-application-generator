@@ -1,0 +1,34 @@
+LinkedIn Outreach Package for Agoda Technical Product Manager
+======================================================================
+
+🤝 CONNECTION REQUEST:
+Characters: 253/300
+------------------------------
+Hi! I saw the Technical Product Manager role at Agoda and I'm very interested. My experience building internal tools and AI-powered platforms for operational excellence across large organizations directly aligns with your mission. Would love to connect!
+
+💬 DIRECT MESSAGE:
+Characters: 1120/8000
+------------------------------
+Hello! I'm interested in the Technical Product Manager position for Operational Excellence at Agoda. I've spent the last 2 years building internal tools and platforms that solve exactly the kind of challenges you're tackling.
+
+A few things I've done that might be relevant:
+• Built AI-powered knowledge management system achieving 94% accuracy for internal support
+• Automated workflows reducing process time from 42 days to 10 minutes  
+• Led internal platform development serving 600,000+ users across 320+ locations
+• Implemented performance tracking systems improving efficiency by 60%
+
+What draws me to Agoda: The scale of operational excellence challenges across 7,100+ employees in 27 markets, and the focus on LLM automation and workflow optimization is exactly what energizes me. Your approach to making tech teams work smarter through internal tools aligns perfectly with my experience.
+
+I'm excited about relocating to Bangkok and would love to discuss how my internal platform expertise could contribute to Agoda's operational excellence mission.
+
+Happy to chat about the technical challenges you're solving!
+
+📊 ANALYSIS:
+------------------------------
+✅ Connection request under 300 character limit
+✅ Direct message under optimal length for high response rate
+✅ Specific technical experience highlighted
+✅ Internal tools and operational excellence focus
+✅ AI/LLM automation expertise mentioned
+✅ Bangkok relocation enthusiasm expressed
+✅ Scale alignment (600K users → 7,100+ employees)

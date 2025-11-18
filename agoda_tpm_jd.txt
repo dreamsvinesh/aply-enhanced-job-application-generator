@@ -1,0 +1,42 @@
+About the job
+About Agoda
+
+Agoda is an online travel booking platform for accommodations, flights, and more. We build and deploy cutting-edge technology that connects travelers with a global network of 4.7M hotels and holiday properties worldwide, plus flights, activities, and more. Based in Asia and part of Booking Holdings, our 7,100+ employees representing 95+ nationalities in 27 markets foster a work environment rich in diversity, creativity, and collaboration. We innovate through a culture of experimentation and ownership, enhancing the ability for our customers to experience the world.
+
+Our Purpose - Bridging the World Through Travel 
+
+We believe travel allows people to enjoy, learn and experience more of the amazing world we live in. It brings individuals and cultures closer together, fostering empathy, understanding and happiness.
+
+We are a skillful, driven and diverse team from across the globe, united by a passion to make an impact. Harnessing our innovative technologies and strong partnerships, we aim to make travel easy and rewarding for everyone.
+
+Get to Know our Team
+
+We are looking to hire a Technical Product Manager (TPM) to join our team and drive operational improvements across our global tech organization. Agoda's TPMs play a key role in developing internal tools and platforms that improve how teams work and collaborate. In this role, you'll focus on Operational Excellence—enabling Agoda Tech to become more effective in non-coding activities such as internal support, performance tracking, planning, and cross-functional alignment.
+
+The Operational Excellence domain is responsible for identifying friction in our workflows and creating systems that promote clarity, consistency, and efficiency at scale. This includes initiatives such as optimizing meeting effectiveness, automating internal processes with LLMs and AI, improving visibility into OKRs and team velocity, and more. The impact of this work is felt across thousands of employees and multiple functions.
+
+This is a high-visibility role, working closely with senior leaders across Tech. It is well suited to someone who is energized by navigating complex organizational environments and building solutions that support large-scale transformation.
+
+The Opportunity
+
+As a TPM for Operational Excellence, you will lead the design, delivery, and adoption of internal tools and systems that improve the way our tech teams operate. You will work with stakeholders across engineering and product teams to understand current workflows and pain points, define opportunities, and prioritize impactful changes. While specific projects will evolve over time, your mission will remain consistent: help Agoda Tech work smarter. Success in this role requires strong systems thinking, excellent communication skills, and the ability to drive change across a large and fast-paced organization.
+
+In This Role, You'll Get To
+
+Own the product lifecycle from concept through implementation and iteration.
+Collaborate with engineers, product managers, and cross-functional leaders to understand internal challenges and develop scalable solutions.
+Influence without authority, aligning diverse stakeholders behind a shared vision for operational improvements.
+Work closely with Tech senior leadership to ensure alignment, visibility, and buy-in for key initiatives.
+Use data to inform prioritization and track the impact of your work over time. 
+
+What You'll Need To Succeed
+
+3+ years of technical product management experience in a fast-paced environment. 
+5+ years total technical experience in engineering, internal platforms, developer tools, infrastructure, or similar domains. 
+Experience designing or improving internal tools or systems used across large organizations. 
+A strategic mindset with strong problem-solving skills and an ability to simplify complex processes. 
+Comfortable navigating ambiguity and defining structure where it does not yet exist. 
+Strong interpersonal and communication skills—able to build trusted relationships with senior stakeholders across multiple disciplines. 
+Experience working with data to support decision-making (e.g. dashboards, KPIs, basic SQL, or working with analysts). 
+Experience with AI/LLM tools or automation technologies is a plus, but not required. 
+This position requires a successful candidate to relocate fully to Bangkok, Thailand, where relocation support is provided.

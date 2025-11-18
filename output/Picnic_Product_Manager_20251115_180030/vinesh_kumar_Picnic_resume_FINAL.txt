@@ -1,0 +1,36 @@
+Vinesh Kumar
+Senior Product Manager - Product Operations | AI & Process Automation
+Email: vineshmuthukumar@gmail.com | Phone: +91-81230-79049
+
+PROFESSIONAL SUMMARY
+Senior Product Manager with 6+ years of expertise in transforming complex business processes through strategic automation and AI-driven solutions. Built AI-powered knowledge management systems achieving 94% accuracy with sub-second response times. Led Converge F&B platform from 1,330 to 30,000+ daily orders, generating €20-22M annual GMV. Specialized in reducing contract activation times from 42 days to 10 minutes and enhancing operational efficiency through targeted technological interventions.
+
+EXPERIENCE
+
+Senior Product Manager • COWRKS • 01/2023 - Present • Bangalore, India
+• Built AI-powered knowledge management system using RAG architecture, achieving 94% accuracy with sub-second response times.
+• Reduced contract activation time from 42 days to 10 minutes using automation, setting a new industry benchmark.
+• Led end-to-end product strategy for Converge F&B platform across 24 business parks, scaling from 1,330 to 30,000+ daily orders in 6 months, generating €20-22M annual GMV and adding €0.18/sq ft revenue per campus.
+• Architected and scaled multi-tenant food ordering platform for 600,000+ users across 320 outlets, achieving 98.8% payment success rate, 99.9% delivery completion rate, and improving NPS from 73% to 91%.
+• Enhanced invoicing accuracy and speed with Salesforce-SAP integration, reducing processing time from 21 days to real-time.
+• Increased contract accuracy by 35% with automated brokerage and incentive calculations.
+• Optimized operational efficiency, achieving a 60% reduction in support tickets by streamlining 15+ processes.
+• Saved 50+ resource hours daily by automating sales workflows, minimizing errors and delays.
+• Improved lead-to-conversion speed by 50% and increased lead generation 5X via IVR integration.
+
+Product Manager • COWRKS • 08/2016 - 01/2020 • Bangalore, India
+• Implemented self-access card activation, ensuring 100% user KYC data capture and seamless onboarding.
+• Developed features like auto WiFi, room booking, and food ordering, increasing app engagement by 45% and customer satisfaction scores (CES) by 65%.
+• Led cross-functional teams to automate user touchpoints, improving operational efficiency.
+• Generated €220K monthly revenue by leveraging non-desk service inventory (parking, lounge spaces).
+• Reduced lead conversion time by 32% and accelerated onboarding from 110 days to 14 days, improving occupancy rates.
+• Developed an IoT-enabled self-service platform, cutting activation cycles and increasing ARPA by 35%.
+
+Frontend Engineer • Automne Technologies | Rukshaya Emerging Technologies • 09/2012 - 07/2016 • Bangalore, India
+• Built and maintained front-end web applications using HTML5, CSS3, and Angular.JS, handling UX to UI development end-to-end to enhance engagement and optimize performance.
+
+EDUCATION
+Master of Science in Software Engineering • Anna University • 01/2007 - 01/2011
+
+SKILLS
+Product Management, AI/ML Systems, Process Automation, Enterprise Software, Cross-functional Leadership, Data Analysis

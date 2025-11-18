@@ -15,6 +15,7 @@ from modules.enhanced_fact_aware_generator import EnhancedFactAwareGenerator
 from modules.real_user_data_extractor import RealUserDataExtractor
 from modules.llm_service import LLMService
 from modules.adlina_style_guide import AdlinaStyleGuide
+from modules.dynamic_email_linkedin_generator import DynamicEmailLinkedInGenerator
 
 def create_universal_jd_analysis(company: str, role: str, location: str, jd_text: str, 
                                requirements: list = None, focus_areas: list = None) -> Dict[str, Any]:
@@ -229,8 +230,34 @@ FORMAT: Business email with clear subject line and call-to-action
         print(f"❌ Email generation failed: {str(e)}")
         return None
 
+def generate_universal_linkedin_messages(jd_analysis: Dict[str, Any], country: str = "netherlands") -> Dict[str, Any]:
+    """Generate LinkedIn messages for any company using DynamicEmailLinkedInGenerator"""
+    
+    print(f"💼 Generating {jd_analysis['extracted_info']['company']} LinkedIn Messages...")
+    
+    linkedin_generator = DynamicEmailLinkedInGenerator()
+    user_extractor = RealUserDataExtractor()
+    user_profile = user_extractor.extract_vinesh_data()
+    
+    try:
+        # Generate complete LinkedIn outreach package
+        linkedin_package = linkedin_generator.generate_complete_outreach_package(
+            jd_analysis, user_profile, country
+        )
+        
+        if 'error' not in linkedin_package:
+            print("✅ LinkedIn messages generated successfully")
+            return linkedin_package
+        else:
+            print(f"❌ LinkedIn generation failed: {linkedin_package['error']}")
+            return None
+            
+    except Exception as e:
+        print(f"❌ LinkedIn message generation failed: {str(e)}")
+        return None
+
 def save_universal_package(company: str, role: str, resume_results: Dict, cover_letter: str, 
-                         email: str, jd_analysis: Dict) -> str:
+                         email: str, linkedin_messages: Dict, jd_analysis: Dict) -> str:
     """Save complete application package for any company"""
     
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
@@ -262,6 +289,39 @@ def save_universal_package(company: str, role: str, resume_results: Dict, cover_
             f.write(f"Subject: Application for {role} - {jd_analysis['extracted_info']['location']} (Vinesh Kumar)\n\n")
             f.write(email)
         print(f"✅ Email saved: {email_file}")
+    
+    # Save LinkedIn messages
+    if linkedin_messages:
+        linkedin_file = output_dir / f"{company_safe}_linkedin_messages.txt"
+        with open(linkedin_file, 'w', encoding='utf-8') as f:
+            f.write(f"LinkedIn Outreach Package for {company} {role}\n")
+            f.write("=" * 60 + "\n\n")
+            
+            # Connection request
+            if 'linkedin_connection' in linkedin_messages:
+                conn = linkedin_messages['linkedin_connection']
+                f.write("🤝 CONNECTION REQUEST:\n")
+                f.write(f"Characters: {conn.get('character_count', 0)}/{300}\n")
+                f.write("-" * 30 + "\n")
+                f.write(conn.get('content', 'No content') + "\n\n")
+            
+            # Direct message
+            if 'linkedin_message' in linkedin_messages:
+                msg = linkedin_messages['linkedin_message']
+                f.write("💬 DIRECT MESSAGE:\n")
+                f.write(f"Characters: {msg.get('character_count', 0)}/{400}\n")
+                f.write("-" * 30 + "\n")
+                f.write(msg.get('content', 'No content') + "\n\n")
+            
+            # Email template (if included)
+            if 'email_template' in linkedin_messages:
+                email_template = linkedin_messages['email_template']
+                f.write("📧 EMAIL TEMPLATE:\n")
+                f.write("-" * 30 + "\n")
+                f.write(f"Subject: {email_template.get('subject', 'No subject')}\n\n")
+                f.write(f"Body:\n{email_template.get('body', 'No body')}\n\n")
+        
+        print(f"✅ LinkedIn messages saved: {linkedin_file}")
     
     # Save JD analysis
     jd_file = output_dir / f"{company_safe}_jd_analysis.json"
@@ -330,9 +390,12 @@ def main():
     print(f"\n📧 Generating Email...")
     email = generate_universal_email(jd_analysis)
     
+    print(f"\n💼 Generating LinkedIn Messages...")
+    linkedin_messages = generate_universal_linkedin_messages(jd_analysis, args.country)
+    
     print(f"\n💾 Saving Package...")
     package_path = save_universal_package(
-        args.company, args.role, resume_results, cover_letter, email, jd_analysis
+        args.company, args.role, resume_results, cover_letter, email, linkedin_messages, jd_analysis
     )
     
     print(f"\n🎉 APPLICATION PACKAGE COMPLETE!")
@@ -355,8 +418,9 @@ def generate_application_for_company(company: str, role: str, location: str,
     resume_results = generate_universal_resume(jd_analysis, country)
     cover_letter = generate_universal_cover_letter(jd_analysis, country) 
     email = generate_universal_email(jd_analysis)
+    linkedin_messages = generate_universal_linkedin_messages(jd_analysis, country)
     
-    return save_universal_package(company, role, resume_results, cover_letter, email, jd_analysis)
+    return save_universal_package(company, role, resume_results, cover_letter, email, linkedin_messages, jd_analysis)
 
 if __name__ == "__main__":
     main()

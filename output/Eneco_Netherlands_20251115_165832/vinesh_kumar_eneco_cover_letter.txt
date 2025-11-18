@@ -1,0 +1,31 @@
+Vinesh Kumar
+Senior Product Manager - Trading Data Infrastructure & Energy Technology
+Email: vineshmuthukumar@gmail.com | Phone: +91-81230-79049
+
+[Date]
+
+Dear Eneco Hiring Manager,
+
+I am excited to apply for the Senior Product Manager position within the Chronos Trading Product Family at Eneco. Your mission to achieve climate neutrality by 2035 through innovative digital capabilities strongly resonates with my passion for building scalable technology solutions that drive meaningful impact.
+
+My 6+ years of experience building high-performance data infrastructure and algorithmic trading systems directly aligns with your need to support Asset Backed Trading operations. At COWRKS, I built AI-powered data processing systems achieving 94% accuracy with sub-second response times—exactly the kind of real-time data infrastructure needed for commodity trading decisions.
+
+What particularly excites me about this opportunity is the greenfield environment you describe. I've successfully led similar initiatives, scaling a commodity-like trading platform (F&B) from 1,330 to 30,000+ daily transactions in just 6 months, generating €20-22M annual GMV. This experience of building data products from scratch while migrating existing processes mirrors your team's current challenge.
+
+Key relevant achievements that demonstrate my fit for this role:
+
+• **Trading Data Infrastructure**: Built scalable platforms serving 600,000+ users with 98.8% transaction success rates, demonstrating ability to handle high-volume trading operations
+• **Process Automation**: Reduced complex workflow activation from 42 days to 10 minutes through automation—critical for the efficiency gains you're seeking
+• **Cross-functional Leadership**: Led teams of data engineers, software engineers, and business stakeholders (traders/analysts in your case) to deliver automated solutions
+• **Quantitative Analytics**: Implemented algorithmic systems that increased accuracy by 35% and enabled real-time processing, essential for market-driven trading decisions
+
+I'm particularly drawn to Eneco's emphasis on sustainability and the energy transition. Having optimized asset utilization and automated resource management systems generating €220K monthly revenue, I understand how data-driven product strategy can both drive business results and support environmental goals.
+
+Your OKR-driven approach and focus on measurable outcomes aligns perfectly with my methodology. I've consistently delivered quantifiable results—from 10X growth through product revamps to 60% reductions in operational overhead through strategic automation.
+
+I would welcome the opportunity to discuss how my experience building scalable data infrastructure and leading cross-functional teams can contribute to Eneco's trading operations and sustainability mission.
+
+Thank you for your consideration.
+
+Best regards,
+Vinesh Kumar

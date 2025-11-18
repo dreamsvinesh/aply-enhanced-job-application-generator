@@ -422,30 +422,8 @@ Frontend Engineer • Automne Technologies | Rukshaya Emerging Technologies • 
 EDUCATION
 Master of Science in Software Engineering • Anna University • 01/2007 - 01/2011
 
-SKILLS  
-🧠 INTELLIGENT SKILLS ANALYSIS REQUIRED:
-Analyze this job description and match it with user's available skills to create a targeted skills section.
-
-JOB REQUIREMENTS ANALYSIS:
-- Target Company: {jd_analysis.get('extracted_info', {}).get('company', 'Unknown')}
-- Role Title: {jd_analysis.get('extracted_info', {}).get('role_title', 'Unknown')}
-- Key Requirements: {', '.join(jd_analysis.get('requirements', {}).get('must_have_technical', [])) + ', ' + ', '.join(jd_analysis.get('requirements', {}).get('must_have_business', []))}
-
-USER'S AVAILABLE SKILLS FROM PROFILE:
-- Product Management: Product Discovery, Product Strategy, Product Vision, Product Roadmap, Stakeholder Management, Cross-functional Leadership, Agile/SAFe, Design Thinking, User Research, Go-to-Market, Process Optimization
-- AI/ML: RAG Architecture, Multi-Agent Systems, Prompt Engineering, Vector DBs, LLM Integration, AI/ML Automation, Machine Learning, Natural Language Processing
-- Technical: Salesforce, SAP, MuleSoft, API Integration, SQL, Python, React, Next.js, TypeScript, Database Management, Platform Development
-- Business: Revenue Growth, KPI/Metrics, ROI Analysis, Conversion Optimization, B2B/B2C Strategy, SaaS, Enterprise Solutions, Data-driven Decisions, Market Research, Competitive Analysis
-- Tools: Tableau, Google Analytics, Figma, Docker, AWS, Azure
-
-SKILLS SELECTION INSTRUCTIONS:
-1. Select 6-8 most relevant skills that appear in both JD requirements AND user's available skills
-2. Prioritize skills that match the job description terminology
-3. Include a mix of: Technical skills (2-3), Business skills (2-3), Leadership skills (1-2)  
-4. Use the exact terminology from the job description when possible
-5. Only include skills the user actually has from the profile above
-
-Format: Skill1, Skill2, Skill3, Skill4, Skill5, Skill6, Skill7, Skill8
+SKILLS
+[Only skills evidenced in RAG achievements: Product Management, AI/ML Systems, Process Automation, Enterprise Software, Cross-functional Leadership, Data Analysis]
 
 ⚠️  FINAL WARNING: Any content not from RAG vault above = FAILURE
 Execute assembly now using ONLY provided RAG data.

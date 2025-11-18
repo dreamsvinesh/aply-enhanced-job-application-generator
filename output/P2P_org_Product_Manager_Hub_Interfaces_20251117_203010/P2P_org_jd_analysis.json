@@ -1,0 +1,61 @@
+{
+  "extracted_info": {
+    "company": "P2P.org",
+    "role_title": "Product Manager - Hub Interfaces",
+    "location": "Remote (Finland-based company)"
+  },
+  "requirements": {
+    "must_have_business": [
+      "2+ years product management experience",
+      "B2B or fintech product experience",
+      "Large-scale B2B interface development",
+      "UI/UX collaboration experience",
+      "Client feedback translation to requirements",
+      "Data-driven mindset",
+      "Institutional client experience"
+    ],
+    "must_have_technical": [
+      "Complex web application interfaces",
+      "Dashboard and analytics development",
+      "dApps or crypto interfaces (huge plus)",
+      "User metrics and engagement analysis",
+      "Feature iteration and usability testing",
+      "API integrations and widgets",
+      "Performance optimization"
+    ],
+    "crypto_specific": [
+      "Blockchain technologies (Ethereum, Solana)",
+      "DeFi and staking knowledge",
+      "Crypto asset management interfaces",
+      "Institutional staking platforms",
+      "Yield products and restaking"
+    ]
+  },
+  "key_focus_areas": [
+    "P2P Hub interface ownership and development",
+    "Institutional-grade UI/UX design and execution",
+    "Staking dashboard and dApp enhancement",
+    "Data-rich analytics and performance insights",
+    "Client-facing product optimization",
+    "Cross-team collaboration and integration",
+    "User research and competitor analysis",
+    "Product metrics tracking and optimization"
+  ],
+  "alignment_opportunities": [
+    "F&B platform dashboards → Staking dashboards",
+    "Multi-tenant platform → Institutional clients",
+    "Performance analytics → Staking performance insights",
+    "600K+ users → Institutional user base",
+    "API integrations → Unified API products",
+    "User engagement optimization → Client satisfaction",
+    "Cross-functional leadership → Design/engineering collaboration"
+  ],
+  "company_highlights": [
+    "Largest institutional staking provider ($10B TVL)",
+    "20%+ market share in restaking",
+    "Clients: BitGo, Crypto.com, Ledger, OKX, etc.",
+    "Global distributed team",
+    "DeFi innovation focus",
+    "Fully remote work culture"
+  ]
+}

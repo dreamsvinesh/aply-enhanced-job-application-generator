@@ -1,0 +1,21 @@
+Dear P2P.org Hiring Team,
+
+I'm interested in the Product Manager - Hub Interfaces role at P2P.org. I spent the last two years building complex B2B dashboards and client-facing platforms that solve exactly the kind of institutional interface challenges you're tackling with the P2P Hub.
+
+Your focus on institutional-grade UI/UX and data-rich interfaces sounds a lot like what I dig into. I owned the central dashboard for COWRKS' F&B platform serving 600,000+ users across 320+ institutional locations, which involved the same kind of complex interface management, performance analytics, and client feedback translation that you need for the P2P Hub.
+
+A few things I've done that might be relevant:
+• Built institutional-grade dashboards serving 600K+ users across multi-tenant environments
+• Collaborated with design and engineering teams on data-rich, performant interfaces
+• Translated feedback from 320+ institutional clients into product requirements and roadmaps
+• Achieved 98.8% platform reliability through interface optimization and UX improvements
+• Improved client satisfaction from 73% to 91% through dashboard feature development
+
+What draws me to P2P.org: You're the largest institutional staking provider ($10B TVL) working with major clients like BitGo, Crypto.com, and Ledger. The technical challenges around building institutional-grade DeFi interfaces, staking dashboards, and performance analytics are exactly what energizes me. The opportunity to work on cutting-edge blockchain technology while solving real institutional user experience problems is compelling.
+
+The fully remote culture and focus on DeFi innovation aligns perfectly with my interests in fintech product development.
+
+Happy to discuss how my B2B platform experience maps to what you're building at P2P.org.
+
+Best,
+Vinesh Kumar

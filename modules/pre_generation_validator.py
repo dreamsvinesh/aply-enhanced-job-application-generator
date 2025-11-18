@@ -139,50 +139,126 @@ class PreGenerationValidator:
         return issues
     
     def _check_domain_compatibility(self, user_profile: Dict, jd_data: Dict) -> List[ValidationIssue]:
-        """Check if user's experience matches job domain"""
+        """Check if user's experience matches job domain - Enhanced with critical domain blocking"""
         issues = []
         
         job_domain = jd_data.get('domain', '').lower()
         job_title = jd_data.get('title', '').lower()
+        job_description = jd_data.get('description', '').lower()
+        job_requirements = ' '.join(jd_data.get('requirements', [])).lower()
         
-        # Extract user's domain experience
-        user_skills = user_profile.get('skills', {})
-        user_experience = user_profile.get('experience', [])
+        # Combined job text for analysis
+        job_text = f"{job_domain} {job_title} {job_description} {job_requirements}"
         
-        # Define domain keywords
-        domain_keywords = {
-            'ai': ['ai', 'ml', 'machine learning', 'artificial intelligence', 'rag', 'llm'],
-            'fintech': ['fintech', 'financial', 'payment', 'banking', 'compliance'],
-            'saas': ['saas', 'software', 'platform', 'api', 'cloud'],
-            'enterprise': ['enterprise', 'b2b', 'salesforce', 'sap', 'integration'],
-            'frontend': ['frontend', 'react', 'javascript', 'ui', 'css'],
-            'backend': ['backend', 'api', 'database', 'server', 'python']
+        # CRITICAL DOMAINS - These require explicit domain experience to avoid misrepresentation
+        critical_domains = {
+            'energy_trading': {
+                'keywords': ['energy trading', 'commodity trading', 'power trading', 'gas trading', 
+                           'energy markets', 'commodity markets', 'trading desk', 'energy derivatives',
+                           'renewable energy trading', 'carbon trading', 'electricity trading'],
+                'description': 'Energy/Commodity Trading'
+            },
+            'financial_trading': {
+                'keywords': ['algorithmic trading', 'quantitative trading', 'derivatives trading',
+                           'forex trading', 'securities trading', 'investment banking', 'hedge fund',
+                           'trading algorithms', 'market making', 'proprietary trading'],
+                'description': 'Financial Trading & Investment'
+            },
+            'healthcare_medical': {
+                'keywords': ['medical device', 'healthcare technology', 'clinical', 'pharmaceutical',
+                           'biotech', 'medical software', 'health records', 'patient care',
+                           'medical data', 'clinical trials', 'fda approval'],
+                'description': 'Healthcare/Medical Technology'
+            },
+            'aerospace_defense': {
+                'keywords': ['aerospace', 'defense', 'military', 'aviation', 'satellite',
+                           'space technology', 'defense contractor', 'missile systems',
+                           'aircraft', 'radar systems'],
+                'description': 'Aerospace & Defense'
+            },
+            'blockchain_crypto': {
+                'keywords': ['blockchain', 'cryptocurrency', 'crypto', 'defi', 'smart contracts',
+                           'web3', 'bitcoin', 'ethereum', 'nft', 'dao'],
+                'description': 'Blockchain/Cryptocurrency'
+            },
+            'legal_compliance': {
+                'keywords': ['legal technology', 'compliance software', 'regulatory technology',
+                           'legal operations', 'contract management', 'litigation support',
+                           'regulatory compliance', 'legal analytics'],
+                'description': 'Legal Technology & Compliance'
+            }
         }
         
-        # Check if user has relevant domain experience
+        # USER'S ACTUAL EXPERIENCE DOMAINS - What Vinesh has actually worked in
+        user_experience_domains = {
+            'coworking_workspace': ['coworking', 'workspace', 'shared office', 'business centers'],
+            'food_beverage_platform': ['food delivery', 'f&b platform', 'restaurant', 'catering', 
+                                     'food ordering', 'meal delivery'],
+            'enterprise_automation': ['enterprise automation', 'workflow automation', 'process automation',
+                                    'salesforce', 'sap integration', 'business process'],
+            'saas_product_management': ['saas', 'product management', 'platform development', 
+                                      'api integration', 'cloud platform'],
+            'ai_ml_systems': ['ai systems', 'machine learning', 'rag systems', 'artificial intelligence'],
+            'frontend_development': ['frontend development', 'web development', 'javascript', 'react', 'ui/ux']
+        }
+        
+        # Extract user's actual experience
+        user_experience = user_profile.get('experience', [])
         user_text = ' '.join([
-            str(user_skills),
-            ' '.join([exp.get('title', '') + ' ' + ' '.join(exp.get('highlights', [])) 
-                     for exp in user_experience])
+            ' '.join([exp.get('title', ''), exp.get('company', ''), 
+                     ' '.join(exp.get('highlights', []))])
+            for exp in user_experience
         ]).lower()
         
-        job_text = f"{job_domain} {job_title} {' '.join(jd_data.get('required_skills', []))}"
+        # Check for CRITICAL domain mismatches
+        for domain_key, domain_info in critical_domains.items():
+            domain_matches = sum(1 for keyword in domain_info['keywords'] if keyword in job_text)
+            
+            if domain_matches >= 2:  # Strong indication this is a specialized domain job
+                # Check if user has ANY experience in this domain
+                user_domain_matches = sum(1 for keyword in domain_info['keywords'] if keyword in user_text)
+                
+                if user_domain_matches == 0:  # No experience in this critical domain
+                    issues.append(ValidationIssue(
+                        severity='critical',
+                        category='domain_mismatch',
+                        message=f'CRITICAL DOMAIN MISMATCH: Job requires {domain_info["description"]} experience, '
+                               f'but user profile shows no background in this specialized domain',
+                        suggestion=f'This role requires specific {domain_info["description"]} experience. '
+                                 f'Applying may result in interview questions you cannot answer authentically. '
+                                 f'Consider focusing on roles in your actual experience domains.'
+                    ))
         
-        # Find matching domains
-        matching_domains = []
-        for domain, keywords in domain_keywords.items():
+        # Check for general domain alignment with user's actual domains  
+        user_domain_matches = []
+        for user_domain, keywords in user_experience_domains.items():
             user_matches = sum(1 for kw in keywords if kw in user_text)
             job_matches = sum(1 for kw in keywords if kw in job_text)
             
             if user_matches >= 2 and job_matches >= 1:
-                matching_domains.append(domain)
+                user_domain_matches.append(user_domain)
         
-        if not matching_domains:
+        # If no alignment with user's actual domains, add warning
+        if not user_domain_matches:
             issues.append(ValidationIssue(
                 severity='warning',
-                category='domain_compatibility',
-                message=f'Limited domain alignment detected for {job_domain}',
-                suggestion='Consider highlighting transferable skills and relevant projects'
+                category='domain_alignment',
+                message=f'Limited alignment with your core experience domains: '
+                       f'{", ".join(user_experience_domains.keys())}',
+                suggestion='Consider emphasizing transferable skills and relevant project experience'
+            ))
+        
+        # Additional check for experience reframing requirements
+        reframing_indicators = ['trading', 'commodity', 'energy', 'medical', 'healthcare', 
+                              'financial services', 'investment', 'blockchain', 'crypto']
+        
+        reframing_needed = any(indicator in job_text for indicator in reframing_indicators)
+        if reframing_needed and not any(issue.severity == 'critical' for issue in issues):
+            issues.append(ValidationIssue(
+                severity='warning',
+                category='experience_reframing',
+                message='This role may require reframing your experience to match industry terminology',
+                suggestion='Ensure any reframing maintains factual accuracy and avoid overstating domain expertise'
             ))
         
         return issues
